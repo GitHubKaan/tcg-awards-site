@@ -65,3 +65,9 @@
     background-color: white;
     border-radius: 100%;
 }
+
+/* Lines */
+.background-component img[alt="background-component-lines"] {
+    position: absolute;
+    min-width: 1500px;
+}

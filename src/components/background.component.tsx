@@ -1,6 +1,8 @@
 import { ReactNode, useEffect, useRef, useState } from "react";
 import Blub from "../assets/background/blue_blub.svg";
 import Blub2 from "../assets/background/blue_blub_2.svg";
+import Lines from "../assets/background/lines.svg";
+import Lines2 from "../assets/background/lines_2.svg";
 import "./background.component.css";
 
 //Settings
@@ -10,7 +12,11 @@ const blobOpacity = 0.03; //0 to 1 (can be a double number)
 const dotsConcentration = 450; //Every x pixel dots will spawn
 const dotsSize = { min: 70, max: 170 }; //From x to y
 const dotsYVariation = 100; //From -x to x (check "dotsConcentration" and "dotsSize" for overlap)
-const dotsOpacity = 0.03; //0 to 1 (can be a double number)
+const dotsOpacity = 0.02; //0 to 1 (can be a double number)
+
+const linesConcentration = 1700; //Every x pixel lines will spawn
+const linesRotation = 15; //Max positive & negative rotation (e. g. -20 to 20)
+const linesOpacity = 0.015; //0 to 1 (can be a double number)
 
 //Do not edit
 let finalSeed: number; //Automatic seed if no seed is set
@@ -114,6 +120,29 @@ function Background(
                                 )}
                             </div>
                         </div>;
+                    })}
+
+                    {/* Lines */}
+                    {[...Array(Math.ceil(document.documentElement.scrollHeight / linesConcentration))].map((_, i) => {
+                        const rng = mulberry32(finalSeed);
+
+                        const orientation = (rng() * 2 - 1) * linesRotation;
+                        const useLines = rng() > 0.5;
+                        const flip = rng() > 0.5 ? !(i % 2) : i % 2;
+
+                        return (
+                            <img
+                                key={i}
+                                alt="background-component-lines"
+                                src={useLines ? Lines : Lines2}
+                                style={{
+                                    top: i * linesConcentration,
+                                    width: `${100 + Math.abs(orientation)}vw`,
+                                    opacity: linesOpacity,
+                                    transform: `rotate(${orientation}deg)${flip ? " scale(-1)" : ""}`,
+                                }}
+                            />
+                        );
                     })}
                 </div>
             </>}
