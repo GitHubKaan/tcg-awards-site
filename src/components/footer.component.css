@@ -14,6 +14,13 @@
     gap: var(--size-l);
     flex-wrap: wrap;
 }
+
+#footer img {
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+}
+
 @media only screen and (max-width: 961px) {
     #footer > div {
         margin: var(--size-xl) var(--size-m) var(--size-xl) var(--size-m);

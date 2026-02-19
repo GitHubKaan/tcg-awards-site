@@ -57,7 +57,6 @@ function HeaderComponent(
             <div className="header-body">   
                 <Link className="option" to="/">
                     <p className="header-title">TCG AWARDS</p>
-                    <div className="option-bottom-line" />
                 </Link>
 
                 <div className="flex gap">

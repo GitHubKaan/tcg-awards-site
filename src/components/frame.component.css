@@ -1,0 +1,30 @@
+.frame-component {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--f-gold-dark-gold);
+    cursor: pointer;
+    transition: all 0.15s ease-in-out;
+}
+
+.frame-component:hover {
+    transform: scale(1.02);
+}
+
+.frame-component .content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--size-m);
+    background-color: var(--c-background);
+    padding: var(--size-l);
+}
+
+.frame-component h2,
+.frame-component p {
+    white-space: pre-line;
+    text-align: center;
+}
+
+.frame-component h2.bottom {
+    color: var(--c-dark-gold);
+}

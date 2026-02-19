@@ -1,15 +1,7 @@
 import "./infoBox.component.css";
 
 /**
- * Important to note
- * - Use "example-component" as the parent class name to namespace component class names like "background", "list", etc., allowing them to be used globally.
- * - Always add "Component" behind component name (e.g. InputComponent).
- * - When using the standard "layout.css", use "no-select" inside the "example-component" to disable selection.
- * - When using "children"-props always add "example-" before the class name so they wont get inherited (e.g. ".car-component"-component has a ".container"-class, name it ".car-container")
- */
-
-/**
- * @param title top & bottom (use \n for line break)
+ * @param title optional; top & bottom (use \n for line break)
  * @param text (use \n for line break)
  * @param className Further class names
  * @param key Further keys
