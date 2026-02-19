@@ -1,5 +1,6 @@
-import { useSearchParams } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import "./errorInfo.page.css";
+import BruhFace from "../assets/bruh_face.svg";
 
 function ErrorInfo() {
     const [searchParams /* , setSearchParams */] = useSearchParams();
@@ -10,13 +11,19 @@ function ErrorInfo() {
 
     return (
         <div id="error-info">
-            {/* Title */}
-            <h3 className="title">{SearchParams.title}</h3>
+            <div className="w-100 flex center items-center column gap">
+                <img src={BruhFace} className="no-select" alt="bruh face" width={200} />
 
-            {/* Message */}
-            {SearchParams.message && <p>{SearchParams.message}</p>}
+                {/* Title */}
+                <h1 className="title">{SearchParams.title}</h1>
 
-            <p>Besteht das Problem weiterhin, kontaktiere bitte den Support.</p>
+                {/* Message */}
+                {SearchParams.message && <p>{SearchParams.message}</p>}
+
+                <Link to="/">
+                    Back to Homepage
+                </Link>
+            </div>
         </div>
     );
 }

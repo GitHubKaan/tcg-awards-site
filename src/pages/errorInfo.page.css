@@ -2,46 +2,11 @@
     display: flex;
     flex-direction: column;
     gap: var(--size-m);
-    min-width: 100%;
+    width: 100%;
+    margin-top: var(--size-xl);
 }
 
 #error-info .title {
     font-weight: 500;
     text-align: center;
-}
-
-#error-info .help-container {
-    background: linear-gradient(90deg, rgba(255, 42, 0, 0.25) 0%, rgba(255, 72, 0, 0.25) 100%);
-    border-radius: var(--size-s);
-    padding: var(--size-m);
-}
-
-#error-info .cooldown-until-container {
-    background: linear-gradient(90deg, rgba(255, 174, 0, 0.35) 0%, rgba(255, 183, 0, 0.35) 100%);
-    border-radius: var(--size-s);
-    padding: var(--size-m);
-    display: flex;
-    flex-direction: column;
-    gap: var(--size-m);
-}
-
-#error-info .uuid {
-    text-align: center;
-    font-weight: 700;
-    background-color: white;
-    color: red;
-    padding: var(--size-s);
-    border-radius: var(--size-s);
-    width: max-content;
-}
-
-#error-info .bottom-back-button {
-    height: 0;
-}
-
-#error-info button {
-    position: fixed;
-    bottom: var(--size-m);
-    left: var(--size-m);
-    width: calc(100% - var(--size-m) * 2);
 }
