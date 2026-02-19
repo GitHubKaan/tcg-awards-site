@@ -1,0 +1,95 @@
+/* --- General --- */
+* {
+    -webkit-tap-highlight-color: transparent; /* Remove blue effect on button, div etc. click (Chrome) */
+}
+
+:root {
+    color-scheme: dark; /* Darkmode */
+}
+
+/* --- Button --- */
+button {
+    cursor: pointer;
+    padding: 0;
+    border: none;
+    background-color: transparent;
+    transition: all 0.03s ease-in-out;
+}
+
+button:hover {
+    opacity: 85%;
+}
+
+button:active {
+    transform: scale(0.97);
+    opacity: 70%;
+}
+
+/* --- List --- */
+ul {
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    list-style-type: none;
+}
+
+/* --- Image --- */
+img {
+    pointer-events: none; /* There is no reason why a image should be clickable -- but not sure why this is here */
+}
+
+/* --- Textarea --- */
+textarea {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    font-family: "Figtree", serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    color: white;
+    font-size: 14px;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+}
+
+/* --- Input --- */
+input {
+    border: none;
+}
+
+/* remove small arrows inside input field */
+/* Chrome, Safari etc. */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+/* --- Scrollbar --- */
+
+/* Chrome, Safari etc. */
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--gray-90);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+/* Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: var(--gray-90) transparent;
+}

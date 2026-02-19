@@ -1,0 +1,20 @@
+#footer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background: var(--f-background);
+}
+
+#footer > div {
+    width: var(--page-width);
+    margin: var(--size-xl) var(--size-l) var(--size-xl) var(--size-l);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: var(--size-l);
+}
+@media only screen and (max-width: 961px) {
+    #footer > div {
+        margin: var(--size-xl) var(--size-m) var(--size-xl) var(--size-m);
+    }
+}

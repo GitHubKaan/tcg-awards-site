@@ -1,0 +1,101 @@
+@import url("https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* Global */
+p, a, h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    word-wrap: break-word; /* Breaks all words if they are bigger then the underlying div -- should be the standard */
+}
+
+/* h */
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Figtree", serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    color: var(--white);
+    letter-spacing: 1px;
+}
+
+h1 {
+    font-size: 20px;
+    font-weight: 300;
+}
+
+h2 {
+    
+}
+
+h3 {
+
+}
+
+h4 {
+    
+}
+
+h5 {
+    
+}
+
+h6 {
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    font-size: 17px;
+    color: var(--c-gold);
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+/* p */
+p {
+    font-family: "Figtree", serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    color: var(--white);
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+}
+
+p.header-title {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--c-gold);
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+p.mobile-header {
+    font-size: 22px;
+    font-weight: 200;
+}
+
+/* a */
+a, a:visited {
+    font-family: "Figtree", serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-size: 14px;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+    color: rgb(0, 160, 255, 1);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+a:hover {
+    text-decoration: underline;
+    opacity: 70%;
+}
+
+a.no-hover:hover {
+    opacity: 100% !important;
+}
+
+a.underline {
+    text-decoration: underline;
+}
+
+a.no-decoration {
+    text-decoration: none;
+}

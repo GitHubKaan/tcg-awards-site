@@ -1,0 +1,30 @@
+.cookie-banner-component {
+    position: fixed;
+    bottom: var(--size-m);
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    z-index: 100;
+}
+
+.cookie-banner-component .content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--size-m);
+    flex-wrap: wrap;
+    width: calc(100vw - (var(--size-m) * 2) - (var(--size-l) * 2));
+    max-width: calc(var(--page-width) - (var(--size-m) * 2));
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(30px);
+    padding: var(--size-m);
+    border-radius: var(--size-s);
+    outline: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+@media only screen and (max-width: 961px) {
+    .cookie-banner-component .content {
+        width: calc(100vw - var(--size-m) * 4);
+        max-width: calc(var(--page-width) - var(--size-m) * 2);
+    }
+}

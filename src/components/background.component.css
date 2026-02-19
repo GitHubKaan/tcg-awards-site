@@ -1,0 +1,67 @@
+/* General */
+.background-component {
+    background-color: var(--c-background);
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.background-component .background-component-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 1300px;
+    max-width: 100%;
+}
+
+.background-component .background-component-elements {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Blubs */
+.background-component img[alt="background-component-blub"] {
+    position: absolute;
+    width: 50%;
+    min-width: 400px;
+    filter: blur(100px);
+}
+
+@media only screen and (max-width: 550px) {
+    .background-component img[alt="background-component-blub"] {
+        min-width: 400px;
+        filter: blur(60px);
+    }
+}
+
+/* Dots */
+.background-component .background-component-dots {
+    position: absolute;
+}
+
+.background-component .background-component-dots > div {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.background-component .background-component-dots div div {
+    display: flex;
+    justify-content: space-between;
+}
+
+.background-component .background-component-dots div div div {
+    background-color: white;
+    border-radius: 100%;
+}

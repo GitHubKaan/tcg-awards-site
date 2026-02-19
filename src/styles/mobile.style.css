@@ -1,0 +1,5 @@
+@media only screen and (max-width: 961px) {
+    .default-page {
+        max-width: calc(100% - var(--size-m) * 2) !important;
+    }
+}

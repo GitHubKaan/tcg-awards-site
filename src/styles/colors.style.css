@@ -1,0 +1,31 @@
+:root {
+    /* Only colors/fades that will be used more then once should be added here */
+    --white: rgb(240, 240, 240);
+    
+    --gray-200: rgb(200, 200, 200);
+    --gray-150: rgb(150, 150, 150);
+    --gray-144: rgb(114, 114, 114);
+    --gray-90: rgb(90, 90, 90);
+    --gray-80: rgb(80, 80, 80);
+    --gray-65: rgb(65, 65, 65);
+    --gray-50: rgb(50, 50, 50);
+    --gray-40: rgb(40, 40, 40);
+    --gray-32: rgb(32, 32, 32);
+    --gray-28: rgb(28, 28, 28);
+    --gray-20: rgb(20, 20, 20);
+    --gray-10: rgb(10, 10, 10);
+
+    --black: rgb(8, 8, 8);
+
+    --red: rgb(255, 77, 77); /* For error texts */
+    --green: rgb(20, 172, 20);
+    --dark-green: rgb(67, 163, 25);
+
+    /* tcg colors */
+    --c-background: rgb(41, 50, 67);
+    --c-gold: rgb(221, 184, 130);
+
+    /* fades */
+    --f-background: linear-gradient(180deg, var(--c-background) 0%, rgb(31, 36, 46) 100%);
+}
+

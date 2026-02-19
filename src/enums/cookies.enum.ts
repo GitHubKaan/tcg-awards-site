@@ -1,0 +1,3 @@
+export enum CookieKeyType { // Naming convention like this: TCG_C...
+    AccessToken = `TCG_C_ACCESS_TOKEN`,
+}

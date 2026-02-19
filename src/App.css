@@ -1,0 +1,28 @@
+html {
+    overflow-x: hidden; /* Remove horizontal scrollbar */
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    min-width: 300px; /* Smalles devices are Smartwatches and they are no smaller then 320px -- everything below, not needed */
+}
+
+.body-container {
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#maintenance {
+    width: 100svw;
+    height: 100svh;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: var(--size-m);
+    padding: var(--size-m);
+}
