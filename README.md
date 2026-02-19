@@ -20,4 +20,4 @@ All paths can be found inside the _App.tsx_ file.
 
 ## Contact:
 Email: <a href="kaan@turanics.com">kaan@turanics.com</a><br/>
-Phone: <a href="+49 (0)30 29387041">+49 (0)30 29387041</a>
+Phone: <a href="tel:+49 (0)30 29387041">+49 (0)30 29387041</a>
