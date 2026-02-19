@@ -1,6 +1,7 @@
 import "./frame.component.css";
 
 /**
+ * @param width optional;
  * @param image optional;
  * @param title optional; top & bottom (use \n for line break)
  * @param text optional; (use \n for line break)
@@ -10,7 +11,7 @@ import "./frame.component.css";
  */
 function FrameComponent(
     props: Readonly<{
-        width: string,
+        width?: string,
         image?: string,
         title?: {
             top?: string,
@@ -24,13 +25,14 @@ function FrameComponent(
 ) {
     const { width, image, title, text, className, ...overflowProps } = props;
 
+    const finalWidth = width ?? "100%";
     const borderSize = 5;
 
     return <div
         className={`frame-component ${className ?? ""}`}
         {...overflowProps}
         style={{
-            width: width,
+            width: finalWidth,
             paddingTop: borderSize,
             paddingBottom: borderSize,
         }}
@@ -38,12 +40,12 @@ function FrameComponent(
         <div
             className="content"
             style={{
-                width: `calc(${width} - ${borderSize * 2}px - var(--size-l) * 2)`
+                width: `calc(${finalWidth} - ${borderSize * 2}px - var(--size-l) * 2)`
             }}
         >
             {/* IMAGE */}
             {image && <div className="flex center no-select">
-                <img src={image} alt="frame symbol" width={150} />
+                <img src={image} alt="frame symbol" height={130} />
             </div>}
 
             {/* TITLE */}

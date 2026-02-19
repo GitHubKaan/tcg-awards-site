@@ -3,3 +3,55 @@
     flex-direction: column;
     gap: var(--size-xxl)
 }
+
+/* TOP LOGO */
+#home-page .top-logo {
+    max-width: 60vw;
+}
+
+/* TOP FIRST ELEMENT (INFO BOX AND TRIPPLE FRAME) */
+#home-page .top-tripple-frames {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 300px;
+}
+
+#home-page .top-tripple-frames > div {
+    position: absolute;
+    top: -70px;
+    width: calc(100% - var(--size-l) * 2);
+}
+
+@media only screen and (max-width: 961px) {
+    #home-page .top-tripple-frames {
+        margin-bottom: 0;
+    }
+
+    #home-page .top-tripple-frames > div {
+        position: relative;
+        top: var(--size-l);
+        flex-wrap: wrap;
+        width: 100%;
+    }
+
+    #home-page .first-info-box {
+        padding-bottom: var(--size-l) !important;
+    }
+}
+
+/* TRIPPLE ICON FRAMES */
+#home-page .tripple-icon {
+    width: calc(100% - var(--size-l) * 2);
+    display: flex;
+    gap: var(--size-l);
+}
+
+@media only screen and (max-width: 961px) {
+    #home-page .tripple-icon {
+        flex-wrap: wrap;
+        width: 100%;
+    }
+}

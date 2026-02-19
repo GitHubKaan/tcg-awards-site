@@ -23,6 +23,12 @@ h1 {
     color: var(--c-gold);
     line-height: 45px;
 }
+@media only screen and (max-width: 961px) {
+    h1 {
+        font-size: 35px;
+        line-height: 35px;
+    }
+}
 
 h2 {
     font-size: 35px;
