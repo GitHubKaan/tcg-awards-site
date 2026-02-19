@@ -24,6 +24,7 @@
     /* tcg colors */
     --c-background: rgb(41, 50, 67);
     --c-gold: rgb(221, 184, 130);
+    --c-dark-gold: rgb(205, 129, 53);
 
     /* fades */
     --f-background: linear-gradient(180deg, var(--c-background) 0%, rgb(31, 36, 46) 100%);

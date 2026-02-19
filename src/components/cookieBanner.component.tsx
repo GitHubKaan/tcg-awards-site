@@ -37,7 +37,7 @@ function CookieBannerComponent(
             <p>Diese Webseite verwendet Cookies. Klicke auf Okay um zu Bestätigen.</p>
             <div className="flex gap items-center wrap">
                 <a onClick={() => setCookieStatus("No")}>Nein</a>
-                <a onClick={() => setCookieStatus("Yes")}>Okay</a>
+                <a onClick={() => setCookieStatus("Yes")}>Ja</a>
             </div>
         </div>
     </div> : <></>

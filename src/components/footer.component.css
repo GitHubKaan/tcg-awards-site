@@ -12,9 +12,26 @@
     justify-content: space-between;
     align-items: flex-end;
     gap: var(--size-l);
+    flex-wrap: wrap;
 }
 @media only screen and (max-width: 961px) {
     #footer > div {
         margin: var(--size-xl) var(--size-m) var(--size-xl) var(--size-m);
+       
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    #footer > div {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #footer img {
+        width: 150px;
+    }
+
+    #footer > div .nav {
+        flex-direction: column;
     }
 }

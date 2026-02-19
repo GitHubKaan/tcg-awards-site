@@ -17,7 +17,7 @@ function FooterComponent(
                 <img src={Logo} alt="logo" width={200} />
             </Link>
 
-            <div className="flex gap">
+            <div className="flex gap wrap items-center nav">
                 <Link to="/" className="no-decoration">
                     <h6>datenschutz</h6>
                 </Link>

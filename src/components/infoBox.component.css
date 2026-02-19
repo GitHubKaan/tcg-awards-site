@@ -1,0 +1,36 @@
+.info-box-component {
+    width: calc(100% - var(--size-xl) * 2);
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(20px);
+    padding: var(--size-xl);
+    display: flex;
+    gap: var(--size-l);
+}
+
+.info-box-component h1,
+.info-box-component p {
+    white-space: pre-line;
+}
+
+.info-box-component h1.bottom {
+    color: var(--c-dark-gold);
+}
+
+.info-box-component .left {
+    flex: 1;
+    text-align: end;
+}
+
+.info-box-component .right {
+    flex: 2;
+}
+
+@media only screen and (max-width: 961px) {
+    .info-box-component {
+        flex-direction: column;
+        gap: var(--size-m);
+    }
+    .info-box-component .left {
+        text-align: start;
+    }
+}

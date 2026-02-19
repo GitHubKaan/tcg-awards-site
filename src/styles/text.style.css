@@ -17,8 +17,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-    font-size: 20px;
-    font-weight: 300;
+    font-size: 45px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--c-gold);
+    line-height: 45px;
 }
 
 h2 {
@@ -52,7 +55,7 @@ p {
     font-optical-sizing: auto;
     font-style: normal;
     color: var(--white);
-    font-size: 14px;
+    font-size: 15px;
     font-weight: 400;
     letter-spacing: 0.5px;
 }
