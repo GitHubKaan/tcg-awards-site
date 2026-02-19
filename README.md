@@ -17,7 +17,3 @@ Made by <a href="www.turanics.com">Turanics</a>
 
 ## Pages:
 All paths can be found inside the _App.tsx_ file.
-
-## Contact:
-Email: <a href="kaan@turanics.com">kaan@turanics.com</a><br/>
-Phone: <a href="tel:+4903029387041">+49 (0)30 29387041</a>
