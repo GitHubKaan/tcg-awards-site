@@ -30,7 +30,7 @@ function App() {
 
                 <Routes>
                     {/* General */}
-                    <Route path={`${ENV.PATH ?? ""}/tcg-awards-site`} element={Layout({ page: <HomePage />, header: true, footer: true, background: {} })} />
+                    <Route path={`${ENV.PATH ?? ""}/tcg-awards-site/`} element={Layout({ page: <HomePage />, header: true, footer: true, background: {} })} />
                     <Route path={`${ENV.PATH ?? ""}/tcg-awards-site/imprint`} element={Layout({ page: <ImprintPage />, header: true, footer: true, background: {} })} />
                     <Route path={`${ENV.PATH ?? ""}/tcg-awards-site/privacy`} element={Layout({ page: <PrivacyPage />, header: true, footer: true, background: {} })} />
                     
