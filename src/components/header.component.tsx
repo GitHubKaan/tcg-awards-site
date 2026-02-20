@@ -41,13 +41,13 @@ function HeaderComponent(
                 </div>
 
                 <div className="background-body">
-                    <Link to="/" onClick={() => setMobileSelectionVisible(false)}>
+                    <Link className="no-decoration" to="/" onClick={() => setMobileSelectionVisible(false)}>
                         <p className="no-decoration mobile-header">Home</p>
                     </Link>
 
                     {routes?.map((route: { title: string, path: string }, i: number) => (
-                        <Link className="burger-mobile-title" key={i} to={route.path} onClick={() => setMobileSelectionVisible(false)}>
-                            <p className="mobile-header">{route.title}</p>
+                        <Link className="no-decoration" key={i} to={route.path} onClick={() => setMobileSelectionVisible(false)}>
+                            <p className="mobile-header no-decoration">{route.title}</p>
                         </Link>
                     ))}
                 </div>

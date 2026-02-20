@@ -210,7 +210,3 @@
 .header-component.mobile-visible .to-dashboard {
     background-color: red !important;
 }
-
-.header-component .burger-mobile-title {
-    text-decoration: none !important;
-}
