@@ -1,7 +1,8 @@
 <img src="src/assets/logo_text.png" width="200px"/><br>
 
 # TCG AWARDS SITE
-Made by <a href="www.turanics.com">Turanics</a>
+Made by <a href="www.turanics.com">Turanics</a><br>
+GitHub Pages: https://githubkaan.github.io/tcg-awards-site/
 
 ## How it works:
 1. Copy the values from _.env.example_ into _.env.dev_ and _.env.prod_, and adjust them to match your development and production environments.
