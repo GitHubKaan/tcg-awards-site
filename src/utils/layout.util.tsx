@@ -3,8 +3,6 @@ import { SkeletonTheme } from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import FooterComponent from "../components/footer.component";
 import HeaderComponent from "../components/header.component";
-import CookieBannerComponent from "../components/cookieBanner.component";
-import { ENV } from "./envReader.util";
 import Background from "../components/background.component";
 
 /**
@@ -24,7 +22,7 @@ function Layout(
         },
     }
     >): JSX.Element {
-    const { 
+    const {
         page,
         header,
         footer,
@@ -33,30 +31,23 @@ function Layout(
 
     return <>
         {/* Content */}
-        {ENV.MAINTENANCE ?
-            <div id="maintenance">
-                <h2>Wartungsarbeiten... Wir sind in kürze wieder online!</h2>
-                <a href={`mailto:${ENV.SUPPORT_MAIL}`}>{ENV.SUPPORT_MAIL}</a>
+        <SkeletonTheme baseColor="var(--gray-32)" highlightColor="var(--gray-50)">
+            <div className="body-container">
+                {background ? <Background seed={background.seed}>
+                    {header && <HeaderComponent />}
+
+                    {page}
+                </Background> : <>
+                    {header && <HeaderComponent />}
+
+                    {page}
+                </>}
             </div>
-            :
-            <SkeletonTheme baseColor="var(--gray-32)" highlightColor="var(--gray-50)">
-                <div className="body-container">
-                    {background ? <Background seed={background.seed}>
-                        {header && <HeaderComponent />}
 
-                        {page}
-                    </Background> : <>
-                        {header && <HeaderComponent />}
+            {footer && <FooterComponent />}
 
-                        {page}
-                    </>}
-                </div>
-
-                {footer && <FooterComponent />}
-
-                {/* <CookieBannerComponent /> */}
-            </SkeletonTheme>
-        }
+            {/* <CookieBannerComponent /> */}
+        </SkeletonTheme>
     </>
 }
 
