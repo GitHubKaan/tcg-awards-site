@@ -1,0 +1,85 @@
+.content-box-component {
+    width: 100%;
+    display: flex;
+}
+
+.content-box-component > .left {
+    flex: 1;
+    width: 100%;
+}
+
+.content-box-component > .right {
+    flex: 2;
+    background-color: var(--c-washed-gold);
+    display: flex;
+}
+
+.content-box-component h1,
+.content-box-component p {
+    white-space: pre-line;
+}
+
+.content-box-component h1 {
+    color: var(--c-washed-dark-gold);
+}
+
+.content-box-component p {
+    text-align: justify;
+    color: var(--gray-10);
+}
+
+.content-box-component > .right > .left {
+    width: 25%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    position: relative;
+}
+
+.content-box-component .image-container {
+    position: absolute;
+    background-color: white;
+    width: 700px;
+    height: calc(100% - var(--size-l) * 2);
+}
+
+.content-box-component > .right > .right {
+    width: calc(75% - var(--size-l) * 2);
+    padding: var(--size-l);
+    display: flex;
+    flex-direction: column;
+    gap: var(--size-l);
+}
+
+.content-box-component img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+.content-box-component img[alt="mobile-banner"] {
+    display: none;
+}
+
+@media only screen and (max-width: 961px) {
+    .content-box-component .left,
+    .content-box-component .image-container {
+        display: none;
+    }
+
+    .content-box-component > .right > .left {
+        width: 0;
+    }
+
+    .content-box-component > .right > .right {
+        width: calc(100% - var(--size-l) * 2);
+    }
+    
+    .content-box-component img[alt="mobile-banner"] {
+        display: flex;
+        position: relative;
+        width: 100%;
+        height: 120px;
+    }
+}

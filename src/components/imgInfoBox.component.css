@@ -71,15 +71,12 @@
         height: 120px;
         background-color: red;
     }
-    .img-info-box-component img {
-        object-fit: cover;
-        width: 100%;
-        height: 100%;
-        position: absolute;
+    .img-info-box-component h1 {
+        text-align: left;
     }
 }
 
-.img-info-box-component .right img {
+.img-info-box-component img {
     object-fit: cover;
     width: 100%;
     height: 100%;
