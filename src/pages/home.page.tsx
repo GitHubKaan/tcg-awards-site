@@ -7,6 +7,7 @@ import ImgInfoBoxComponent from "../components/imgInfoBox.component";
 import BannerImage from "../assets/crads_banner.png";
 import LineComponent from "../components/line.component";
 import TrippleBoxComponent from "../components/trippleBox.component";
+import IconElementComponent from "../components/iconElement.component";
 
 function HomePage() {
     return (
@@ -26,9 +27,7 @@ function HomePage() {
 
                     That changes now.`}
                     className="first-info-box"
-                    style={{
-                        paddingBottom: 130
-                    }}
+                    style={{ paddingBottom: 130 }}
                 />
 
                 <div className="top-tripple-frames">
@@ -112,8 +111,10 @@ function HomePage() {
             <img className="top-logo mt-5 no-select" src={Logo2} alt="logo" width={300} />
             
             <div className="flex column items-center gap-3">
-                <h1>why we created the tcg awards</h1>
+                <h1 className="text-center">why we created the tcg awards</h1>
+
                 <LineComponent />
+
                 <div className="double-block-text">
                     <p>Over the past decades, the TCG ecosystem has evolved into a global industry powered by visionary game designers, passionate publishers, dedicated retaileres, elite players, artists, collectors, event organizers and content creators. Yet despite its scale, innovation and cultural impact, there has never been adedicated platform that formally recognizes excellence across the entire Trading Card Game landscape.Over the past decades, the TCG ecosystem has evolved into a global industry powered by visionary game designers, passionate publishers, dedicated retaileres, elite players, artists, collectors, event organizers and content creators. Yet despite its scale, innovation and cultural impact, there has never been adedicated platform that formally recognizes excellence across the entire Trading Card Game landscape.</p>
                     <p>Over the past decades, the TCG ecosystem has evolved into a global industry powered by visionary game designers, passionate publishers, dedicated retaileres, elite players, artists, collectors, event organizers and content creators. Yet despite its scale, innovation and cultural impact, there has never been adedicated platform that formally recognizes excellence across the entire Trading Card Game landscape. Over the past decades, the TCG ecosystem has evolved into a global industry powered by visionary game designers, passionate publishers, dedicated retaileres, elite players, artists, collectors, event organizers and content creators. Yet despite its scale, innovation and cultural impact, there has never been adedicated platform that formally recognizes excellence across the entire Trading Card Game landscape.</p>
@@ -134,6 +135,54 @@ function HomePage() {
                     text: `Over the past decades, the TCG ecosystem has evolved into a global industry powered by visionary game designers, passionate publishers, dedicated retaileres, elite players, artists, collectors, event organizers and content creators. Yet despite its scale, innovation and cultural impact, there has never been adedicated platform that formally recognizes excellence across the entire Trading Card Game landscape.`,
                 }}
             />
+
+            <div className="flex column items-center gap-3">
+                <h1 className="text-center">headline headline</h1>
+
+                <LineComponent />
+
+                <div className="double-block-text">
+                    <p>Over the past decades, the TCG ecosystem has evolved into a global industry powered by visionary game designers, passionate publishers, dedicated retaileres, elite players, artists, collectors, event organizers and content creators. Yet despite its scale, innovation and cultural impact, there has never been adedicated platform that formally recognizes excellence across the entire Trading Card Game landscape.</p>
+                    <p>Over the past decades, the TCG ecosystem has evolved into a global industry powered by visionary game designers, passionate publishers, dedicated retaileres, elite players, artists, collectors, event organizers and content creators. Yet despite its scale, innovation and cultural impact, there has never been adedicated platform that formally recognizes excellence across the entire Trading Card Game landscape.</p>
+                </div>
+            </div>
+
+            <div className="flex column gap-3 w-100 wrap">
+                <div className="flex w-100 gap-3 wrap">
+                    <IconElementComponent
+                        image={Logo2}
+                        title="icon element"
+                        className="flex-1 w-100"
+                    />
+                    <IconElementComponent
+                        image={Logo2}
+                        title="icon element"
+                        className="flex-1 w-100"
+                    />
+                    <IconElementComponent
+                        image={Logo2}
+                        title="icon element"
+                        className="flex-1 w-100"
+                    />
+                </div>
+                <div className="flex w-100 gap-3 wrap">
+                    <IconElementComponent
+                        image={Logo2}
+                        title="icon element"
+                        className="flex-1 w-100"
+                    />
+                    <IconElementComponent
+                        image={Logo2}
+                        title="icon element"
+                        className="flex-1 w-100"
+                    />
+                    <IconElementComponent
+                        image={Logo2}
+                        title="icon element"
+                        className="flex-1 w-100"
+                    />
+                </div>
+            </div>
         </div>
     );
 }

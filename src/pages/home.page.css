@@ -60,4 +60,5 @@
     display: flex;
     gap: var(--size-l);
     text-align: justify;
+    flex-wrap: wrap;
 }

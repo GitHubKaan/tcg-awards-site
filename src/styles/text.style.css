@@ -39,7 +39,11 @@ h2 {
 }
 
 h3 {
-
+    font-size: 25px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--c-dark-gold);
+    line-height: 25px;
 }
 
 h4 {
