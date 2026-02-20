@@ -25,18 +25,18 @@ function App() {
                 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" /> {/* Stop iPhone auto-zoom in on input/textfields on select */}
             </header>
 
-            <BrowserRouter>
+            <BrowserRouter basename="/tcg-awards-site">
                 <ScrollToTopOnReload />
 
                 <Routes>
                     {/* General */}
-                    <Route path={`${ENV.PATH ?? ""}/tcg-awards-site/`} element={Layout({ page: <HomePage />, header: true, footer: true, background: {} })} />
-                    <Route path={`${ENV.PATH ?? ""}/tcg-awards-site/imprint`} element={Layout({ page: <ImprintPage />, header: true, footer: true, background: {} })} />
-                    <Route path={`${ENV.PATH ?? ""}/tcg-awards-site/privacy`} element={Layout({ page: <PrivacyPage />, header: true, footer: true, background: {} })} />
+                    <Route path={`${ENV.PATH ?? ""}/`} element={Layout({ page: <HomePage />, header: true, footer: true, background: {} })} />
+                    <Route path={`${ENV.PATH ?? ""}/imprint`} element={Layout({ page: <ImprintPage />, header: true, footer: true, background: {} })} />
+                    <Route path={`${ENV.PATH ?? ""}/privacy`} element={Layout({ page: <PrivacyPage />, header: true, footer: true, background: {} })} />
                     
                     {/* Error pages */}
                     <Route path={`*`} element={Layout({ page: <ErrorInfo />, header: true, footer: true, background: {} })} /> {/* 404 Page not found */}
-                    <Route path={`${ENV.PATH ?? ""}/tcg-awards-site/error`} element={Layout({ page: <ErrorInfo />, header: true, footer: true, background: {} })} />
+                    <Route path={`${ENV.PATH ?? ""}/error`} element={Layout({ page: <ErrorInfo />, header: true, footer: true, background: {} })} />
                 </Routes>
             </BrowserRouter>
         </>
