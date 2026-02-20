@@ -30,7 +30,7 @@ function App() {
 
                 <Routes>
                     {/* General */}
-                    <Route path={`${ENV.PATH ?? ""}`} element={Layout({ page: <HomePage />, header: true, footer: true, background: {} })} />
+                    <Route path={`${ENV.PATH ?? ""}/`} element={Layout({ page: <HomePage />, header: true, footer: true, background: {} })} />
                     <Route path={`${ENV.PATH ?? ""}/imprint`} element={Layout({ page: <ImprintPage />, header: true, footer: true, background: {} })} />
                     <Route path={`${ENV.PATH ?? ""}/privacy`} element={Layout({ page: <PrivacyPage />, header: true, footer: true, background: {} })} />
                     
