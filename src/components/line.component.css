@@ -1,0 +1,13 @@
+.line-component {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.line-component > div {
+    background-color: var(--c-dark-gold);
+    width: 120px;
+    height: 5px;
+    border-radius: 1000px;
+}
