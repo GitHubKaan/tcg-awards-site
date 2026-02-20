@@ -1,7 +1,4 @@
 node_modules
 build
-.env
-.env.dev
-.env.prod
 
 .DS_Store
