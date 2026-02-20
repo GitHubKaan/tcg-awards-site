@@ -3,6 +3,9 @@ import { ScrollToTopOnReload } from "./utils/scroll.util";
 import Layout from "./utils/layout.util";
 import ErrorInfo from "./pages/errorInfo.page";
 import HomePage from "./pages/home.page";
+import ImprintPage from "./pages/imprint.page";
+import PrivacyPage from "./pages/privacy.page";
+import { ENV } from "./utils/envReader.util";
 
 // Do not change order of CSS imports
 // general
@@ -14,9 +17,6 @@ import "./styles/colors.style.css";
 
 // Default overwrites
 import "./styles/mobile.style.css";
-import ImprintPage from "./pages/imprint.page";
-import PrivacyPage from "./pages/privacy.page";
-import { ENV } from "./utils/envReader.util";
 
 function App() {
     return (
