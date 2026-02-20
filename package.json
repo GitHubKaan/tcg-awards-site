@@ -14,7 +14,7 @@
   },
   "scripts": {
     "dev": "dotenv -e .env.dev -- react-scripts start",
-    "build": "dotenv -e .env.production -- react-scripts build",
+    "build": "dotenv -e .env.prod -- react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
