@@ -27,7 +27,7 @@
     --c-dark-gold: rgb(205, 129, 53);
 
     --c-washed-gold: rgb(221, 183, 130);
-    --c-washed-dark-gold: rgb(153, 115, 69);
+    --c-washed-dark-gold: rgb(153, 115, 70);
 
     /* fades */
     --f-background: linear-gradient(180deg, var(--c-background) 0%, rgb(31, 36, 46) 100%); /* footer */

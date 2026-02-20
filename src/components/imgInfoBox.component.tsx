@@ -38,7 +38,7 @@ function InfoBoxComponent(
             <p>{text}</p>
         </div>
 
-        <div className="right">
+        <div className="right no-select">
             <div>
                 <div
                     style={{

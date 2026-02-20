@@ -55,3 +55,9 @@
         width: 100%;
     }
 }
+
+#home-page .double-block-text {
+    display: flex;
+    gap: var(--size-l);
+    text-align: justify;
+}

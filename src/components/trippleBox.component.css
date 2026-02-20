@@ -1,0 +1,36 @@
+.tripple-box-component {
+    width: 100%;
+    background-color: red;
+    display: flex;
+}
+
+.tripple-box-component .box {
+    flex: 1;
+    text-align: center;
+    padding: var(--size-l);
+    background-color: var(--c-washed-gold);
+    display: flex;
+    flex-direction: column;
+    gap: var(--size-l);
+}
+
+.tripple-box-component .box h2,
+.tripple-box-component .box p {
+    color: var(--c-washed-dark-gold);
+    white-space: pre-line;
+}
+
+.tripple-box-component .box:nth-child(2) {
+    background-color: var(--c-washed-dark-gold);
+}
+
+.tripple-box-component .box:nth-child(2) h2,
+.tripple-box-component .box:nth-child(2) p {
+    color: var(--c-washed-gold);
+}
+
+@media only screen and (max-width: 961px) {
+    .tripple-box-component {
+        flex-direction: column;
+    }
+}

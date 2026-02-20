@@ -6,6 +6,7 @@ import FrameComponent from "../components/frame.component";
 import ImgInfoBoxComponent from "../components/imgInfoBox.component";
 import BannerImage from "../assets/crads_banner.png";
 import LineComponent from "../components/line.component";
+import TrippleBoxComponent from "../components/trippleBox.component";
 
 function HomePage() {
     return (
@@ -110,11 +111,29 @@ function HomePage() {
 
             <img className="top-logo mt-5 no-select" src={Logo2} alt="logo" width={300} />
             
-            <div className="flex column gap-3">
+            <div className="flex column items-center gap-3">
                 <h1>why we created the tcg awards</h1>
                 <LineComponent />
+                <div className="double-block-text">
+                    <p>Over the past decades, the TCG ecosystem has evolved into a global industry powered by visionary game designers, passionate publishers, dedicated retaileres, elite players, artists, collectors, event organizers and content creators. Yet despite its scale, innovation and cultural impact, there has never been adedicated platform that formally recognizes excellence across the entire Trading Card Game landscape.Over the past decades, the TCG ecosystem has evolved into a global industry powered by visionary game designers, passionate publishers, dedicated retaileres, elite players, artists, collectors, event organizers and content creators. Yet despite its scale, innovation and cultural impact, there has never been adedicated platform that formally recognizes excellence across the entire Trading Card Game landscape.</p>
+                    <p>Over the past decades, the TCG ecosystem has evolved into a global industry powered by visionary game designers, passionate publishers, dedicated retaileres, elite players, artists, collectors, event organizers and content creators. Yet despite its scale, innovation and cultural impact, there has never been adedicated platform that formally recognizes excellence across the entire Trading Card Game landscape. Over the past decades, the TCG ecosystem has evolved into a global industry powered by visionary game designers, passionate publishers, dedicated retaileres, elite players, artists, collectors, event organizers and content creators. Yet despite its scale, innovation and cultural impact, there has never been adedicated platform that formally recognizes excellence across the entire Trading Card Game landscape.</p>
+                </div>
             </div>
 
+            <TrippleBoxComponent
+                firstBox={{
+                    title: `game of\nthe year`,
+                    text: `Over the past decades, the TCG ecosystem has evolved into a global industry powered by visionary game designers, passionate publishers, dedicated retaileres, elite players, artists, collectors, event organizers and content creators. Yet despite its scale, innovation and cultural impact, there has never been adedicated platform that formally recognizes excellence across the entire Trading Card Game landscape.`,
+                }}
+                secondBox={{
+                    title: `event of\nthe year`,
+                    text: `Over the past decades, the TCG ecosystem has evolved into a global industry powered by visionary game designers, passionate publishers, dedicated retaileres, elite players, artists, collectors, event organizers and content creators. Yet despite its scale, innovation and cultural impact, there has never been adedicated platform that formally recognizes excellence across the entire Trading Card Game landscape.`,
+                }}
+                thirdBox={{
+                    title: `set of\nthe year`,
+                    text: `Over the past decades, the TCG ecosystem has evolved into a global industry powered by visionary game designers, passionate publishers, dedicated retaileres, elite players, artists, collectors, event organizers and content creators. Yet despite its scale, innovation and cultural impact, there has never been adedicated platform that formally recognizes excellence across the entire Trading Card Game landscape.`,
+                }}
+            />
         </div>
     );
 }
