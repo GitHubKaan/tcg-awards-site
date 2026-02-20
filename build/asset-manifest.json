@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/tcg-awards-site/static/css/main.df5b6508.css",
+    "main.js": "/tcg-awards-site/static/js/main.22a90053.js",
+    "static/js/453.5940751e.chunk.js": "/tcg-awards-site/static/js/453.5940751e.chunk.js",
+    "static/media/crads_banner.png": "/tcg-awards-site/static/media/crads_banner.da300758b3f4fc46e5a3.png",
+    "static/media/logo.png": "/tcg-awards-site/static/media/logo.5fc06219eeeb37b8e454.png",
+    "static/media/blue_blub_2.svg": "/tcg-awards-site/static/media/blue_blub_2.27d22bef5e009e461fe899e5effba835.svg",
+    "static/media/blue_blub.svg": "/tcg-awards-site/static/media/blue_blub.526f6ec2c107200b3f31f588fb4d0f1f.svg",
+    "static/media/logo_text.png": "/tcg-awards-site/static/media/logo_text.4d362060b86bd54949a4.png",
+    "static/media/lines_2.svg": "/tcg-awards-site/static/media/lines_2.7a92510a7b24b7039db8826659f86c7e.svg",
+    "static/media/lines.svg": "/tcg-awards-site/static/media/lines.90a9291de486d0caa094bb9fc572b6ec.svg",
+    "static/media/bruh_face.svg": "/tcg-awards-site/static/media/bruh_face.3262046750dfcd14d88b7e92c4e310d3.svg",
+    "index.html": "/tcg-awards-site/index.html",
+    "main.df5b6508.css.map": "/tcg-awards-site/static/css/main.df5b6508.css.map",
+    "main.22a90053.js.map": "/tcg-awards-site/static/js/main.22a90053.js.map",
+    "453.5940751e.chunk.js.map": "/tcg-awards-site/static/js/453.5940751e.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.df5b6508.css",
+    "static/js/main.22a90053.js"
+  ]
+}
