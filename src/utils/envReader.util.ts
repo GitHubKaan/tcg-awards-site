@@ -6,6 +6,7 @@ export class ENV {
     static readonly NODE_ENV: NodeEnv = envAudit("NODE_ENV", EnvType.String, { specific: Object.values(NodeEnv) });
 
     static readonly MAINTENANCE: boolean = envAudit("MAINTENANCE", EnvType.Boolean);
+    static readonly PATH: string = envAudit("PATH", EnvType.String, { optional: true })
 
     // CONTACT
     static readonly SUPPORT_MAIL: string = envAudit("SUPPORT_MAIL", EnvType.String);

@@ -16,6 +16,7 @@ import "./styles/colors.style.css";
 import "./styles/mobile.style.css";
 import ImprintPage from "./pages/imprint.page";
 import PrivacyPage from "./pages/privacy.page";
+import { ENV } from "./utils/envReader.util";
 
 function App() {
     return (
@@ -29,13 +30,13 @@ function App() {
 
                 <Routes>
                     {/* General */}
-                    <Route path="/" element={Layout({ page: <HomePage />, header: true, footer: true, background: {} })} />
-                    <Route path="/imprint" element={Layout({ page: <ImprintPage />, header: true, footer: true, background: {} })} />
-                    <Route path="/privacy" element={Layout({ page: <PrivacyPage />, header: true, footer: true, background: {} })} />
+                    <Route path={`${ENV.PATH}`} element={Layout({ page: <HomePage />, header: true, footer: true, background: {} })} />
+                    <Route path={`${ENV.PATH}/imprint`} element={Layout({ page: <ImprintPage />, header: true, footer: true, background: {} })} />
+                    <Route path={`${ENV.PATH}/privacy`} element={Layout({ page: <PrivacyPage />, header: true, footer: true, background: {} })} />
                     
                     {/* Error pages */}
-                    <Route path="*" element={Layout({ page: <ErrorInfo />, header: true, footer: true, background: {} })} /> {/* 404 Page not found */}
-                    <Route path="/error" element={Layout({ page: <ErrorInfo />, header: true, footer: true, background: {} })} />
+                    <Route path={`"*"`} element={Layout({ page: <ErrorInfo />, header: true, footer: true, background: {} })} /> {/* 404 Page not found */}
+                    <Route path={`${ENV.PATH}/error`} element={Layout({ page: <ErrorInfo />, header: true, footer: true, background: {} })} />
                 </Routes>
             </BrowserRouter>
         </>
