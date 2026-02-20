@@ -12,6 +12,10 @@
     white-space: pre-line;
 }
 
+.info-box-component p {
+    text-align: justify;
+}
+
 .info-box-component h1.bottom {
     color: var(--c-dark-gold);
 }

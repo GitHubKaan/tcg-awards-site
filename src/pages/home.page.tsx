@@ -3,6 +3,8 @@ import Logo from "../assets/logo_text.png";
 import Logo2 from "../assets/logo.png";
 import InfoBoxComponent from "../components/infoBox.component";
 import FrameComponent from "../components/frame.component";
+import ImgInfoBoxComponent from "../components/imgInfoBox.component";
+import BannerImage from "../assets/crads_banner.png";
 
 function HomePage() {
     return (
@@ -91,6 +93,19 @@ function HomePage() {
                     }}
                 />
             </div>
+
+            <ImgInfoBoxComponent
+                title={{
+                    top: "das sit ein",
+                    bottom: "bild element"
+                }}
+                text={`Trading Card Games are more than products. They are culture, creativity, competition, community and craftsmanship.
+                    
+                Over the past decades, the TCG ecosystem has evolved into a global industry powered by visionary game designers, passionate publishers, dedicated retaileres, elite players, artists, collectors, event organizers and content creators. Yet despite its scale, innovation and cultural impact, there has never been adedicated platform that formally recognizes excellence across the entire Trading Card Game landscape.
+
+                Over the past decades, the TCG ecosystem has evolved into a global industry powered by visionary game designers, passionate publishers, dedicated retaileres, elite players, artists, collectors, event organizers and content creators. Yet despite its scale, innovation and cultural impact, there has never been adedicated platform that formally recognizes excellence across the entire Trading Card Game landscape.`}
+                image={BannerImage}
+            />
         </div>
     );
 }

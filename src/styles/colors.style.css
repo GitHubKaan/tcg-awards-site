@@ -32,5 +32,6 @@
     /* fades */
     --f-background: linear-gradient(180deg, var(--c-background) 0%, rgb(31, 36, 46) 100%); /* footer */
     --f-gold-dark-gold: linear-gradient(180deg, var(--c-washed-gold) 0%, var(--c-washed-dark-gold) 100%); /* e. g. frame --> from gold to dark gold */
+    --f-gold-dark-gold-hor: linear-gradient(90deg, var(--c-washed-gold) 0%, var(--c-washed-dark-gold) 100%); /* e. g. imgInfoBox image frame */
 }
 

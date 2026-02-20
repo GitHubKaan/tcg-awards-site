@@ -1,0 +1,87 @@
+.img-info-box-component {
+    width: calc(100% - var(--size-xl) * 2);
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(20px);
+    padding: var(--size-xl);
+    display: flex;
+    gap: var(--size-l);
+}
+
+.img-info-box-component h1,
+.img-info-box-component p {
+    white-space: pre-line;
+}
+
+.img-info-box-component p {
+    text-align: justify;
+}
+
+.img-info-box-component h1.bottom {
+    color: var(--c-dark-gold);
+}
+
+.img-info-box-component .left {
+    flex: 3;
+    text-align: end;
+    display: flex;
+    flex-direction: column;
+    gap: var(--size-m);
+}
+
+.img-info-box-component .right {
+    flex: 2;
+    position: relative;
+}
+
+.img-info-box-component .right > div {
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: var(--f-gold-dark-gold-hor);
+    width: calc(100% + 120px);
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.img-info-box-component .right > div > div {
+    position: absolute;
+    background-color: white;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.img-info-box-component .mobile-image {
+    display: none;
+}
+
+@media only screen and (max-width: 961px) {
+    .img-info-box-component .right {
+        display: none;
+    }
+    .img-info-box-component .mobile-image {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        width: 100%;
+        height: 120px;
+        background-color: red;
+    }
+    .img-info-box-component img {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+    }
+}
+
+.img-info-box-component .right img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
