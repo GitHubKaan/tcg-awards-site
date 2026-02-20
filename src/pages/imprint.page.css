@@ -1,0 +1,15 @@
+#imprint-page {
+    display: flex;
+    flex-direction: column;
+    gap: var(--size-l);
+}
+
+#imprint-page p {
+    text-align: justify;
+}
+
+@media only screen and (max-width: 961px) {
+    #imprint-page {
+        margin-top: var(--size-xxl);
+    }
+}

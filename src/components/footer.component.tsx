@@ -18,11 +18,11 @@ function FooterComponent(
             </Link>
 
             <div className="flex gap wrap items-center nav">
-                <Link to="/" className="no-decoration">
-                    <h6>datenschutz</h6>
+                <Link to="/privacy" className="no-decoration">
+                    <h6>Privacy</h6>
                 </Link>
-                <Link to="/" className="no-decoration">
-                    <h6>impressum</h6>
+                <Link to="/imprint" className="no-decoration">
+                    <h6>Imprint</h6>
                 </Link>
             </div>
         </div>

@@ -18,9 +18,9 @@ function HeaderComponent(
     const { topDistance, className, children, ...overflowProps } = props;
 
     const routes = [
-        { title: "first", path: "/" },
-        { title: "second", path: "/second" },
-        { title: "third", path: "/third" },
+        { title: "First", path: "/" },
+        { title: "Second", path: "/" },
+        { title: "Third", path: "/" },
     ];
 
     const [mobileSelectionVisible, setMobileSelectionVisible] = useState(false);
@@ -46,7 +46,7 @@ function HeaderComponent(
                     </Link>
 
                     {routes?.map((route: { title: string, path: string }, i: number) => (
-                        <Link key={i} to={route.path} onClick={() => setMobileSelectionVisible(false)}>
+                        <Link className="burger-mobile-title" key={i} to={route.path} onClick={() => setMobileSelectionVisible(false)}>
                             <p className="mobile-header">{route.title}</p>
                         </Link>
                     ))}

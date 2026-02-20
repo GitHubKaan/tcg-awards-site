@@ -26,11 +26,11 @@ function ContentBoxComponent(
         <div className="right">
             <div className="left">
                 <div className="image-container">
-                    <img src={image} alt="banner" />
+                    <img className="no-select" src={image} alt="banner" />
                 </div>
             </div>
             <div className="right">
-                <img src={image} alt="mobile-banner" />
+                <img className="no-select" src={image} alt="mobile-banner" />
                 <h1 className="text-center">{title}</h1>
                 <LineComponent />
                 <p>{text}</p>

@@ -1,0 +1,15 @@
+#privacy-page {
+    display: flex;
+    flex-direction: column;
+    gap: var(--size-l);
+}
+
+#privacy-page p {
+    text-align: justify;
+}
+
+@media only screen and (max-width: 961px) {
+    #privacy-page {
+        margin-top: var(--size-xxl);
+    }
+}
