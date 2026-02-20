@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/static/css/main.30dee53b.css",
+    "main.js": "/static/js/main.90f31342.js",
+    "static/js/453.5940751e.chunk.js": "/static/js/453.5940751e.chunk.js",
+    "static/media/crads_banner.png": "/static/media/crads_banner.da300758b3f4fc46e5a3.png",
+    "static/media/logo.png": "/static/media/logo.5fc06219eeeb37b8e454.png",
+    "static/media/blue_blub_2.svg": "/static/media/blue_blub_2.27d22bef5e009e461fe899e5effba835.svg",
+    "static/media/blue_blub.svg": "/static/media/blue_blub.526f6ec2c107200b3f31f588fb4d0f1f.svg",
+    "static/media/logo_text.png": "/static/media/logo_text.4d362060b86bd54949a4.png",
+    "static/media/lines_2.svg": "/static/media/lines_2.7a92510a7b24b7039db8826659f86c7e.svg",
+    "static/media/lines.svg": "/static/media/lines.90a9291de486d0caa094bb9fc572b6ec.svg",
+    "static/media/bruh_face.svg": "/static/media/bruh_face.3262046750dfcd14d88b7e92c4e310d3.svg",
+    "index.html": "/index.html",
+    "main.30dee53b.css.map": "/static/css/main.30dee53b.css.map",
+    "main.90f31342.js.map": "/static/js/main.90f31342.js.map",
+    "453.5940751e.chunk.js.map": "/static/js/453.5940751e.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.30dee53b.css",
+    "static/js/main.90f31342.js"
+  ]
+}
