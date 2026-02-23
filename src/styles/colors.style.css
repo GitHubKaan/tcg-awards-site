@@ -22,12 +22,12 @@
     --dark-green: rgb(67, 163, 25);
 
     /* tcg colors */
-    --c-background: rgb(41, 50, 67);
-    --c-gold: rgb(221, 184, 130);
-    --c-dark-gold: rgb(205, 129, 53);
+    --c-background: rgb(43, 52, 70);
+    --c-gold: rgb(232, 186, 128);
+    --c-dark-gold: rgb(218, 142, 66);
 
-    --c-washed-gold: rgb(221, 183, 130);
-    --c-washed-dark-gold: rgb(153, 115, 70);
+    --c-washed-gold: rgb(253, 226, 207);
+    --c-washed-dark-gold: rgb(156, 113, 65);
 
     /* fades */
     --f-background: linear-gradient(180deg, var(--c-background) 0%, rgb(31, 36, 46) 100%); /* footer */
