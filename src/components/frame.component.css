@@ -28,3 +28,14 @@
 .frame-component h2.bottom {
     color: var(--c-dark-gold);
 }
+
+@media only screen and (max-width: 961px) {
+    .frame-component h2 {
+        font-size: 18px !important;
+        line-height: 18px !important;
+    }
+
+    .frame-component img {
+        height: 100px !important;
+    }
+}

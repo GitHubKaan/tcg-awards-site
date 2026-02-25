@@ -46,7 +46,16 @@ h3 {
 }
 
 h4 {
-    
+    font-size: 25px;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: var(--c-gold);
+    line-height: 25px;
+    cursor: pointer;
+}
+
+h4:hover {
+    opacity: 0.5;
 }
 
 h5 {

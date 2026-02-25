@@ -29,13 +29,13 @@ function App() {
 
                 <Routes>
                     {/* General */}
-                    <Route path={`/`} element={Layout({ page: <HomePage />, header: true, footer: true, background: {} })} />
-                    <Route path={`/imprint`} element={Layout({ page: <ImprintPage />, header: true, footer: true, background: {} })} />
-                    <Route path={`/privacy`} element={Layout({ page: <PrivacyPage />, header: true, footer: true, background: {} })} />
+                    <Route path={`/`} element={Layout({ page: <HomePage />, header: false, footer: true, background: {} })} />
+                    <Route path={`/imprint`} element={Layout({ page: <ImprintPage />, header: false, footer: true, background: {} })} />
+                    <Route path={`/privacy`} element={Layout({ page: <PrivacyPage />, header: false, footer: true, background: {} })} />
                     
                     {/* Error pages */}
-                    <Route path={`*`} element={Layout({ page: <ErrorInfo />, header: true, footer: true, background: {} })} /> {/* 404 Page not found */}
-                    <Route path={`/error`} element={Layout({ page: <ErrorInfo />, header: true, footer: true, background: {} })} />
+                    <Route path={`*`} element={Layout({ page: <ErrorInfo />, header: false, footer: true, background: {} })} /> {/* 404 Page not found */}
+                    <Route path={`/error`} element={Layout({ page: <ErrorInfo />, header: false, footer: true, background: {} })} />
                 </Routes>
             </BrowserRouter>
         </>

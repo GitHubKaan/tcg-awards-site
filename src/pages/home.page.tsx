@@ -9,15 +9,48 @@ import LineComponent from "../components/line.component";
 import TrippleBoxComponent from "../components/trippleBox.component";
 import IconElementComponent from "../components/iconElement.component";
 import ContentBoxComponent from "../components/contentBox.component";
+import { useRef } from "react";
 
 function HomePage() {
+    const section1 = useRef<HTMLDivElement | null>(null);
+    const section2 = useRef<HTMLDivElement | null>(null);
+    const section3 = useRef<HTMLDivElement | null>(null);
+    window.scrollTo({ top: 0, behavior: "smooth" });
     return (
         <div id="home-page" className="default-page">
             <img className="top-logo mt-5 no-select" src={Logo} alt="logo" width={400} />
 
+            <div className="flex gap-3 wrap center">
+                <h4 className="header-nav no-select"
+                    onClick={() => {
+                        const el = section1.current;
+                        if (el) {
+                            const top = el.getBoundingClientRect().top + window.scrollY - 30;
+                            window.scrollTo({ top, behavior: "smooth" });
+                        }
+                    }}>Menüpunkt</h4>
+                <h4 className="header-nav no-select"
+                    onClick={() => {
+                        const el = section2.current;
+                        if (el) {
+                            const top = el.getBoundingClientRect().top + window.scrollY - 30;
+                            window.scrollTo({ top, behavior: "smooth" });
+                        }
+                    }}>Menüpunkt</h4>
+                <h4 className="header-nav no-select"
+                    onClick={() => {
+                        const el = section3.current;
+                        if (el) {
+                            const top = el.getBoundingClientRect().top + window.scrollY - 30;
+                            window.scrollTo({ top, behavior: "smooth" });
+                        }
+                    }}>Menüpunkt</h4>
+            </div>
+
             {/* TOP FIRST ELEMENT (INFO BOX AND TRIPPLE FRAME) */}
             <div>
                 <InfoBoxComponent
+                    ref={section1}
                     title={{
                         top: "WHY WE\nCREATED THE",
                         bottom: "TCG AWARDS"
@@ -62,6 +95,7 @@ function HomePage() {
             </div>
 
             <InfoBoxComponent
+                ref={section2}
                 title={{
                     top: "HEADLINE",
                     bottom: "ZWEIZEILIG"
@@ -71,7 +105,6 @@ function HomePage() {
 
             <div className="tripple-icon">
                 <FrameComponent
-                    style={{ flex: 1 }}
                     image={Logo2}
                     title={{
                         top: "icon",
@@ -79,7 +112,6 @@ function HomePage() {
                     }}
                 />
                 <FrameComponent
-                    style={{ flex: 1 }}
                     image={Logo2}
                     title={{
                         top: "icon",
@@ -87,7 +119,69 @@ function HomePage() {
                     }}
                 />
                 <FrameComponent
-                    style={{ flex: 1 }}
+                    image={Logo2}
+                    title={{
+                        top: "icon",
+                        bottom: "element"
+                    }}
+                />
+                <FrameComponent
+                    image={Logo2}
+                    title={{
+                        top: "icon",
+                        bottom: "element"
+                    }}
+                />
+                <FrameComponent
+                    image={Logo2}
+                    title={{
+                        top: "icon",
+                        bottom: "element"
+                    }}
+                />
+                <FrameComponent
+                    image={Logo2}
+                    title={{
+                        top: "icon",
+                        bottom: "element"
+                    }}
+                />
+                <FrameComponent
+                    image={Logo2}
+                    title={{
+                        top: "icon",
+                        bottom: "element"
+                    }}
+                />
+                <FrameComponent
+                    image={Logo2}
+                    title={{
+                        top: "icon",
+                        bottom: "element"
+                    }}
+                />
+                <FrameComponent
+                    image={Logo2}
+                    title={{
+                        top: "icon",
+                        bottom: "element"
+                    }}
+                />
+                <FrameComponent
+                    image={Logo2}
+                    title={{
+                        top: "icon",
+                        bottom: "element"
+                    }}
+                />
+                <FrameComponent
+                    image={Logo2}
+                    title={{
+                        top: "icon",
+                        bottom: "element"
+                    }}
+                />
+                <FrameComponent
                     image={Logo2}
                     title={{
                         top: "icon",
@@ -97,6 +191,7 @@ function HomePage() {
             </div>
 
             <ImgInfoBoxComponent
+                ref={section3}
                 title={{
                     top: "das sit ein",
                     bottom: "bild element"
@@ -110,7 +205,7 @@ function HomePage() {
             />
 
             <img className="top-logo mt-5 no-select" src={Logo2} alt="logo" width={250} />
-            
+
             <div className="flex column items-center gap-3">
                 <h1 className="text-center">why we created the tcg awards</h1>
 
@@ -148,41 +243,37 @@ function HomePage() {
                 </div>
             </div>
 
-            <div className="flex column gap-3 w-100 wrap">
-                <div className="flex w-100 gap-3 wrap">
-                    <IconElementComponent
-                        image={Logo2}
-                        title="icon element"
-                        className="flex-1 w-100"
-                    />
-                    <IconElementComponent
-                        image={Logo2}
-                        title="icon element"
-                        className="flex-1 w-100"
-                    />
-                    <IconElementComponent
-                        image={Logo2}
-                        title="icon element"
-                        className="flex-1 w-100"
-                    />
-                </div>
-                <div className="flex w-100 gap-3 wrap">
-                    <IconElementComponent
-                        image={Logo2}
-                        title="icon element"
-                        className="flex-1 w-100"
-                    />
-                    <IconElementComponent
-                        image={Logo2}
-                        title="icon element"
-                        className="flex-1 w-100"
-                    />
-                    <IconElementComponent
-                        image={Logo2}
-                        title="icon element"
-                        className="flex-1 w-100"
-                    />
-                </div>
+            <div className="awards-tripple-container">
+                <IconElementComponent
+                    image={Logo2}
+                    title="icon element"
+                    className="flex-1 w-100"
+                />
+                <IconElementComponent
+                    image={Logo2}
+                    title="icon element"
+                    className="flex-1 w-100"
+                />
+                <IconElementComponent
+                    image={Logo2}
+                    title="icon element"
+                    className="flex-1 w-100"
+                />
+                <IconElementComponent
+                    image={Logo2}
+                    title="icon element"
+                    className="flex-1 w-100"
+                />
+                <IconElementComponent
+                    image={Logo2}
+                    title="icon element"
+                    className="flex-1 w-100"
+                />
+                <IconElementComponent
+                    image={Logo2}
+                    title="icon element"
+                    className="flex-1 w-100"
+                />
             </div>
 
             <ContentBoxComponent

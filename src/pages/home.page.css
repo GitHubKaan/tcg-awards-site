@@ -45,14 +45,19 @@
 /* TRIPPLE ICON FRAMES */
 #home-page .tripple-icon {
     width: calc(100% - var(--size-l) * 2);
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
     gap: var(--size-l);
+}
+
+#home-page .tripple-icon > div {
+    flex: 1;
 }
 
 @media only screen and (max-width: 961px) {
     #home-page .tripple-icon {
-        flex-wrap: wrap;
         width: 100%;
+        grid-template-columns: 1fr 1fr;
     }
 }
 
@@ -61,4 +66,18 @@
     gap: var(--size-l);
     text-align: justify;
     flex-wrap: wrap;
+}
+
+#home-page .awards-tripple-container {
+    width: calc(100% - var(--size-l) * 2);
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: var(--size-l);
+}
+
+@media only screen and (max-width: 961px) {
+    #home-page .awards-tripple-container {
+        width: 100%;
+        grid-template-columns: 1fr 1fr;
+    }
 }

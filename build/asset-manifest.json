@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/tcg-awards-site/static/css/main.57d22335.css",
-    "main.js": "/tcg-awards-site/static/js/main.a25831b7.js",
+    "main.css": "/tcg-awards-site/static/css/main.de2cf3b6.css",
+    "main.js": "/tcg-awards-site/static/js/main.3eadfa83.js",
     "static/js/453.5940751e.chunk.js": "/tcg-awards-site/static/js/453.5940751e.chunk.js",
     "static/media/crads_banner.png": "/tcg-awards-site/static/media/crads_banner.da300758b3f4fc46e5a3.png",
     "static/media/logo.png": "/tcg-awards-site/static/media/logo.5fc06219eeeb37b8e454.png",
@@ -12,12 +12,12 @@
     "static/media/lines.svg": "/tcg-awards-site/static/media/lines.90a9291de486d0caa094bb9fc572b6ec.svg",
     "static/media/bruh_face.svg": "/tcg-awards-site/static/media/bruh_face.3262046750dfcd14d88b7e92c4e310d3.svg",
     "index.html": "/tcg-awards-site/index.html",
-    "main.57d22335.css.map": "/tcg-awards-site/static/css/main.57d22335.css.map",
-    "main.a25831b7.js.map": "/tcg-awards-site/static/js/main.a25831b7.js.map",
+    "main.de2cf3b6.css.map": "/tcg-awards-site/static/css/main.de2cf3b6.css.map",
+    "main.3eadfa83.js.map": "/tcg-awards-site/static/js/main.3eadfa83.js.map",
     "453.5940751e.chunk.js.map": "/tcg-awards-site/static/js/453.5940751e.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.57d22335.css",
-    "static/js/main.a25831b7.js"
+    "static/css/main.de2cf3b6.css",
+    "static/js/main.3eadfa83.js"
   ]
 }
