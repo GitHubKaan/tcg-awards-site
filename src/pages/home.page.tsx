@@ -10,6 +10,7 @@ import TrippleBoxComponent from "../components/trippleBox.component";
 import IconElementComponent from "../components/iconElement.component";
 import ContentBoxComponent from "../components/contentBox.component";
 import { useRef } from "react";
+import NewsletterComponent from "../components/newsletter.component";
 
 function HomePage() {
     const section1 = useRef<HTMLDivElement | null>(null);
@@ -46,6 +47,8 @@ function HomePage() {
                         }
                     }}>Menüpunkt</h4>
             </div>
+
+            <NewsletterComponent />
 
             {/* TOP FIRST ELEMENT (INFO BOX AND TRIPPLE FRAME) */}
             <div>

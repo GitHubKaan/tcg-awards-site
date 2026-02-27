@@ -1,0 +1,115 @@
+.newsletter-component {
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    color: #333;
+}
+
+.newsletter-component .cr_font {
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+}
+
+.newsletter-component .cr_body {
+    background-color: rgba(255, 255, 255, 0.2);
+    font-size: 12px;
+    color: white;
+    box-shadow: 0px 0px 14px 0px rgba(51, 51, 51, 0.4);
+    line-height: 150%;
+}
+
+.newsletter-component .cr_page {
+    width: auto;
+    max-width: 640px;
+    margin: 0 auto 10px auto;
+    text-align: left;
+}
+
+.newsletter-component .editable_content {
+    padding: var(--size-l);
+    gap: var(--size-s);
+    display: flex;
+    flex-direction: column
+}
+
+.newsletter-component .cr_form-inputgroup {
+    display: flex;
+    flex-direction: column;
+}
+
+.newsletter-component .cr_ipe_item label,
+.newsletter-component .cr_ipe_item .label {
+    float: none;
+    clear: both;
+    display: inline-block;
+    width: auto;
+    text-align: left;
+    font-weight: bold;
+    position: relative;
+    font-size: 14px;
+    line-height: 150%;
+    margin-bottom: 2.5px;
+}
+
+.newsletter-component .cr_ipe_item input {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    padding: var(--size-s);
+    font-family: Helvetica, sans-serif;
+    font-size: 16px;
+    color: white;
+    width: calc(100% - var(--size-s) * 2);
+}
+
+.newsletter-component .cr_ipe_item input:focus {
+    outline: none;
+    outline: 1px solid white;
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.newsletter-component .cr_button {
+    display: inline-block;
+    font-family: "Helvetica", Arial, sans-serif;
+    white-space: nowrap;
+    padding: 0 22px;
+    text-decoration: none;
+    text-align: center;
+    font-weight: bold;
+    font-style: normal;
+    font-size: 15px;
+    line-height: 32px;
+    cursor: pointer;
+    border: 0;
+    border-radius: 4px;
+    vertical-align: top;
+    background-color: var(--c-washed-gold);
+    color: #ffffff;
+    transition: opacity 0.2s ease;
+    padding: var(--size-s) var(--size-l);
+}
+
+.newsletter-component .cr_button:hover {
+    opacity: 0.7;
+}
+
+.newsletter-component .submit_container {
+    text-align: center;
+}
+
+.newsletter-component .clever_form_error {
+    background-color: #f99;
+    color: #000;
+    border: 1px solid #f22 !important;
+}
+
+.newsletter-component .mce_text {
+    font-size: 12px;
+    color: #555;
+}
+
+.newsletter-component .mce_text a {
+    color: #0084ff;
+}
+
+.newsletter-component .musthave .cr_form-input.clever_form_error {
+    background-color: #f99;
+}
