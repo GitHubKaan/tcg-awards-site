@@ -53,7 +53,7 @@ function FrameComponent(
 
             {/* TITLE */}
             {title && <div className="relative">
-                {notRevealed && <h3 className="nr-text">?</h3>}
+                {notRevealed && <h3 className="nr-text"></h3>}
                 {title?.top && <h2>{title?.top}</h2>}
                 {title?.bottom && <h2 className="bottom">{title?.bottom}</h2>}
             </div>}

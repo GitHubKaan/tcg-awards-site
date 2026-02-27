@@ -130,6 +130,9 @@ function HomePage() {
             </div>
             
             <div className="w-100 flex column gap-3">
+                <div className="w-100 flex center">
+                    <h1>TCG Awards</h1>
+                </div>
                 <div className="grid-icons">
                     <FrameComponent
                         image={Logo2}
