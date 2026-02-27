@@ -53,7 +53,7 @@ function NewsletterComponent(
                 <div className="cr_body cr_page cr_font formbox">
                     <div className="editable_content">
                         
-                        <h2 className="mb-1">Newsletter abonnieren</h2>
+                        <h2 className="mb-1">Newsletter</h2>
 
                         {/* First Name */}
                         <div className="cr_form-component cr_ipe_item musthave">

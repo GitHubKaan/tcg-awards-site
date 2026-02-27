@@ -2,14 +2,15 @@
     display: flex;
     justify-content: center;
     background: var(--f-gold-dark-gold);
-    cursor: pointer;
     transition: all 0.15s ease-in-out;
     height: max-content;
 }
 
+/*
 .frame-component:hover {
     transform: scale(1.02);
 }
+*/
 
 .frame-component .content {
     display: flex;
@@ -23,6 +24,7 @@
 .frame-component p {
     white-space: pre-line;
     text-align: center;
+    
 }
 
 .frame-component h2.bottom {
@@ -38,4 +40,18 @@
     .frame-component img {
         height: 100px !important;
     }
+}
+
+.frame-component.not-revealed p,
+.frame-component.not-revealed h2 {
+    filter: blur(10px);
+}
+
+.frame-component .nr-text {
+    filter: none !important;
+    position: absolute;
+    top: var(--size-m);
+    width: 100%;
+    color: white;
+    text-align: center;
 }

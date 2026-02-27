@@ -42,20 +42,31 @@
     }
 }
 
-/* TRIPPLE ICON FRAMES */
-#home-page .tripple-icon {
-    width: calc(100% - var(--size-l) * 2);
+/* ICON FRAMES */
+#home-page .grid-icons {
+    width: 100%;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: var(--size-l);
 }
 
-#home-page .tripple-icon > div {
+#home-page .grid-icons.tripple {
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+#home-page .grid-icons.double {
+    grid-template-columns: 1fr 1fr;
+}
+
+
+#home-page .grid-icons > div {
     flex: 1;
 }
 
 @media only screen and (max-width: 961px) {
-    #home-page .tripple-icon {
+    #home-page .grid-icons,
+    #home-page .grid-icons.tripple,
+    #home-page .grid-icons.double {
         width: 100%;
         grid-template-columns: 1fr 1fr;
     }

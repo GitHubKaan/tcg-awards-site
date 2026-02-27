@@ -5,6 +5,7 @@ import "./frame.component.css";
  * @param image optional;
  * @param title optional; top & bottom (use \n for line break)
  * @param text optional; (use \n for line break)
+ * @param notRevealed optional;
  * @param className Further class names
  * @param key Further keys
  * @return Example component
@@ -19,17 +20,19 @@ function FrameComponent(
         },
         text?: string,
 
+        notRevealed?: boolean,
+
         className?: string,
         [key: string]: any
     }>
 ) {
-    const { width, image, title, text, className, ...overflowProps } = props;
+    const { width, image, title, text, notRevealed, className, ...overflowProps } = props;
 
     const finalWidth = width ?? "100%";
     const borderSize = 5;
 
     return <div
-        className={`frame-component ${className ?? ""}`}
+        className={`frame-component ${className ?? ""} ${notRevealed ? "not-revealed" : ""} no-select`}
         {...overflowProps}
         style={{
             width: finalWidth,
@@ -49,7 +52,8 @@ function FrameComponent(
             </div>}
 
             {/* TITLE */}
-            {title && <div>
+            {title && <div className="relative">
+                {notRevealed && <h3 className="nr-text">?</h3>}
                 {title?.top && <h2>{title?.top}</h2>}
                 {title?.bottom && <h2 className="bottom">{title?.bottom}</h2>}
             </div>}
