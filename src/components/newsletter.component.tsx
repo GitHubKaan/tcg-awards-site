@@ -13,35 +13,122 @@ function NewsletterComponent(
 ) {
     const { className, ...overflowProps } = props;
 
-    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    const FORM_ACTION = "https://seu2.cleverreach.com/f/394092-424155/wcs/";
+
+    async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault();
-
         const form = e.currentTarget;
-        const formData = new FormData(form);
 
-        // Validate required fields
-        let hasError = false;
-        form.querySelectorAll<HTMLInputElement>(".musthave input").forEach((input) => {
-            if (!input.value.trim()) {
-                input.classList.add("clever_form_error");
-                hasError = true;
-            } else {
-                input.classList.remove("clever_form_error");
-            }
+        // ── 1. Fehlerklassen zurücksetzen ──────────────────────────────────
+        form.querySelectorAll<HTMLElement>(".clever_form_error").forEach((el) =>
+            el.classList.remove("clever_form_error")
+        );
+        form.querySelectorAll<HTMLElement>(".clever_form_note").forEach((el) =>
+            el.remove()
+        );
+
+        // ── 2. Pflichtfelder prüfen ────────────────────────────────────────
+        form.querySelectorAll<HTMLElement>(".musthave").forEach((group) => {
+            group.querySelectorAll<HTMLInputElement | HTMLTextAreaElement>(
+                "input, textarea"
+            ).forEach((field) => {
+                const isEmpty = field.value.trim() === "";
+
+                if (
+                    field instanceof HTMLInputElement &&
+                    (field.type === "checkbox" || field.type === "radio")
+                ) {
+                    const parent = field.closest(".cr_ipe_item");
+                    if (parent && !parent.querySelector<HTMLInputElement>(":checked")) {
+                        parent.classList.add("clever_form_error");
+                    }
+                } else if (isEmpty) {
+                    field.classList.add("clever_form_error");
+                }
+            });
         });
 
-        if (hasError) return;
+        // ── 3. E-Mail-Duplikat-Check (CleverReach) ─────────────────────────
+        const emailField = form.querySelector<HTMLInputElement>("input[name=email]");
+        const isCleverReach =
+            FORM_ACTION.indexOf(window.location.hostname) > 0 &&
+            FORM_ACTION.indexOf("wcs") > 0;
 
-        // Submit to CleverReach
-        const target = "https://seu2.cleverreach.com/f/394092-424155/wcs/";
-        const params = new URLSearchParams();
-        formData.forEach((value, key) => params.append(key, value as string));
+        // CleverReach check_email is only relevant when the form is hosted
+        // on the same domain – on external domains we skip it (same as original).
+        if (isCleverReach && emailField?.value) {
+            const isUnsubscribe =
+                (form.querySelector<HTMLInputElement>(
+                    "input[name=cr_subunsubscribe][value='false']"
+                )?.checked) ?? false;
 
-        // Open in new tab (matching original target="_blank" behavior)
-        const submitUrl = `${target}?${params.toString()}`;
-        console.log(submitUrl)
-        window.open(submitUrl, "_blank");
-    };
+            if (!isUnsubscribe) {
+                try {
+                    const checkUrl =
+                        FORM_ACTION.replace("wcs", "check_email") +
+                        window.btoa(emailField.value);
+                    const resp = await fetch(checkUrl);
+                    const data = await resp.text();
+                    if (data) {
+                        emailField.classList.add("clever_form_error");
+                        const note = document.createElement("div");
+                        note.className = "clever_form_note cr_font";
+                        note.textContent = data;
+                        emailField.insertAdjacentElement("beforebegin", note);
+                    }
+                } catch {
+                    // network error → ignore, let form proceed
+                }
+            }
+        }
+
+        // ── 4. Captcha-Check ───────────────────────────────────────────────
+        const captchaField = form.querySelector<HTMLInputElement>("input[name=captcha]");
+        if (captchaField?.value) {
+            try {
+                const checkUrl =
+                    FORM_ACTION.replace("wcs", "check_captcha") + captchaField.value;
+                const resp = await fetch(checkUrl);
+                const data = await resp.text();
+                if (data) {
+                    captchaField.classList.add("clever_form_error");
+                    const note = document.createElement("div");
+                    note.style.display = "block";
+                    note.className = "clever_form_note cr_font";
+                    note.textContent = data;
+                    captchaField.insertAdjacentElement("afterend", note);
+                }
+            } catch {
+                // network error → ignore
+            }
+        }
+
+        // ── 5. Bei Fehlern abbrechen ───────────────────────────────────────
+        if (form.querySelectorAll(".clever_form_error").length) {
+            return;
+        }
+
+        // ── 6. Formular absenden (POST in neuem Tab, exakt wie original target="_blank") ──
+        const data = new FormData(form);
+
+        const hiddenForm = document.createElement("form");
+        hiddenForm.method = "post";
+        hiddenForm.action = FORM_ACTION;
+        hiddenForm.target = "_blank";
+        hiddenForm.style.display = "none";
+
+        data.forEach((value, key) => {
+            const input = document.createElement("input");
+            input.type = "hidden";
+            input.name = key;
+            input.value = value as string;
+            hiddenForm.appendChild(input);
+        });
+
+        document.body.appendChild(hiddenForm);
+        hiddenForm.submit();
+        document.body.removeChild(hiddenForm);
+    }
 
     return (
         <div className={`newsletter-component ${className ?? ""}`} {...overflowProps}>
@@ -52,7 +139,7 @@ function NewsletterComponent(
             >
                 <div className="cr_body cr_page cr_font formbox">
                     <div className="editable_content">
-                        
+
                         <h2 className="mb-1">Newsletter</h2>
 
                         {/* First Name */}
