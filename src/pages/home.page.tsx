@@ -41,7 +41,7 @@ function HomePage() {
                     }}>the awards</h4>
                 <h4 className="header-nav no-select"
                     onClick={() => {
-                        const el = section2.current;
+                        const el = section3.current;
                         if (el) {
                             const top = el.getBoundingClientRect().top + window.scrollY - 30;
                             window.scrollTo({ top, behavior: "smooth" });
