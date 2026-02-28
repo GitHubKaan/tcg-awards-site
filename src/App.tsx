@@ -29,7 +29,7 @@ function App() {
 
                 <Routes>
                     {/* General */}
-                    <Route path={`/`} element={Layout({ page: <HomePage />, header: false, footer: true, background: {} })} />
+                    <Route path={``} element={Layout({ page: <HomePage />, header: false, footer: true, background: {} })} />
                     <Route path={`/imprint`} element={Layout({ page: <ImprintPage />, header: false, footer: true, background: {} })} />
                     <Route path={`/privacy`} element={Layout({ page: <PrivacyPage />, header: false, footer: true, background: {} })} />
                     
