@@ -24,7 +24,7 @@ function App() {
                 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" /> {/* Stop iPhone auto-zoom in on input/textfields on select */}
             </header>
 
-            <BrowserRouter basename="/tcg-awards-site">
+            <BrowserRouter /* basename="/tcg-awards-site" */>
                 <ScrollToTopOnReload />
 
                 <Routes>
