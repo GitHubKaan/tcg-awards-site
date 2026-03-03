@@ -42,12 +42,15 @@
     }
 }
 
-/* ICON FRAMES */
 #home-page .grid-icons {
-    width: 100%;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: var(--size-l);
+}
+
+#home-page .grid-icons > div {
+    flex: 0 0 calc((100% - 3 * var(--size-l)) / 4);
 }
 
 #home-page .grid-icons.tripple {
@@ -56,11 +59,6 @@
 
 #home-page .grid-icons.double {
     grid-template-columns: 1fr 1fr;
-}
-
-
-#home-page .grid-icons > div {
-    flex: 1;
 }
 
 @media only screen and (max-width: 961px) {

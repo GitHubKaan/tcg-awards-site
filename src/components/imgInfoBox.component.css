@@ -28,6 +28,11 @@
     gap: var(--size-m);
 }
 
+.img-info-box-component .image-inside-box > div {
+    position: relative !important;
+    width: 100% !important;
+}
+
 .img-info-box-component .right {
     flex: 2;
     position: relative;

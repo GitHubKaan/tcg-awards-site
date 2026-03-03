@@ -275,6 +275,7 @@ function HomePage() {
                 socials
                 text={`Want to stay in the loop? Follow our social media channels and be the first to hear about TCG Awards updates, exclusive insights, and exciting announcements. Join the community!`}
                 image={BannerImage}
+                imageInsideBox
             />
             
 

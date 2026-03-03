@@ -9,6 +9,7 @@ import LinkedIn from "../assets/socials/linkedin.png";
  * @param text (use \n for line break)
  * @param image
  * @param socials socials icons
+ * @param imageInsideBox Put image inside box
  * @param className Further class names
  * @param key Further keys
  * @return Example component
@@ -22,12 +23,13 @@ function InfoBoxComponent(
         text: string,
         image: string,
         socials?: boolean,
+        imageInsideBox?: boolean,
 
         className?: string,
         [key: string]: any
     }>
 ) {
-    const { className, socials, title, text, image, ...overflowProps } = props;
+    const { className, socials, title, text, imageInsideBox, image, ...overflowProps } = props;
 
     const borderSize = 5;
 
@@ -76,7 +78,7 @@ function InfoBoxComponent(
             </div>}
         </div>
 
-        <div className="right no-select">
+        <div className={`right no-select ${imageInsideBox ? "image-inside-box" : ""}`}>
             <div>
                 <div
                     style={{
