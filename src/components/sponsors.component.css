@@ -1,0 +1,25 @@
+.sponsors-component {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.sponsors-component .content {
+    z-index: 1;
+    padding: var(--size-l);
+    width: calc(100% - var(--size-l) * 2);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: var(--size-l);
+}
+
+.sponsors-component .background {
+    width: 100svw;
+    background-color: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(50px);
+    position: absolute;
+    inset: 0;
+    left: calc(-1 * (100svw - 100%) / 2);
+}

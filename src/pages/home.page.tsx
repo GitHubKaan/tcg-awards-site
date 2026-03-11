@@ -11,6 +11,7 @@ import IconElementComponent from "../components/iconElement.component";
 import ContentBoxComponent from "../components/contentBox.component";
 import { useRef } from "react";
 import NewsletterComponent from "../components/newsletter.component";
+import SponsorsComponent from "../components/sponsors.component";
 
 function HomePage() {
     const section1 = useRef<HTMLDivElement | null>(null);
@@ -266,6 +267,8 @@ function HomePage() {
                     
                     The awards combine the voice of the global community with the expertise of an independent jury, ensuring that both passion and professional perspective shape the outcome. Players, fans, and all who are passionate about TCGs can enter cases into the award, as well as industry professionals, such as publishers, agencies, creators and many more. Overall, there will be 13 different categories`}
             />
+
+            <SponsorsComponent />
 
             <ImgInfoBoxComponent
                 ref={section3}
