@@ -21,6 +21,8 @@ function SponsorsComponent(
         <div className="content">
             <h1>Sponsors</h1>
             
+            <div className="line" />
+
             <div className="flex wrap gap-4 items-center center">
                 <a href="https://www.google.com" target="_blank">
                     <img src={GoogleLogo} alt="google logo" width={250} />
@@ -33,7 +35,7 @@ function SponsorsComponent(
                 </a>
             </div>
         </div>
-        <div className="background" />
+        {/* <div className="background" /> */}
     </div>
 }
 
