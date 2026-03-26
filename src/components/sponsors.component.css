@@ -30,3 +30,7 @@
     height: 5px;
     border-radius: 1000px;
 }
+
+.sponsors-component img {
+    max-width: 100%;
+}
