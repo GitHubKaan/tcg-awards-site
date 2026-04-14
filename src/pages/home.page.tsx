@@ -263,9 +263,9 @@ function HomePage() {
                     top: "Behind the",
                     bottom: "TCG Awards"
                 }}
-                text={`The TCG Awards are initiated by Card Sports League GmbH and Hana Sports & Entertainment GmbH in partnership with Merz Verlag, organizer of SPIEL Essen, the worlds largest and most important fair for all tabletop games including trading cards
+                text={`The TCG Awards are initiated by Card Sports League GmbH and Hana Sports & Entertainment GmbH in partnership with Merz Verlag, organizer of SPIEL Essen, the worlds largest and most important fair for all tabletop games including trading cards.
                     
-                    The awards combine the voice of the global community with the expertise of an independent jury, ensuring that both passion and professional perspective shape the outcome. Players, fans, and all who are passionate about TCGs can enter cases into the award, as well as industry professionals, such as publishers, agencies, creators and many more. Overall, there will be 13 different categories`}
+                    The awards combine the voice of the global community with the expertise of an independent jury, ensuring that both passion and professional perspective shape the outcome. Players, fans, and all who are passionate about TCGs can enter cases into the award, as well as industry professionals, such as publishers, agencies, creators and many more. Overall, there will be 13 different categories.`}
             />
 
             <SponsorsComponent />
