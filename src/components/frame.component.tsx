@@ -43,7 +43,7 @@ function FrameComponent(
         <div
             className="content"
             style={{
-                width: `calc(${finalWidth} - ${borderSize * 2}px - var(--size-l) * 2)`
+                width: `calc(${finalWidth} - ${borderSize * 2}px - var(--size-m) * 2)`
             }}
         >
             {/* IMAGE */}
@@ -52,9 +52,18 @@ function FrameComponent(
             </div>}
 
             {/* TITLE */}
-            {title && <div className="relative">
+            {title && <div className="title-container">
                 {notRevealed && <h3 className="nr-text"></h3>}
-                {title?.top && <h2>{title?.top}</h2>}
+                {title?.top && (
+                    <h2 className="title">
+                        {title.top.split("\n").map((line, i) => (
+                        <span key={i}>
+                            {line}
+                            <br />
+                        </span>
+                        ))}
+                    </h2>
+                )}
                 {title?.bottom && <h2 className="bottom">{title?.bottom}</h2>}
             </div>}
             

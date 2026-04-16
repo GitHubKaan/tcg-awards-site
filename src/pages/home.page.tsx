@@ -12,6 +12,7 @@ import ContentBoxComponent from "../components/contentBox.component";
 import { useRef } from "react";
 import NewsletterComponent from "../components/newsletter.component";
 import SponsorsComponent from "../components/sponsors.component";
+import AwardsLineComponent from "../components/awardsLine.component";
 
 function HomePage() {
     const section1 = useRef<HTMLDivElement | null>(null);
@@ -129,130 +130,127 @@ function HomePage() {
                     className="first-info-box"
                 />
             </div>
-            
+
             <div className="w-100 flex column gap-3">
                 <div className="w-100 flex center">
                     <h1>TCG Awards</h1>
                 </div>
+
+                <AwardsLineComponent title="product excellence" subtitle="voted by community" />
+
                 <div className="grid-icons">
                     <FrameComponent
                         image={Logo2}
                         title={{
-                            top: "icon",
-                            bottom: "element"
+                            top: "game",
+                            bottom: "of the year"
                         }}
-                        notRevealed
                     />
                     <FrameComponent
                         image={Logo2}
                         title={{
-                            top: "icon",
-                            bottom: "element"
+                            top: "newcomer",
+                            bottom: "of the year"
                         }}
-                        notRevealed
                     />
                     <FrameComponent
                         image={Logo2}
                         title={{
-                            top: "icon",
-                            bottom: "element"
+                            top: "set",
+                            bottom: "of the year"
                         }}
-                        notRevealed
                     />
                     <FrameComponent
                         image={Logo2}
                         title={{
-                            top: "icon",
-                            bottom: "element"
+                            top: "accessory",
+                            bottom: "of the year"
                         }}
-                        notRevealed
-                    />
-
-                    <FrameComponent
-                        image={Logo2}
-                        title={{
-                            top: "icon",
-                            bottom: "element"
-                        }}
-                        notRevealed
                     />
                     <FrameComponent
                         image={Logo2}
                         title={{
-                            top: "icon",
-                            bottom: "element"
+                            top: "artwork",
+                            bottom: "of the year"
                         }}
-                        notRevealed
-                    />
-                    <FrameComponent
-                        image={Logo2}
-                        title={{
-                            top: "icon",
-                            bottom: "element"
-                        }}
-                        notRevealed
-                    />
-                    <FrameComponent
-                        image={Logo2}
-                        title={{
-                            top: "icon",
-                            bottom: "element"
-                        }}
-                        notRevealed
                     />
                 </div>
+
+                <AwardsLineComponent title="Community and Creator" subtitle="voted by community" />
+                
+                <div className="grid-icons">
+                    <FrameComponent
+                        image={Logo2}
+                        title={{
+                            top: "event",
+                            bottom: "of the year"
+                        }}
+                    />
+                    <FrameComponent
+                        image={Logo2}
+                        title={{
+                            top: "local\ngame",
+                            bottom: "of the year"
+                        }}
+                    />
+                    <FrameComponent
+                        image={Logo2}
+                        title={{
+                            top: "content\ncreator",
+                            bottom: "of the year"
+                        }}
+                    />
+                    <FrameComponent
+                        image={Logo2}
+                        title={{
+                            top: "box\nbreaker",
+                            bottom: "of the year"
+                        }}
+                    />
+                    <FrameComponent
+                        image={Logo2}
+                        title={{
+                            top: "equality\nimpact",
+                            bottom: "of the year"
+                        }}
+                    />
+                </div>
+
+                <AwardsLineComponent title="Industry and Business Excellence" subtitle="voted by gremium" />
+
                 <div className="grid-icons tripple">
                     <FrameComponent
                         image={Logo2}
                         title={{
-                            top: "icon",
-                            bottom: "element"
+                            top: "brand\npartnership",
+                            bottom: "of the year"
                         }}
-                        notRevealed
                     />
                     <FrameComponent
                         image={Logo2}
                         title={{
-                            top: "icon",
-                            bottom: "element"
+                            top: "campaign",
+                            bottom: "of the year"
                         }}
-                        notRevealed
                     />
                     <FrameComponent
-                        className="mobile-hide"
                         image={Logo2}
                         title={{
-                            top: "icon",
-                            bottom: "element"
+                            top: "service\nprovider",
+                            bottom: "of the year"
                         }}
-                        notRevealed
                     />
                 </div>
-                <div className="grid-icons double">
-                    <FrameComponent
-                        className="mobile-show"
-                        image={Logo2}
-                        title={{
-                            top: "icon",
-                            bottom: "element"
-                        }}
-                        notRevealed
-                    />
+                
+                <AwardsLineComponent title="performance excellence" subtitle="voted by gremium" />
+
+                <div className="grid-icons single">
                     <FrameComponent
                         image={Logo2}
                         title={{
-                            top: "icon",
-                            bottom: "element"
+                            top: "player",
+                            bottom: "of the year"
                         }}
-                        notRevealed
-                    />
-                    <FrameComponent
-                        image={Logo2}
-                        title={{
-                            top: "icon",
-                            bottom: "element"
-                        }}
-                        notRevealed
                     />
                 </div>
             </div>
