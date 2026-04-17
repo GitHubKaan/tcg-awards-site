@@ -30,6 +30,8 @@
     padding: 0 10px;
     border-radius: 10px;
     margin-top: var(--size-xs);
+    text-align: center;
+    line-height: 15px;
 }
 
 .awards-line-component .text-container {

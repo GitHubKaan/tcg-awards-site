@@ -57,16 +57,16 @@ function FrameComponent(
                 {title?.top && (
                     <h2 className="title">
                         {title.top.split("\n").map((line, i) => (
-                        <span key={i}>
-                            {line}
-                            <br />
-                        </span>
+                            <span key={i}>
+                                {line}
+                                <br />
+                            </span>
                         ))}
                     </h2>
                 )}
                 {title?.bottom && <h2 className="bottom">{title?.bottom}</h2>}
             </div>}
-            
+
             {/* TEXT */}
             {text && <p>{text}</p>}
         </div>

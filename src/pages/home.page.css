@@ -43,19 +43,6 @@
 }
 
 #home-page .grid-icons {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: var(--size-l);
-    align-items: stretch;
-}
-
-#home-page .grid-icons > div {
-    height: 100%;
-    display: flex;
-}
-
-/*
-#home-page .grid-icons {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -65,7 +52,11 @@
 #home-page .grid-icons > div {
     flex: 0 0 calc((100% - 4 * var(--size-l)) / 5);
 }
-*/
+
+
+#home-page .grid-icons.quad {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
 
 #home-page .grid-icons.tripple {
     grid-template-columns: 1fr 1fr 1fr;
@@ -79,14 +70,7 @@
     grid-template-columns: 1fr;
 }
 
-@media only screen and (max-width: 961px) {
-    #home-page .grid-icons,
-    #home-page .grid-icons.tripple,
-    #home-page .grid-icons.double {
-        width: 100%;
-        grid-template-columns: 1fr 1fr;
-    }
-}
+
 
 #home-page .double-block-text {
     display: flex;
@@ -106,5 +90,37 @@
     #home-page .awards-tripple-container {
         width: 100%;
         grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    #home-page .grid-icons {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: var(--size-l);
+        align-items: stretch;
+    }
+
+    #home-page .grid-icons > div {
+        height: 100%;
+        display: flex;
+    }
+}
+
+@media only screen and (max-width: 961px) {
+    #home-page .grid-icons,
+    #home-page .grid-icons.quad,
+    #home-page .grid-icons.tripple,
+    #home-page .grid-icons.single,
+    #home-page .grid-icons.double {
+        width: 100%;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .last-frame-element-mobile {
+        max-width: calc((100% / 2) - var(--size-m));
+        min-width: calc((100% / 2) - var(--size-m));
+        max-height: 215px;
+        margin-top: var(--size-s);
     }
 }

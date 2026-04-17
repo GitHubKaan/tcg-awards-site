@@ -19,7 +19,9 @@ function HomePage() {
     const section2 = useRef<HTMLDivElement | null>(null);
     const section3 = useRef<HTMLDivElement | null>(null);
     const section4 = useRef<HTMLDivElement | null>(null);
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    
+    // window.scrollTo({ top: 0, behavior: "smooth" });
+    
     return (
         <div id="home-page" className="default-page">
             <img className="top-logo mt-5 no-select" src={Logo} alt="logo" width={400} />
@@ -168,6 +170,17 @@ function HomePage() {
                         }}
                     />
                     <FrameComponent
+                        className="mobile-hide"
+                        image={Logo2}
+                        title={{
+                            top: "artwork",
+                            bottom: "of the year"
+                        }}
+                    />
+                </div>
+                <div className="w-100 flex center items-center mobile-show">
+                    <FrameComponent
+                        className="last-frame-element-mobile"
                         image={Logo2}
                         title={{
                             top: "artwork",
@@ -178,7 +191,7 @@ function HomePage() {
 
                 <AwardsLineComponent title="Community and Creator" subtitle="voted by community" />
                 
-                <div className="grid-icons">
+                <div className="grid-icons quad">
                     <FrameComponent
                         image={Logo2}
                         title={{
@@ -197,13 +210,6 @@ function HomePage() {
                         image={Logo2}
                         title={{
                             top: "content\ncreator",
-                            bottom: "of the year"
-                        }}
-                    />
-                    <FrameComponent
-                        image={Logo2}
-                        title={{
-                            top: "box\nbreaker",
                             bottom: "of the year"
                         }}
                     />
@@ -234,6 +240,17 @@ function HomePage() {
                         }}
                     />
                     <FrameComponent
+                        className="mobile-hide"
+                        image={Logo2}
+                        title={{
+                            top: "service\nprovider",
+                            bottom: "of the year"
+                        }}
+                    />
+                </div>
+                <div className="w-100 flex center items-center mobile-show">
+                    <FrameComponent
+                        className="last-frame-element-mobile"
                         image={Logo2}
                         title={{
                             top: "service\nprovider",
@@ -242,13 +259,23 @@ function HomePage() {
                     />
                 </div>
                 
-                <AwardsLineComponent title="performance excellence" subtitle="voted by gremium" />
+                <AwardsLineComponent title="performance excellence" subtitle="Performance Based Evaluatio" />
 
-                <div className="grid-icons single">
+                <div className="grid-icons single mobile-hide">
                     <FrameComponent
                         image={Logo2}
                         title={{
                             top: "player",
+                            bottom: "of the year"
+                        }}
+                    />
+                </div>
+                <div className="w-100 flex center items-center mobile-show">
+                    <FrameComponent
+                        className="last-frame-element-mobile"
+                        image={Logo2}
+                        title={{
+                            top: "service\nprovider",
                             bottom: "of the year"
                         }}
                     />
