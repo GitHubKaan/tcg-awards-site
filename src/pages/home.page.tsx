@@ -222,7 +222,7 @@ function HomePage() {
                     />
                 </div>
 
-                <AwardsLineComponent title="Industry and Business Excellence" subtitle="voted by gremium" />
+                <AwardsLineComponent title="Industry and Business Excellence" subtitle="voted by jury" />
 
                 <div className="grid-icons tripple">
                     <FrameComponent
@@ -259,7 +259,7 @@ function HomePage() {
                     />
                 </div>
                 
-                <AwardsLineComponent title="performance excellence" subtitle="Performance Based Evaluatio" />
+                <AwardsLineComponent title="performance excellence" subtitle="Performance Based Evaluation" />
 
                 <div className="grid-icons single mobile-hide">
                     <FrameComponent
