@@ -13,8 +13,11 @@ import { useRef } from "react";
 import NewsletterComponent from "../components/newsletter.component";
 import SponsorsComponent from "../components/sponsors.component";
 import AwardsLineComponent from "../components/awardsLine.component";
+import { useNavigate } from "react-router-dom";
 
 function HomePage() {
+    const navigate = useNavigate();
+    
     const section1 = useRef<HTMLDivElement | null>(null);
     const section2 = useRef<HTMLDivElement | null>(null);
     const section3 = useRef<HTMLDivElement | null>(null);
@@ -59,6 +62,10 @@ function HomePage() {
                             window.scrollTo({ top, behavior: "smooth" });
                         }
                     }}>newsletter</h4>
+                <h4 className="header-nav no-select"
+                    onClick={() => {
+                        navigate("/downloads");
+                    }}>downloads</h4>
             </div>
 
             {/* TOP FIRST ELEMENT (INFO BOX AND TRIPPLE FRAME)

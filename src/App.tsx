@@ -5,6 +5,8 @@ import ErrorInfo from "./pages/errorInfo.page";
 import HomePage from "./pages/home.page";
 import ImprintPage from "./pages/imprint.page";
 import PrivacyPage from "./pages/privacy.page";
+import DownloadsPage from "./pages/downloads.page";
+import DownloadsTosPage from "./pages/downloadsTos.page";
 
 // Do not change order of CSS imports
 // general
@@ -32,6 +34,8 @@ function App() {
                     <Route path={``} element={Layout({ page: <HomePage />, header: false, footer: true, background: {} })} />
                     <Route path={`/imprint`} element={Layout({ page: <ImprintPage />, header: false, footer: true, background: {} })} />
                     <Route path={`/privacy`} element={Layout({ page: <PrivacyPage />, header: false, footer: true, background: {} })} />
+                    <Route path={`/downloads`} element={Layout({ page: <DownloadsPage />, header: false, footer: true, background: {} })} />
+                    <Route path={`/downloads-tos`} element={Layout({ page: <DownloadsTosPage />, header: false, footer: true, background: {} })} />
                     
                     {/* Error pages */}
                     <Route path={`*`} element={Layout({ page: <ErrorInfo />, header: false, footer: true, background: {} })} /> {/* 404 Page not found */}

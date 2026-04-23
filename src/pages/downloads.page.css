@@ -1,0 +1,28 @@
+#downloads-page {
+    display: flex;
+    flex-direction: column;
+    gap: var(--size-l);
+}
+
+#downloads-page p {
+    text-align: justify;
+}
+
+@media only screen and (max-width: 961px) {
+    #downloads-page {
+        margin-top: var(--size-xxl);
+    }
+}
+
+#downloads-page .download-button {
+    display: flex;
+    gap: var(--size-m);
+    align-items: center;
+    justify-content: space-between;
+    width: calc(100% - var(--size-s) * 2);
+    border-radius: var(--size-s);
+    background-color: rgba(255, 255, 255, 0.15);
+    padding: var(--size-s);
+    cursor: pointer;
+    outline: 1px solid rgba(255, 255, 255, 0.5);
+}

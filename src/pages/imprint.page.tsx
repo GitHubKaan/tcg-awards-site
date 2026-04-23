@@ -3,8 +3,8 @@ import "./imprint.page.css";
 function ImprintPage() {
     return (
         <div id="imprint-page" className="default-page">
-            <h2>Imprint</h2>
             <div className="w-100 flex column">
+                <h1>Imprint</h1>
                 <p>Information in accordance with § 5 TMG</p>
                 <br />
                 <p>Card Sports League GmbH</p>

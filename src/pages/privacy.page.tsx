@@ -3,7 +3,6 @@ import "./privacy.page.css";
 function PrivacyPage() {
     return (
         <div id="privacy-page" className="default-page">
-            <h2>Privacy</h2>
             <div className="w-100 flex column">
                 <h1>Privacy Policy</h1>
                 <p>Data protection</p>

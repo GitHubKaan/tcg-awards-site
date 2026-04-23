@@ -18,6 +18,9 @@ function FooterComponent(
             </Link>
 
             <div className="flex gap wrap items-center nav">
+                <Link to="/downloads" className="no-decoration">
+                    <h6>Downloads</h6>
+                </Link>
                 <Link to="/privacy" className="no-decoration">
                     <h6>Privacy</h6>
                 </Link>
