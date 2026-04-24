@@ -13,6 +13,14 @@ function ImprintPage() {
                 <p>Amtsgericht: Cottbus</p>
                 <p>Handelsregister: HRB 16886 CB</p>
                 <br />
+                <p>Merz Verlag GmbH & Co. KG</p>
+                <p>Huyssenallee 105</p>
+                <p>45128 Essen</p>
+                <br />
+                <p>Hana Sports & Entertainment GmbH</p>
+                <p>Speichergracht 10</p>
+                <p>47051 Duisburg</p>
+                <br />
                 <p>Represented by</p>
                 <p>Norman Wilde (norman@csl.tv),</p>
                 <p>Ali Fawaz (ali@csl.tv)</p>
