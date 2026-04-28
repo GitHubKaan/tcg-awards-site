@@ -30,12 +30,6 @@ function HomePage() {
         <div id="home-page" className="default-page">
             <img className="top-logo mt-5 no-select" src={Logo} alt="logo" width={400} />
 
-            <div className="flex gap column center items-center">
-                <VoteButtonComponent title={`Nominate for community awards`} onClick={() => window.open("https://wkf.ms/4uiu77u", "_blank")} />
-                {/* <VoteButtonComponent title={`Register your\nBrand Case`} white /> */}
-                <a className="brand-case-text" href="https://wkf.ms/4tlCKOu" target="_blank">Register your Brand Case</a>
-            </div>
-
             <div className="flex gap-3 wrap center">
                 <h4 className="header-nav no-select"
                     onClick={() => {
@@ -150,6 +144,12 @@ function HomePage() {
             <div className="w-100 flex column gap-3">
                 <div className="w-100 flex center">
                     <h1>TCG Awards</h1>
+                </div>
+                
+                <div className="flex gap column center items-center">
+                    <VoteButtonComponent title={`Nominate for community awards`} onClick={() => window.open("https://wkf.ms/4uiu77u", "_blank")} />
+                    {/* <VoteButtonComponent title={`Register your\nBrand Case`} white /> */}
+                    <a className="brand-case-text" href="https://wkf.ms/4tlCKOu" target="_blank">Register your Brand Case</a>
                 </div>
 
                 <AwardsLineComponent title="product excellence" subtitle="voted by community" />
