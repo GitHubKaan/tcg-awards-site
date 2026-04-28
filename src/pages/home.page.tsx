@@ -14,6 +14,7 @@ import NewsletterComponent from "../components/newsletter.component";
 import SponsorsComponent from "../components/sponsors.component";
 import AwardsLineComponent from "../components/awardsLine.component";
 import { useNavigate } from "react-router-dom";
+import VoteButtonComponent from "../components/voteButton.component";
 
 function HomePage() {
     const navigate = useNavigate();
@@ -28,6 +29,12 @@ function HomePage() {
     return (
         <div id="home-page" className="default-page">
             <img className="top-logo mt-5 no-select" src={Logo} alt="logo" width={400} />
+
+            <div className="flex gap column center items-center">
+                <VoteButtonComponent title={`Nominate for community awards`} onClick={() => window.open("https://wkf.ms/4uiu77u", "_blank")} />
+                {/* <VoteButtonComponent title={`Register your\nBrand Case`} white /> */}
+                <a className="brand-case-text" href="https://wkf.ms/4tlCKOu" target="_blank">Register your Brand Case</a>
+            </div>
 
             <div className="flex gap-3 wrap center">
                 <h4 className="header-nav no-select"

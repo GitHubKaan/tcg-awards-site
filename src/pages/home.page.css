@@ -124,3 +124,9 @@
         margin-top: var(--size-s);
     }
 }
+
+#home-page .brand-case-text {
+    text-decoration: underline;
+    cursor: pointer;
+    color: white;
+}

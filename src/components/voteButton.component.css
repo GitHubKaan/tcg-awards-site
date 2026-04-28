@@ -1,0 +1,123 @@
+.vote-button-component {
+    position: relative;
+    padding: var(--size-m);
+    width: 250px;
+    max-width: calc(100vw - var(--size-m) * 4);
+    border-radius: var(--size-m);
+    border: none;
+    z-index: 0;
+    animation:  rgb-spin 5.5s linear infinite,
+                rgb-shadow 7s linear infinite;
+    cursor: pointer;
+    transition: all ease-in-out 0.05s;
+
+}
+
+.vote-button-component:hover {
+    transform: scale(0.95);
+}
+
+.vote-button-component:active {
+    opacity: 0.7;
+}
+
+.vote-button-component::before {
+    content: "";
+    position: absolute;
+    inset: -3px;
+    border-radius: calc(var(--size-m) + 3px);
+    background: conic-gradient(from var(--angle, 0deg),
+            rgb(232, 186, 128), rgb(218, 142, 66), rgb(253, 226, 207), rgb(156, 113, 65),
+            rgb(232, 186, 128), rgb(218, 142, 66), rgb(253, 226, 207), rgb(156, 113, 65), rgb(232, 186, 128));
+    z-index: -1;
+    animation: rgb-spin 5.5s linear infinite;
+}
+
+.vote-button-component::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: var(--size-m);
+    z-index: -1;
+    animation: bg-fade 5s ease-in-out infinite;
+}
+
+@keyframes bg-fade {
+    0%   { background-color: rgb(40, 26, 10); }
+    33%  { background-color: rgb(108, 80, 21); }
+    66%  { background-color: rgb(83, 52, 12); }
+    100% { background-color: rgb(40, 26, 10); }
+}
+
+@property --angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+@keyframes rgb-spin {
+    to {
+        --angle: 360deg;
+    }
+}
+
+.vote-button-component p {
+    text-transform: uppercase;
+    position: relative;
+    z-index: 1;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 20px;
+    color: rgba(255, 255, 255, 0.9);
+    text-align: center;
+}
+
+
+@keyframes rgb-shadow {
+    0%   { box-shadow: 0 0 18px 5px rgba(232, 185, 128, 0.3); }
+    25%  { box-shadow: 0 0 18px 5px rgb(218, 142, 66, 0.3); }
+    50%  { box-shadow: 0 0 18px 5px rgb(253, 226, 207, 0.3); }
+    75%  { box-shadow: 0 0 18px 5px rgb(156, 113, 65, 0.3); }
+    100% { box-shadow: 0 0 18px 5px rgb(232, 186, 128, 0.3); }
+}
+
+.vote-button-component .shine {
+    position: absolute;
+    inset: 0;
+    border-radius: var(--size-m);
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.vote-button-component .shine::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(
+        105deg,
+        transparent 20%,
+        rgba(255, 255, 255, 0.05) 50%,
+        transparent 80%
+    );
+    filter: blur(4px);
+    transform: skewX(-15deg);
+    animation: shine-sweep 3s ease-in-out infinite;
+}
+
+@keyframes shine-sweep {
+    0%   { left: -100%; }
+    60%  { left: 130%; }
+    100% { left: 130%; }
+}
+
+.vote-button-component.white::after {
+    background-color: rgb(213, 188, 158);
+}
+
+.vote-button-component.white p {
+    color: rgb(128, 94, 56);
+    font-weight: 600;
+}
