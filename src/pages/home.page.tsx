@@ -145,14 +145,12 @@ function HomePage() {
                 <div className="w-100 flex center">
                     <h1>TCG Awards</h1>
                 </div>
-                
-                <div className="flex gap column center items-center">
-                    <VoteButtonComponent title={`Nominate for community awards`} onClick={() => window.open("https://wkf.ms/4uiu77u", "_blank")} />
-                    {/* <VoteButtonComponent title={`Register your\nBrand Case`} white /> */}
-                    <a className="brand-case-text" href="https://wkf.ms/4tlCKOu" target="_blank">Register your Brand Case</a>
-                </div>
 
                 <AwardsLineComponent title="product excellence" subtitle="voted by community" />
+                
+                <div className="flex gap column center items-center">
+                    <VoteButtonComponent title={`Nominate now`} onClick={() => window.open("https://wkf.ms/4uiu77u", "_blank")} />
+                </div>
 
                 <div className="grid-icons">
                     <FrameComponent
@@ -205,6 +203,10 @@ function HomePage() {
 
                 <AwardsLineComponent title="Community and Creator" subtitle="voted by community" />
                 
+                <div className="flex gap column center items-center">
+                    <VoteButtonComponent title={`Nominate now`} onClick={() => window.open("https://wkf.ms/4uiu77u", "_blank")} />
+                </div>
+
                 <div className="grid-icons quad">
                     <FrameComponent
                         image={Logo2}
@@ -237,6 +239,10 @@ function HomePage() {
                 </div>
 
                 <AwardsLineComponent title="Industry and Business Excellence" subtitle="voted by jury" />
+                
+                <div className="flex gap column center items-center">
+                    <VoteButtonComponent title={`Register your Brand Case`} onClick={() => window.open("https://wkf.ms/4tlCKOu", "_blank")} />
+                </div>
 
                 <div className="grid-icons tripple">
                     <FrameComponent
