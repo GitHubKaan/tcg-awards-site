@@ -218,7 +218,7 @@ function HomePage() {
                     <FrameComponent
                         image={Logo2}
                         title={{
-                            top: "local\ngame",
+                            top: "local\ngame store",
                             bottom: "of the year"
                         }}
                     />
