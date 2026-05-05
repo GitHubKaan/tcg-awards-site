@@ -1,3 +1,4 @@
+/* ── Page layout ── */
 #downloads-page {
     display: flex;
     flex-direction: column;
@@ -8,21 +9,109 @@
     text-align: justify;
 }
 
-@media only screen and (max-width: 961px) {
-    #downloads-page {
-        margin-top: var(--size-xxl);
-    }
-}
-
+/* ── Download button ── */
 #downloads-page .download-button {
     display: flex;
     gap: var(--size-m);
     align-items: center;
     justify-content: space-between;
-    width: calc(100% - var(--size-s) * 2);
+    width: 100%;
     border-radius: var(--size-s);
     background-color: rgba(255, 255, 255, 0.15);
     padding: var(--size-s);
     cursor: pointer;
     outline: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+/* ── Preview wrapper (positions arrows) ── */
+#downloads-page .preview-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+/* ── Scroll arrows ── */
+#downloads-page .scroll-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    outline: 1px solid rgba(255, 255, 255, 0.4);
+    color: #fff;
+    font-size: 28px;
+    line-height: 1;
+
+    /* hidden by default */
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease, background-color 0.15s ease;
+}
+
+#downloads-page .scroll-arrow.visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+#downloads-page .scroll-arrow:hover {
+    background-color: rgba(255, 255, 255, 0.35);
+}
+
+#downloads-page .scroll-arrow--left  { left:  8px; }
+#downloads-page .scroll-arrow--right { right: 8px; }
+
+/* ── Scrollable image track ── */
+#downloads-page .preview {
+    display: flex;
+    gap: var(--size-m);
+    align-items: center;
+
+    width: 100%;
+    border-radius: var(--size-s);
+    background-color: rgba(255, 255, 255, 0.15);
+    padding: var(--size-s);
+    outline: 1px solid rgba(255, 255, 255, 0.5);
+    box-sizing: border-box;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    cursor: grab;
+
+    /* hide native scrollbar */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+#downloads-page .preview::-webkit-scrollbar {
+    display: none;
+}
+
+#downloads-page .preview.dragging {
+    cursor: grabbing;
+    scroll-behavior: auto; /* disable smooth scroll while dragging */
+    user-select: none;
+}
+
+/* ── Images: fixed height, auto width ── */
+#downloads-page .preview img {
+    height: 200px;
+    width: auto;
+    flex-shrink: 0;
+    border-radius: calc(var(--size-s) / 2);
+    display: block;
+    pointer-events: none; /* prevents drag-ghost on Firefox */
 }
