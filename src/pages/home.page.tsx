@@ -240,8 +240,14 @@ function HomePage() {
 
                 <AwardsLineComponent title="Industry and Business Excellence" subtitle="voted by jury" />
                 
-                <div className="flex gap column center items-center">
-                    <VoteButtonComponent title={`Register your Brand Case`} onClick={() => window.open("https://wkf.ms/4tlCKOu", "_blank")} />
+                <div className="flex column gap-1">
+                    <div className="flex gap column center items-center">
+                        <VoteButtonComponent title={`Register your Brand Case`} onClick={() => window.open("https://wkf.ms/4tlCKOu", "_blank")} />
+                    </div>
+                    
+                    <div className="w-100 flex center items-center">
+                        <p>Submission deadline: June 30, 2026</p>
+                    </div>
                 </div>
 
                 <div className="grid-icons tripple">
