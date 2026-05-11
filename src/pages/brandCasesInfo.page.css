@@ -1,0 +1,26 @@
+#brand-cases-info-page {
+    display: flex;
+    flex-direction: column;
+    gap: var(--size-l);
+}
+
+#brand-cases-info-page .vote-button-component p {
+    text-align: center;
+}
+
+#brand-cases-info-page p {
+    text-align: justify;
+}
+
+@media only screen and (max-width: 961px) {
+    #brand-cases-info-page {
+        margin-top: var(--size-xxl);
+    }
+}
+
+#brand-cases-info-page .line {
+    width: 100%;
+    height: 2px;
+    background-color: rgb(255, 255, 255);
+    margin: var(--size-xl) 0;
+}

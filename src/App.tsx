@@ -18,6 +18,7 @@ import "./styles/colors.style.css";
 
 // Default overwrites
 import "./styles/mobile.style.css";
+import BrandCasesInfoPage from "./pages/brandCasesInfo.page";
 
 function App() {
     return (
@@ -36,6 +37,7 @@ function App() {
                     <Route path={`/privacy`} element={Layout({ page: <PrivacyPage />, header: false, footer: true, background: {} })} />
                     <Route path={`/downloads`} element={Layout({ page: <DownloadsPage />, header: false, footer: true, background: {} })} />
                     <Route path={`/downloads-tos`} element={Layout({ page: <DownloadsTosPage />, header: false, footer: true, background: {} })} />
+                    <Route path={`/brand-cases-info`} element={Layout({ page: <BrandCasesInfoPage />, header: false, footer: true, background: {} })} />
                     
                     {/* Error pages */}
                     <Route path={`*`} element={Layout({ page: <ErrorInfo />, header: false, footer: true, background: {} })} /> {/* 404 Page not found */}

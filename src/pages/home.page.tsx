@@ -242,7 +242,7 @@ function HomePage() {
                 
                 <div className="flex column gap-1">
                     <div className="flex gap column center items-center">
-                        <VoteButtonComponent title={`Register your Brand Case`} onClick={() => window.open("https://wkf.ms/4tlCKOu", "_blank")} />
+                        <VoteButtonComponent title={`Register your Brand Case`} onClick={() => navigate("/brand-cases-info")} />
                     </div>
                     
                     <div className="w-100 flex center items-center">
