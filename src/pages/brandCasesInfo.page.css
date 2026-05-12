@@ -1,26 +1,356 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500&display=swap');
+
 #brand-cases-info-page {
     display: flex;
     flex-direction: column;
-    gap: var(--size-l);
+    gap: 0;
+    font-family: 'DM Sans', sans-serif;
+    margin: 0 !important;
+    margin-bottom: var(--size-m) !important;
+}
+
+/* ── Hero Header ── */
+#brand-cases-info-page .bci-hero {
+    position: relative;
+    padding: var(--size-l) 0;
+    overflow: hidden;
+}
+
+#brand-cases-info-page .bci-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(212, 175, 55, 0.12) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+#brand-cases-info-page .bci-hero::after {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -55%);
+    font-size: clamp(5rem, 15vw, 12rem);
+    font-weight: 900;
+    color: rgba(255, 255, 255, 0.025);
+    white-space: nowrap;
+    pointer-events: none;
+    letter-spacing: 0.05em;
+    z-index: 0;
+}
+
+#brand-cases-info-page .bci-hero h1 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    position: relative;
+    z-index: 1;
+    margin-bottom: 1.25rem;
+}
+
+#brand-cases-info-page .bci-hero h1 span {
+    color: #d4af37;
+}
+
+#brand-cases-info-page .bci-hero > p {
+    font-size: 1.05rem;
+    font-weight: 300;
+    line-height: 1.75;
+    opacity: 0.75;
+    max-width: 640px;
+    position: relative;
+    z-index: 1;
+    text-align: left;
+}
+
+/* ── CTA Strip ── */
+#brand-cases-info-page .bci-cta-strip {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1.5rem 2rem;
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(212, 175, 55, 0.04));
+    border: 1px solid rgba(212, 175, 55, 0.25);
+    border-radius: 12px;
+    margin-bottom: var(--size-l);
+    position: relative;
+    overflow: hidden;
+}
+
+#brand-cases-info-page .bci-cta-strip::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: linear-gradient(180deg, #d4af37, #a0782a);
+    border-radius: 3px 0 0 3px;
+}
+
+#brand-cases-info-page .bci-cta-strip p {
+    font-size: 0.9rem;
+    opacity: 0.7;
+    flex: 1;
+    text-align: left;
+    line-height: 1.5;
 }
 
 #brand-cases-info-page .vote-button-component p {
     text-align: center;
 }
 
+/* ── Category Cards ── */
+#brand-cases-info-page .bci-category {
+    position: relative;
+    padding: 2.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 16px;
+    margin-bottom: var(--size-l);
+    background: linear-gradient(160deg, rgba(255, 255, 255, 0.03) 0%, transparent 60%);
+    transition: border-color 0.3s ease, background 0.3s ease;
+    overflow: hidden;
+}
+
+#brand-cases-info-page .bci-category::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.5), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+#brand-cases-info-page .bci-category:hover {
+    border-color: rgba(212, 175, 55, 0.2);
+    background: linear-gradient(160deg, rgba(212, 175, 55, 0.04) 0%, transparent 60%);
+}
+
+#brand-cases-info-page .bci-category:hover::before {
+    opacity: 1;
+}
+
+/* Category badge */
+#brand-cases-info-page .bci-category-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.3rem 0.8rem;
+    background: rgba(212, 175, 55, 0.12);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    border-radius: 999px;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #d4af37;
+    margin-bottom: 1rem;
+}
+
+#brand-cases-info-page .bci-category-badge::before {
+    content: '●';
+    font-size: 0.5rem;
+    animation: pulse-dot 2s ease-in-out infinite;
+}
+
+@keyframes pulse-dot {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+}
+
+/* Category large number */
+#brand-cases-info-page .bci-category-num {
+    position: absolute;
+    top: 1.5rem;
+    right: 2rem;
+    font-size: 5rem;
+    font-weight: 900;
+    color: rgba(255, 255, 255, 0.4);
+    line-height: 1;
+    pointer-events: none;
+    transition: color 0.3s ease;
+}
+
+
+#brand-cases-info-page .bci-category h2 {
+    font-size: clamp(1.4rem, 3vw, 1.9rem);
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    margin-bottom: 0.75rem;
+    line-height: 1.2;
+}
+
+#brand-cases-info-page .bci-category > p {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    opacity: 0.65;
+    font-weight: 300;
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    text-align: left;
+}
+
+/* ── Criteria Steps ── */
+#brand-cases-info-page .bci-criteria {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+#brand-cases-info-page .bci-step {
+    display: grid;
+    grid-template-columns: 2rem 1fr;
+    gap: 0 1.25rem;
+    position: relative;
+    padding-bottom: 1.5rem;
+}
+
+#brand-cases-info-page .bci-step:last-child {
+    padding-bottom: 0;
+}
+
+/* vertical connector line */
+#brand-cases-info-page .bci-step-line {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+}
+
+#brand-cases-info-page .bci-step-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #d4af37;
+    border: 2px solid rgba(212, 175, 55, 0.3);
+    flex-shrink: 0;
+    margin-top: 0.35rem;
+    box-shadow: 0 0 8px rgba(212, 175, 55, 0.4);
+    transition: box-shadow 0.3s ease;
+}
+
+#brand-cases-info-page .bci-step:hover .bci-step-dot {
+    box-shadow: 0 0 14px rgba(212, 175, 55, 0.7);
+}
+
+#brand-cases-info-page .bci-step-connector {
+    flex: 1;
+    width: 1px;
+    background: linear-gradient(180deg, rgba(212, 175, 55, 0.3), rgba(212, 175, 55, 0.05));
+    margin-top: 4px;
+}
+
+#brand-cases-info-page .bci-step:last-child .bci-step-connector {
+    display: none;
+}
+
+#brand-cases-info-page .bci-step-content {
+    padding-top: 0;
+}
+
+#brand-cases-info-page .bci-step-content h3 {
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #d4af37;
+    margin-bottom: 0.4rem;
+}
+
+#brand-cases-info-page .bci-step-content p {
+    font-size: 0.9rem;
+    line-height: 1.7;
+    opacity: 0.65;
+    font-weight: 300;
+    text-align: left;
+}
+
+/* ── Evaluation Section ── */
+#brand-cases-info-page .bci-evaluation {
+    position: relative;
+    padding: 2.5rem;
+    border-radius: 16px;
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.06) 0%, rgba(212, 175, 55, 0.02) 50%, transparent 100%);
+    border: 1px solid rgba(212, 175, 55, 0.15);
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+#brand-cases-info-page .bci-evaluation h2 {
+    font-size: clamp(1.3rem, 3vw, 1.7rem);
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+#brand-cases-info-page .bci-evaluation p {
+    font-size: 0.93rem;
+    line-height: 1.8;
+    opacity: 0.7;
+    font-weight: 300;
+    text-align: left;
+}
+
+/* ── Contact Footer ── */
+#brand-cases-info-page .bci-contact {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1.25rem 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.07);
+    margin-top: 1rem;
+}
+
+#brand-cases-info-page .bci-contact span {
+    font-size: 0.85rem;
+    opacity: 0.5;
+    font-weight: 300;
+}
+
+#brand-cases-info-page .bci-contact a {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #d4af37;
+    text-decoration: none;
+    letter-spacing: 0.02em;
+    transition: opacity 0.2s;
+}
+
+#brand-cases-info-page .bci-contact a:hover {
+    opacity: 0.75;
+}
+
+/* ── General ── */
 #brand-cases-info-page p {
     text-align: justify;
 }
 
+/* ── Mobile ── */
 @media only screen and (max-width: 961px) {
     #brand-cases-info-page {
         margin-top: var(--size-xxl);
     }
-}
 
-#brand-cases-info-page .line {
-    width: 100%;
-    height: 2px;
-    background-color: rgb(255, 255, 255);
-    margin: var(--size-xl) 0;
+    #brand-cases-info-page .bci-hero::after {
+        display: none;
+    }
+
+    #brand-cases-info-page .bci-category {
+        padding: 1.5rem;
+    }
+
+    #brand-cases-info-page .bci-cta-strip {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1.25rem 1.5rem;
+    }
+
+    #brand-cases-info-page .bci-evaluation {
+        padding: 1.5rem;
+    }
+
+    #brand-cases-info-page .bci-category-num {
+        font-size: 3.5rem;
+    }
 }
