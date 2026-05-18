@@ -301,7 +301,7 @@ function HomePage() {
                         className="last-frame-element-mobile"
                         image={Logo2}
                         title={{
-                            top: "service\nprovider",
+                            top: "player",
                             bottom: "of the year"
                         }}
                     />
