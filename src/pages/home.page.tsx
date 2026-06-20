@@ -246,7 +246,7 @@ function HomePage() {
                     </div>
                     
                     <div className="w-100 flex center items-center">
-                        <p>Submission deadline: June 30, 2026</p>
+                        <p>Submission deadline: June 19, 2026</p>
                     </div>
                 </div>
 
