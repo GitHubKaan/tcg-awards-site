@@ -65,6 +65,10 @@ function HomePage() {
                     }}>newsletter</h4>
                 <h4 className="header-nav no-select"
                     onClick={() => {
+                        navigate("/jury");
+                    }}>jury</h4>
+                <h4 className="header-nav no-select"
+                    onClick={() => {
                         navigate("/downloads");
                     }}>downloads</h4>
             </div>
