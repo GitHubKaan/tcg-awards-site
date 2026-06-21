@@ -45,8 +45,7 @@ function JuryPage() {
                     <h1>The Jury</h1>
                     <div className="jury-line" />
                     <p>
-                        An independent expert jury with professional industry experience evaluates the
-                        TCG Awards, ensuring that both passion and professional perspective shape the outcome.
+                        Evaluates the Business Cases of the TCG Awards.
                     </p>
                 </div>
 
