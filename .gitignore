@@ -1,5 +1,23 @@
+# dependencies
 node_modules
+frontend/node_modules
+backend/node_modules
 
-.DS_Store
-
+# builds
 build
+frontend/build
+backend/dist
+
+# backend runtime data
+backend/data/*.db
+backend/data/*.db-*
+backend/uploads/*
+!backend/uploads/.gitkeep
+
+# env
+backend/.env
+frontend/.env
+frontend/.env.local
+
+# misc
+.DS_Store

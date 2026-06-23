@@ -2,6 +2,7 @@ import "./header.component.css"
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import Logo from "../assets/logo.png";
+import { useContent } from "../content/content.context";
 
 /**
  * Important: Change mobile screen ratio settings on added options (only one number inside header.component.css)
@@ -16,12 +17,8 @@ function HeaderComponent(
     }>
 ) {
     const { topDistance, className, children, ...overflowProps } = props;
-
-    const routes = [
-        { title: "First", path: "/" },
-        { title: "Second", path: "/" },
-        { title: "Third", path: "/" },
-    ];
+    const { header } = useContent();
+    const routes = header.routes;
 
     const [mobileSelectionVisible, setMobileSelectionVisible] = useState(false);
 
@@ -45,7 +42,7 @@ function HeaderComponent(
                         <p className="no-decoration mobile-header">Home</p>
                     </Link>
 
-                    {routes?.map((route: { title: string, path: string }, i: number) => (
+                    {routes?.map((route, i) => (
                         <Link className="no-decoration" key={i} to={route.path} onClick={() => setMobileSelectionVisible(false)}>
                             <p className="mobile-header no-decoration">{route.title}</p>
                         </Link>
@@ -54,13 +51,13 @@ function HeaderComponent(
             </div>
 
             {/* --- DESKTOP --- */}
-            <div className="header-body">   
+            <div className="header-body">
                 <Link className="option" to="/">
-                    <p className="header-title">TCG AWARDS</p>
+                    <p className="header-title">{header.brand}</p>
                 </Link>
 
                 <div className="flex gap">
-                    {routes?.map((route: { title: string, path: string }, i: number) => (
+                    {routes?.map((route, i) => (
                         <Link key={i} className="option" to={route.path}>
                             <h6 className="header-nav">{route.title.toUpperCase()}</h6>
                             <div className="option-bottom-line" />

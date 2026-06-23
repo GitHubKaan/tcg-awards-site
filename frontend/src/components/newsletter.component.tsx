@@ -1,4 +1,5 @@
 import "./newsletter.component.css";
+import { useContent } from "../content/content.context";
 
 /**
  * @param className Further class names
@@ -12,8 +13,9 @@ function NewsletterComponent(
     }>
 ) {
     const { className, ...overflowProps } = props;
+    const { newsletter } = useContent();
 
-    const FORM_ACTION = "https://seu2.cleverreach.com/f/394092-424155/wcs/";
+    const FORM_ACTION = newsletter.formAction;
 
     async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault();
@@ -140,13 +142,13 @@ function NewsletterComponent(
                 <div className="cr_body cr_page cr_font formbox">
                     <div className="editable_content">
 
-                        <h2 className="mb-1">Newsletter</h2>
+                        <h2 className="mb-1">{newsletter.heading}</h2>
 
                         {/* First Name */}
                         <div className="cr_form-component cr_ipe_item musthave">
                             <div className="cr_form-inputgroup">
                                 <label htmlFor="cr_input_firstname" className="itemname">
-                                    <p>First Name*</p>
+                                    <p>{newsletter.firstNameLabel}</p>
                                 </label>
                                 <input
                                     id="cr_input_firstname"
@@ -162,7 +164,7 @@ function NewsletterComponent(
                         <div className="cr_form-component cr_ipe_item musthave">
                             <div className="cr_form-inputgroup">
                                 <label htmlFor="cr_input_lastname" className="itemname">
-                                    <p>Last Name*</p>
+                                    <p>{newsletter.lastNameLabel}</p>
                                 </label>
                                 <input
                                     id="cr_input_lastname"
@@ -178,7 +180,7 @@ function NewsletterComponent(
                         <div className="cr_form-component cr_ipe_item">
                             <div className="cr_form-inputgroup">
                                 <label htmlFor="cr_input_media" className="itemname">
-                                    <p>Media / Corporate Name</p>
+                                    <p>{newsletter.mediaLabel}</p>
                                 </label>
                                 <input
                                     id="cr_input_media"
@@ -194,7 +196,7 @@ function NewsletterComponent(
                         <div className="cr_form-component cr_ipe_item">
                             <div className="cr_form-inputgroup">
                                 <label htmlFor="cr_input_link" className="itemname">
-                                    <p>Link to Media / Channel / Website</p>
+                                    <p>{newsletter.linkLabel}</p>
                                 </label>
                                 <input
                                     id="cr_input_link"
@@ -210,7 +212,7 @@ function NewsletterComponent(
                         <div className="cr_form-component cr_ipe_item">
                             <div className="cr_form-inputgroup">
                                 <label htmlFor="cr_input_country" className="itemname">
-                                    <p>Country</p>
+                                    <p>{newsletter.countryLabel}</p>
                                 </label>
                                 <input
                                     id="cr_input_country"
@@ -226,7 +228,7 @@ function NewsletterComponent(
                         <div className="cr_form-component cr_ipe_item musthave">
                             <div className="cr_form-inputgroup">
                                 <label htmlFor="cr_input_email" className="itemname">
-                                    <p>Email*</p>
+                                    <p>{newsletter.emailLabel}</p>
                                 </label>
                                 <input
                                     id="cr_input_email"
@@ -241,25 +243,14 @@ function NewsletterComponent(
                         {/* Privacy notice */}
                         <div className="cr_ipe_item mt-1">
                             <div className="mce_text">
-                                <p>
-                                    With this you agree to storage and usage of your personal data
-                                    in accordance with our{" "}
-                                    <a
-                                        href="https://spiel-essen.de/en/privacy"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                    >
-                                        privacy policy
-                                    </a>
-                                    .
-                                </p>
+                                <p dangerouslySetInnerHTML={{ __html: newsletter.privacyNoticeHtml }} />
                             </div>
                         </div>
 
                         {/* Submit */}
                         <div className="cr_form-component cr_ipe_item submit_container mt-1">
                             <button type="submit" className="cr_button">
-                                <h3>Subscribe</h3>
+                                <h3>{newsletter.submitLabel}</h3>
                             </button>
                         </div>
 

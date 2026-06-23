@@ -1,20 +1,48 @@
-<img src="src/assets/logo_text.png" width="200px"/><br>
+<img src="frontend/src/assets/logo_text.png" width="200px"/><br>
 
 # TCG AWARDS SITE
-Made by <a href="www.turanics.com">Turanics</a><br>
-GitHub Pages: https://githubkaan.github.io/tcg-awards-site/
 
-## How it works:
-1. Copy the values from _.env.example_ into _.env.dev_ and _.env.prod_, and adjust them to match your development and production environments.
-2. Run `npm i` to install all dependencies.
-3. Run `npm audit fix` to fix all dependencie issues (if there are any).
-4. Run `npm run dev` to start the application in development mode. This will use the _.env.dev_ configuration.
-5. Run `npm run build` to create a production build of the frontend. This process uses the _.env.prod_ configuration.
-6. After the build is complete, you can find the final frontend files in the _/build_ directory.
-7. Done.
+Made by <a href="www.turanics.com">Turanics</a>
 
-> [!NOTE]  
-> Some dependencies cannot be fixed automatically with `npm audit fix`. In that case, please review the audit log for more details and recommended next steps.
+This repository is split into two parts:
 
-## Pages:
-All paths can be found inside the _App.tsx_ file.
+| Folder      | What it is                                                                 |
+| ----------- | -------------------------------------------------------------------------- |
+| `frontend/` | The public marketing site (Create React App) **and** the `/admin` CMS UI.  |
+| `backend/`  | Express.js API: password login, content store (SQLite) and a CDN for media. |
+
+The entire frontend content is editable through `/admin`, which talks to the backend
+API. Uploaded images/files are served from the backend's `/cdn` endpoint.
+
+## Quick start (local)
+
+### 1. Backend
+
+```bash
+cd backend
+cp .env.example .env      # then set ADMIN_PASSWORD and JWT_SECRET
+npm install
+npm run dev               # http://localhost:4000
+```
+
+### 2. Frontend
+
+```bash
+cd frontend
+cp .env.example .env      # REACT_APP_API_URL defaults to http://localhost:4000
+npm install
+npm run dev               # http://localhost:3000
+```
+
+Open `http://localhost:3000` for the site and `http://localhost:3000/admin` for the CMS
+(log in with the `ADMIN_PASSWORD` you set in `backend/.env`).
+
+## How the content works
+
+- The backend seeds its SQLite database with the site's default content on first run.
+- The frontend fetches all content from `GET /api/content` and falls back to baked-in
+  defaults if the backend is unreachable, so the site never renders empty.
+- Editing content in `/admin` issues authenticated `PUT /api/content/:key` requests and
+  uploads images via `POST /api/media`; saved changes persist in SQLite.
+
+See `backend/README.md` and `frontend/README.md` for details.

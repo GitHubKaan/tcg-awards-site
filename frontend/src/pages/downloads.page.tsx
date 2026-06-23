@@ -1,29 +1,15 @@
 import { useRef, useState, useEffect, useCallback } from "react";
 import "./downloads.page.css";
 import DownloadIcon from "../assets/download_icon.png";
-import PreviewImage1 from "../assets/download_preview/TCG_Awards_SM_Votes_V_1920x1080.jpg";
-import PreviewImage3 from "../assets/download_preview/TCG_Awards_SM_Votes_V1_1080x1350.jpg";
-import PreviewImage2 from "../assets/download_preview/TCG_Awards_SM_Votes_V1_1080x1080.jpg";
-import PreviewImage4 from "../assets/download_preview/TCG_Awards_SM_Votes_V1_1080x1920.jpg";
-import PreviewImage5 from "../assets/download_preview/TCG_Awards_SM_Votes_V1_1920x1080.jpg";
-import PreviewImage6 from "../assets/download_preview/TCG_Awards_SM_Votes_V2_1080x1080.jpg";
-import PreviewImage7 from "../assets/download_preview/TCG_Awards_SM_Votes_V2_1080x1350.jpg";
-import PreviewImage8 from "../assets/download_preview/TCG_Awards_SM_Votes_V2_1080x1920.jpg";
-
-const IMAGES = [
-    PreviewImage1,
-    PreviewImage2,
-    PreviewImage3,
-    PreviewImage4,
-    PreviewImage5,
-    PreviewImage6,
-    PreviewImage7,
-    PreviewImage8,
-];
+import { useContent } from "../content/content.context";
+import { cdnUrl } from "../content/assets";
 
 const SCROLL_STEP = 320;
 
 function DownloadsPage() {
+    const { downloads } = useContent();
+    const images = downloads.previews.map((p) => cdnUrl(p));
+
     const scrollRef = useRef<HTMLDivElement>(null);
     const [canScrollLeft, setCanScrollLeft] = useState(false);
     const [canScrollRight, setCanScrollRight] = useState(true);
@@ -90,18 +76,19 @@ function DownloadsPage() {
     };
 
     const handleMediaPackDownload = () => {
+        const url = cdnUrl(downloads.zipUrl);
         const link = document.createElement("a");
-        link.href = "/downloads/TCG_Awards_SM_Votes_V1.zip";
-        link.download = "TCG_Awards_SM_Votes_V1.zip";
+        link.href = url;
+        link.download = url.split("/").pop() ?? "download.zip";
         link.click();
     };
 
     return (
         <div id="downloads-page" className="default-page">
             <div className="w-100 flex column gap">
-                <h1>Downloads</h1>
+                <h1>{downloads.title}</h1>
 
-                <h3>Media Category</h3>
+                <h3>{downloads.mediaCategoryTitle}</h3>
 
                 <div className="flex column gap-1">
                     <div className="preview-wrapper no-select">
@@ -123,7 +110,7 @@ function DownloadsPage() {
                             onMouseUp={onMouseUp}
                             onMouseLeave={onMouseLeave}
                         >
-                            {IMAGES.map((src, i) => (
+                            {images.map((src, i) => (
                                 <img
                                     key={i}
                                     src={src}
@@ -144,11 +131,11 @@ function DownloadsPage() {
                     </div>
 
                     <button className="download-button" onClick={handleMediaPackDownload}>
-                        <h5 className="text-left">Download Vote-Me Media Kit</h5>
+                        <h5 className="text-left">{downloads.downloadButtonLabel}</h5>
                         <img src={DownloadIcon} alt="download icon" width={20} height={20} />
                     </button>
 
-                    <p>Use this kit for your social channels. Free of usage. Please use for promotional purposes only.</p>
+                    <p>{downloads.note}</p>
                 </div>
             </div>
         </div>

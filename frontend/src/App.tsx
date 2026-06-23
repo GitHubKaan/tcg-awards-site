@@ -20,10 +20,12 @@ import "./styles/colors.style.css";
 import "./styles/mobile.style.css";
 import BrandCasesInfoPage from "./pages/brandCasesInfo.page";
 import JuryPage from "./pages/jury.page";
+import { ContentProvider } from "./content/content.context";
+import AdminApp from "./admin/AdminApp";
 
 function App() {
     return (
-        <>
+        <ContentProvider>
             <header>
                 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" /> {/* Stop iPhone auto-zoom in on input/textfields on select */}
             </header>
@@ -32,6 +34,9 @@ function App() {
                 <ScrollToTopOnReload />
 
                 <Routes>
+                    {/* Admin CMS (outside the marketing Layout) */}
+                    <Route path={`/admin/*`} element={<AdminApp />} />
+
                     {/* General */}
                     <Route path={``} element={Layout({ page: <HomePage />, header: false, footer: true, background: {} })} />
                     <Route path={`/imprint`} element={Layout({ page: <ImprintPage />, header: false, footer: true, background: {} })} />
@@ -46,7 +51,7 @@ function App() {
                     <Route path={`/error`} element={Layout({ page: <ErrorInfo />, header: false, footer: true, background: {} })} />
                 </Routes>
             </BrowserRouter>
-        </>
+        </ContentProvider>
     );
 }
 

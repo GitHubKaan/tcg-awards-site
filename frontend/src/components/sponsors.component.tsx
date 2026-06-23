@@ -1,5 +1,6 @@
 import "./sponsors.component.css";
-import EbayLiveLogo from "../assets/sponsors/ebay_live.png";
+import { useContent } from "../content/content.context";
+import { cdnUrl } from "../content/assets";
 
 /**
  * @param className Further class names
@@ -14,15 +15,18 @@ function SponsorsComponent(
     }>
 ) {
     const { className, ...overflowProps } = props;
+    const { sponsors } = useContent();
 
     return <div className={`sponsors-component no-select ${className ?? ""}`} {...overflowProps}>
         <div className="content">
-            <h1>Presented by</h1>
-            
+            <h1>{sponsors.heading}</h1>
+
             <div className="line" />
 
             <div className="flex wrap gap-4 items-center center">
-                <img src={EbayLiveLogo} alt="ebay live logo" width={400} />
+                {sponsors.logos.map((logo, i) => (
+                    <img key={i} src={cdnUrl(logo.image)} alt={logo.alt} width={logo.width} />
+                ))}
             </div>
         </div>
         {/* <div className="background" /> */}
