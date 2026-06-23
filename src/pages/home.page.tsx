@@ -63,10 +63,12 @@ function HomePage() {
                             window.scrollTo({ top, behavior: "smooth" });
                         }
                     }}>newsletter</h4>
+                {/**
                 <h4 className="header-nav no-select"
                     onClick={() => {
                         navigate("/jury");
                     }}>jury</h4>
+                 */}
                 <h4 className="header-nav no-select"
                     onClick={() => {
                         navigate("/downloads");
@@ -152,9 +154,14 @@ function HomePage() {
 
                 <AwardsLineComponent title="product excellence" subtitle="voted by community" />
                 
-                <div className="flex gap column center items-center">
-                    <VoteButtonComponent title={`Nominate now`} onClick={() => window.open("https://wkf.ms/4uiu77u", "_blank")} />
-                </div>
+
+                <div className="flex column gap-1">
+                        <VoteButtonComponent title={`Nominate now`} onClick={() => window.open("https://wkf.ms/4uiu77u", "_blank")} />
+
+                        <div className="w-100 flex center items-center">
+                            <p>Submission deadline: July 19, 2026</p>
+                        </div>
+                    </div>
 
                 <div className="grid-icons">
                     <FrameComponent
@@ -208,7 +215,13 @@ function HomePage() {
                 <AwardsLineComponent title="Community and Creator" subtitle="voted by community" />
                 
                 <div className="flex gap column center items-center">
-                    <VoteButtonComponent title={`Nominate now`} onClick={() => window.open("https://wkf.ms/4uiu77u", "_blank")} />
+                    <div className="flex column gap-1">
+                        <VoteButtonComponent title={`Nominate now`} onClick={() => window.open("https://wkf.ms/4uiu77u", "_blank")} />
+
+                        <div className="w-100 flex center items-center">
+                            <p>Submission deadline: July 19, 2026</p>
+                        </div>
+                    </div>
                 </div>
 
                 <div className="grid-icons quad">
@@ -250,7 +263,7 @@ function HomePage() {
                     </div>
                     
                     <div className="w-100 flex center items-center">
-                        <p>Submission deadline: June 19, 2026</p>
+                        <p>Submission deadline: July 19, 2026</p>
                     </div>
                 </div>
 
