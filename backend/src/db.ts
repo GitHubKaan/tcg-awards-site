@@ -4,7 +4,9 @@ import path from "path";
 import { DEFAULT_CONTENT } from "../shared/content.defaults";
 import { CONTENT_KEYS, ContentKey, SiteContent } from "../shared/content.types";
 
-const DATA_DIR = path.join(__dirname, "..", "data");
+// Resolved from the working directory so the database survives rebuilds
+// (compiled code runs from dist/, but data must live next to the project).
+const DATA_DIR = path.join(process.cwd(), "data");
 fs.mkdirSync(DATA_DIR, { recursive: true });
 
 export const db = new Database(path.join(DATA_DIR, "content.db"));

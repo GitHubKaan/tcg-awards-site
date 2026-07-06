@@ -18,6 +18,7 @@ backend/uploads/*
 backend/.env
 frontend/.env
 frontend/.env.local
+frontend/.env.production
 
 # misc
 .DS_Store

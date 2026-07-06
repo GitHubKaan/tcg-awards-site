@@ -6,7 +6,8 @@ import { v4 as uuid } from "uuid";
 import { requireAuth } from "../auth/auth.middleware";
 import { deleteMedia, getMedia, insertMedia, listMedia } from "../db";
 
-export const UPLOADS_DIR = path.join(__dirname, "..", "..", "uploads");
+// Resolved from the working directory so uploads survive rebuilds.
+export const UPLOADS_DIR = path.join(process.cwd(), "uploads");
 fs.mkdirSync(UPLOADS_DIR, { recursive: true });
 
 const CDN_PUBLIC_URL = (process.env.CDN_PUBLIC_URL || "http://localhost:4000").replace(/\/$/, "");
