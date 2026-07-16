@@ -138,7 +138,7 @@ The awards combine the voice of the global community with the expertise of an in
             "download_preview/TCG_Awards_SM_Votes_V2_1080x1920.jpg",
         ],
         downloadButtonLabel: "Download Vote-Me Media Kit",
-        zipUrl: "/downloads/TCG_Awards_SM_Votes_V1.zip",
+        zipUrl: "/files/TCG_Awards_SM_Votes_V1.zip",
         note: "Use this kit for your social channels. Free of usage. Please use for promotional purposes only.",
     },
 
