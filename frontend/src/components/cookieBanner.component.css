@@ -2,24 +2,46 @@
     position: fixed;
     bottom: var(--size-m);
     width: 100vw;
+    height: 100dvh;
     display: flex;
     justify-content: center;
-    z-index: 100;
+    align-items: center;
+    z-index: 400;
+    top: 0;
+    left: 0;
+}
+
+.cookie-banner-component .background-blur {
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    z-index: 401;
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
 .cookie-banner-component .content {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
     gap: var(--size-m);
-    flex-wrap: wrap;
     width: calc(100vw - (var(--size-m) * 2) - (var(--size-l) * 2));
     max-width: calc(var(--page-width) - (var(--size-m) * 2));
-    background-color: rgba(0, 0, 0, 0.6);
-    backdrop-filter: blur(30px);
+    background-color: rgba(0, 0, 0, 1);
     padding: var(--size-m);
     border-radius: var(--size-s);
     outline: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 402;
+    overflow-y: scroll;
+    position: absolute;
+    max-height: calc(100vh - var(--size-m) * 4);
+}
+
+.cookie-banner-component .content p {
+    word-wrap: break-word;
+}
+
+.cookie-banner-component h2 {
+    font-weight: 500;
 }
 
 @media only screen and (max-width: 961px) {
@@ -27,4 +49,101 @@
         width: calc(100vw - var(--size-m) * 4);
         max-width: calc(var(--page-width) - var(--size-m) * 2);
     }
+}
+
+.cookie-banner-component button.type-1 {
+    padding: var(--size-xs) var(--size-s);
+    background-color: transparent;
+    text-decoration: underline;
+}
+
+.cookie-banner-component button.type-1 p {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+/* Equal prominence: "Nur notwendige" and "Alle akzeptieren" are the same size
+   and weight (EDSA Guidelines 03/2022). Only the colour distinguishes the
+   recommended primary action. */
+.cookie-banner-component button.type-2,
+.cookie-banner-component button.type-3 {
+    padding: 14px var(--size-m);
+    border-radius: var(--size-xs);
+    min-height: 48px;
+    font-weight: 500;
+}
+
+.cookie-banner-component button.type-2 {
+    background-color: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.cookie-banner-component button.type-2 p {
+    color: var(--white);
+    font-weight: 500;
+}
+
+.cookie-banner-component button.type-3 {
+    background-color: rgba(255, 255, 255, 1);
+    border: 1px solid rgba(255, 255, 255, 1);
+}
+
+.cookie-banner-component button.type-3 p {
+    color: var(--black);
+    font-weight: 500;
+}
+
+.cookie-banner-component .button-container {
+    width: 100%;
+    display: flex;
+    gap: var(--size-s);
+    justify-content: stretch;
+}
+
+.cookie-banner-component .button-container .equal {
+    flex: 1 1 0;
+}
+
+.cookie-banner-component .settings-link {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: calc(var(--size-s) * -1);
+}
+
+.cookie-banner-component .cookies-img-container {
+    width: 100%;
+}
+
+@media only screen and (max-width: 600px) {
+    .cookie-banner-component .cookies-img-container {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .cookie-banner-component .button-container {
+        flex-direction: column;
+        gap: var(--size-s);
+    }
+
+    .cookie-banner-component .button-container > button {
+        width: 100%;
+    }
+}
+
+.cookie-banner-component .check-field-component > .checkbox {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.cookie-banner-component .line {
+    width: 100%;
+    min-height: 1px;
+    height: 1px;
+    max-height: 1px;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.cookie-banner-component .description {
+    margin-left: 40px;
 }

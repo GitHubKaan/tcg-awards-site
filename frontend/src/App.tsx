@@ -5,6 +5,7 @@ import ErrorInfo from "./pages/errorInfo.page";
 import HomePage from "./pages/home.page";
 import ImprintPage from "./pages/imprint.page";
 import PrivacyPage from "./pages/privacy.page";
+import CookiesPage from "./pages/cookies.page";
 import DownloadsPage from "./pages/downloads.page";
 import DownloadsTosPage from "./pages/downloadsTos.page";
 
@@ -39,8 +40,9 @@ function App() {
 
                     {/* General */}
                     <Route path={``} element={Layout({ page: <HomePage />, header: false, footer: true, background: {} })} />
-                    <Route path={`/imprint`} element={Layout({ page: <ImprintPage />, header: false, footer: true, background: {} })} />
-                    <Route path={`/privacy`} element={Layout({ page: <PrivacyPage />, header: false, footer: true, background: {} })} />
+                    <Route path={`/imprint`} element={Layout({ page: <ImprintPage />, header: false, footer: true, background: {}, disableCookies: true })} />
+                    <Route path={`/privacy`} element={Layout({ page: <PrivacyPage />, header: false, footer: true, background: {}, disableCookies: true })} />
+                    <Route path={`/cookies`} element={Layout({ page: <CookiesPage />, header: false, footer: true, background: {}, disableCookies: true })} />
                     <Route path={`/downloads`} element={Layout({ page: <DownloadsPage />, header: false, footer: true, background: {} })} />
                     <Route path={`/downloads-tos`} element={Layout({ page: <DownloadsTosPage />, header: false, footer: true, background: {} })} />
                     <Route path={`/brand-cases-info`} element={Layout({ page: <BrandCasesInfoPage />, header: false, footer: true, background: {} })} />

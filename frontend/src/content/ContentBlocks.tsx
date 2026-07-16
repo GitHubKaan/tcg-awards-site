@@ -8,6 +8,12 @@ function ContentBlocks({ blocks }: { blocks: ContentBlock[] }) {
                 switch (block.type) {
                     case "h1":
                         return <h1 key={i}>{block.text}</h1>;
+                    case "h2":
+                        return (
+                            <h2 key={i} className="mb-1 mt-2">
+                                {block.text}
+                            </h2>
+                        );
                     case "h3":
                         return (
                             <h3 key={i} className="mb-1 mt-1">

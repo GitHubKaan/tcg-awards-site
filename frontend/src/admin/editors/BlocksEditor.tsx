@@ -3,6 +3,7 @@ import { ListEditor, SelectField, TextArea } from "../fields/Fields";
 
 const TYPE_OPTIONS: { value: ContentBlockType; label: string }[] = [
     { value: "h1", label: "Heading 1" },
+    { value: "h2", label: "Heading 2" },
     { value: "h3", label: "Heading 3" },
     { value: "p", label: "Paragraph" },
     { value: "spacer", label: "Spacer (blank line)" },

@@ -133,7 +133,7 @@ export interface BrandCasesInfoContent {
     contactEmail: string;
 }
 
-export type ContentBlockType = "h1" | "h3" | "p" | "spacer";
+export type ContentBlockType = "h1" | "h2" | "h3" | "p" | "spacer";
 
 export interface ContentBlock {
     type: ContentBlockType;
@@ -185,6 +185,7 @@ export interface SiteContent {
     brandCasesInfo: BrandCasesInfoContent;
     imprint: BlocksContent;
     privacy: BlocksContent;
+    cookies: BlocksContent;
     downloadsTos: BlocksContent;
     header: HeaderContent;
     footer: FooterContent;
@@ -202,6 +203,7 @@ export const CONTENT_KEYS: ContentKey[] = [
     "brandCasesInfo",
     "imprint",
     "privacy",
+    "cookies",
     "downloadsTos",
     "header",
     "footer",

@@ -30,6 +30,7 @@ export const EDITORS: EditorEntry[] = [
     { key: "sponsors", label: "Sponsors", Editor: SponsorsEditor },
     { key: "imprint", label: "Imprint", Editor: BlocksEditor },
     { key: "privacy", label: "Privacy", Editor: BlocksEditor },
+    { key: "cookies", label: "Cookies", Editor: BlocksEditor },
     { key: "downloadsTos", label: "Downloads Terms", Editor: BlocksEditor },
     { key: "newsletter", label: "Newsletter", Editor: NewsletterEditor },
     { key: "header", label: "Header", Editor: HeaderEditor },

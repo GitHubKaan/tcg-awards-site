@@ -1,0 +1,21 @@
+.check-field-component {
+    display: flex;
+    align-items: center;
+    gap: var(--size-s);
+    cursor: pointer;
+}
+
+.check-field-component > .checkbox {
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.check-field-component > .checkbox.selected {
+    background-color: white;
+}
+
+.check-field-component > .checkbox.unclickable {
+    pointer-events: none;
+}

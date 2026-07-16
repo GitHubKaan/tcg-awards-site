@@ -1,3 +1,3 @@
 export enum LocalStorageKeyType { // Naming convention like this: TCG_LS...
-    CookieConsent = `TCG_LS_COOKIE_CONSENT`,
+    CookiePreference =          `TCG_LS_COOKIE_PREFERENCE`
 }

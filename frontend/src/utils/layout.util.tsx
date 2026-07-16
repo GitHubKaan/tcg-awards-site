@@ -4,6 +4,7 @@ import "react-loading-skeleton/dist/skeleton.css";
 import FooterComponent from "../components/footer.component";
 import HeaderComponent from "../components/header.component";
 import Background from "../components/background.component";
+import CookieBannerComponent from "../components/cookieBanner.component";
 
 /**
  * @param page
@@ -20,6 +21,7 @@ function Layout(
         background?: {
             seed?: number
         },
+        disableCookies?: boolean,
     }
     >): JSX.Element {
     const {
@@ -27,6 +29,7 @@ function Layout(
         header,
         footer,
         background,
+        disableCookies,
     } = props;
 
     return <>
@@ -48,6 +51,8 @@ function Layout(
 
             {/* <CookieBannerComponent /> */}
         </SkeletonTheme>
+
+        {!disableCookies && <CookieBannerComponent />}
     </>
 }
 

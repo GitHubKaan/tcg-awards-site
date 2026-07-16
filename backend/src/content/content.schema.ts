@@ -117,7 +117,7 @@ const brandCasesInfo = z.object({
 const blocks = z.object({
     blocks: z.array(
         z.object({
-            type: z.enum(["h1", "h3", "p", "spacer"]),
+            type: z.enum(["h1", "h2", "h3", "p", "spacer"]),
             text: z.string().optional(),
         })
     ),
@@ -154,6 +154,7 @@ export const CONTENT_SCHEMAS: Record<ContentKey, z.ZodTypeAny> = {
     brandCasesInfo,
     imprint: blocks,
     privacy: blocks,
+    cookies: blocks,
     downloadsTos: blocks,
     header,
     footer,
