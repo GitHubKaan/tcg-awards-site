@@ -138,7 +138,7 @@ The awards combine the voice of the global community with the expertise of an in
             "download_preview/TCG_Awards_SM_Votes_V2_1080x1920.jpg",
         ],
         downloadButtonLabel: "Download Vote-Me Media Kit",
-        zipUrl: "/downloads/TCG_Awards_SM_Votes_V1.zip",
+        zipUrl: "/files/TCG_Awards_SM_Votes_V1.zip",
         note: "Use this kit for your social channels. Free of usage. Please use for promotional purposes only.",
     },
 
@@ -421,5 +421,128 @@ The awards combine the voice of the global community with the expertise of an in
             'With this you agree to storage and usage of your personal data in accordance with our <a href="https://spiel-essen.de/en/privacy" target="_blank" rel="noopener noreferrer">privacy policy</a>.',
         submitLabel: "Subscribe",
         formAction: "https://seu2.cleverreach.com/f/394092-424155/wcs/",
+    },
+
+    voting: {
+        enabled: false,
+        ctaLabel: "Vote now!",
+        ctaDeadline: "Voting deadline: August 21, 2026",
+        heading: "Final Voting",
+        introText:
+            "Take part in the final community voting for the 2026 TCG Awards. Until August 21, 2026, you can vote for your favorites in the following categories:",
+        voteNote:
+            "Select your personal winner from the top five in each category on the respective lists. Please note that you can only vote once. You cannot change your vote after submitting it. So if you want to vote in multiple categories, you must do so in a single voting session.",
+        detailsNote: "In order for us to include your vote in the results, we need a few more details.",
+        placeholderOption: "Select your vote!",
+        firstNameLabel: "First name*",
+        lastNameLabel: "Last name*",
+        countryLabel: "Country",
+        countryPlaceholder: "Select your country!",
+        emailLabel: "Email*",
+        submitLabel: "Vote now!",
+        formAction: "https://seu2.cleverreach.com/f/394092-429427/wcs/",
+        categories: [
+            {
+                label: "Game of the Year",
+                fieldName: "1196083",
+                options: [
+                    "Disney Lorcana",
+                    "Magic: The Gathering",
+                    "One Piece TCG",
+                    "Riftbound TCG",
+                    "Star Wars: Unlimited",
+                ],
+            },
+            {
+                label: "Newcomer of the Year",
+                fieldName: "1196084",
+                options: [
+                    "Bluthelden TTCG",
+                    "Gundam TCG",
+                    "Naruto Mythos TCG",
+                    "Riftbound TCG",
+                    "Star Wars: Unlimited",
+                ],
+            },
+            {
+                label: "Set of the Year",
+                fieldName: "1196085",
+                options: [
+                    "A Lawless Time (Star Wars: Unlimited)",
+                    "Lorwyn Eclipsed (Magic: The Gathering)",
+                    "Origins (Riftbound TCG)",
+                    "Secrets of Strixhaven (Magic: The Gathering)",
+                    "Wilds Unknown (Disney Lorcana)",
+                ],
+            },
+            {
+                label: "Accessory of the Year",
+                fieldName: "1196086",
+                options: [
+                    "Cards Almanac (Gamegenic)",
+                    "Game Castle (Gamegenic)",
+                    "Matte Sleeves (Dragen Shield)",
+                    "Sidekick Pro XL (Gamegenic)",
+                    "Squire XL+ (Gamegenic)",
+                ],
+            },
+            {
+                label: "Artwork of the Year",
+                fieldName: "1196087",
+                options: [
+                    "Ahri-Inquisitive by Shawn Tan(SFD-227|Spiritforged|Riftbound)",
+                    "Annihilation by Caio Cacau (AC7-035|Ancient Alphas|Alpha Clash TCG)",
+                    "Armageddon by Dominik Mayer (M0003-SOA|Secrets of Strixhaven|Magic: The Gathering)",
+                    "Baron Nashor by Zhang Yi (238|Unleashed|Riftbound)",
+                    "Dawnhand Eulogist by Evyn Fong (0099|Lorwyn Eclipsed|Magic: The Gathering)",
+                    "N's Zoroark ex by Raita Kazama (286/217|Ascended Heroes|Pokémon)",
+                ],
+            },
+            {
+                label: "Event of the Year",
+                fieldName: "1196088",
+                options: [
+                    "4. Josephinen Pokecup for Pokémon, Lorcana and Star Wars: Unlimited (Dresden, Germany)",
+                    "Galactic Championship for Star Wars: Unlimited (Las Vegas, USA)",
+                    "Luminari Teamliga Deutschland for Disney Lorcana (Online)",
+                    "Magic Con for Magic: The Gathering (Las Vegas, USA)",
+                    "Tank, Heal, Slay! Magic the GAYthering for Magic: The Gathering (Berlin, Germany)",
+                ],
+            },
+            {
+                label: "Local Game Store of the Year",
+                fieldName: "1196089",
+                options: [
+                    "42 Southside Fantasy (Berlin, Germany)",
+                    "Battle Bear (Kaiserslautern, Germany)",
+                    "LVL World of Gaming (Berlin, Germany)",
+                    "Mulligan TCG Shop (Hamburg, Germany)",
+                    "Trading Card Game Center (Kampen, Netherlands)",
+                ],
+            },
+            {
+                label: "Content Creator of the Year",
+                fieldName: "1196090",
+                options: [
+                    "Denski (https://www.youtube.com/@DenskiTCG)",
+                    "Holocron Card Hub (https://www.youtube.com/@HolocronCardHub)",
+                    "Pleasant Kenobi (https://www.youtube.com/@PleasantKenobi)",
+                    "Sol4ar1s (https://www.twitch.tv/sol4r1s)",
+                    "TCG-Oli (https://youtube.com/@tcg-oli?si=kN4eG4oaV5XWYkdt)",
+                ],
+            },
+            {
+                label: "Equality Impact of the Year",
+                fieldName: "1196091",
+                options: [
+                    "Magic Presents: Pride (Wizards of the Coast)",
+                    "School Learn to Play (Battle Bear TCG Shop - Danny Scheubeck)",
+                    "Spielend für Toleranz (Superelf-Cards + Palanca e.V.)",
+                    "Tank, Heal, Slay - Magic: The GAYthering (LVL Berlin)",
+                    "Tolarian Community College Trans Lifeline (Tolarian Community College)",
+                    "Women in Magic (Women in Magic)",
+                ],
+            },
+        ],
     },
 };

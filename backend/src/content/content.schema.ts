@@ -145,6 +145,31 @@ const newsletter = z.object({
     formAction: z.string(),
 });
 
+const voting = z.object({
+    enabled: z.boolean(),
+    ctaLabel: z.string(),
+    ctaDeadline: z.string(),
+    heading: z.string(),
+    introText: z.string(),
+    voteNote: z.string(),
+    detailsNote: z.string(),
+    placeholderOption: z.string(),
+    firstNameLabel: z.string(),
+    lastNameLabel: z.string(),
+    countryLabel: z.string(),
+    countryPlaceholder: z.string(),
+    emailLabel: z.string(),
+    submitLabel: z.string(),
+    formAction: z.string(),
+    categories: z.array(
+        z.object({
+            label: z.string(),
+            fieldName: z.string(),
+            options: z.array(z.string()),
+        })
+    ),
+});
+
 export const CONTENT_SCHEMAS: Record<ContentKey, z.ZodTypeAny> = {
     common,
     home,
@@ -159,4 +184,5 @@ export const CONTENT_SCHEMAS: Record<ContentKey, z.ZodTypeAny> = {
     header,
     footer,
     newsletter,
+    voting,
 };

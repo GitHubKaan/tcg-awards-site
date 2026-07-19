@@ -14,7 +14,7 @@ import { AwardSection, CtaButton } from "../content/content.types";
 
 function HomePage() {
     const navigate = useNavigate();
-    const { home } = useContent();
+    const { home, voting } = useContent();
 
     const section1 = useRef<HTMLDivElement | null>(null);
     const section2 = useRef<HTMLDivElement | null>(null);
@@ -100,6 +100,17 @@ function HomePage() {
                     </h4>
                 ))}
             </div>
+
+            {voting.enabled && (
+                <div className="vote-hero no-select">
+                    <VoteButtonComponent
+                        className="vote-hero-button"
+                        title={voting.ctaLabel}
+                        onClick={() => navigate("/vote")}
+                    />
+                    {voting.ctaDeadline && <p className="vote-hero-deadline">{voting.ctaDeadline}</p>}
+                </div>
+            )}
 
             <div>
                 <InfoBoxComponent

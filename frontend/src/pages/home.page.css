@@ -9,6 +9,62 @@
     max-width: 60vw;
 }
 
+/* VOTE HERO (only rendered while final voting is enabled) */
+#home-page .vote-hero {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--size-m);
+    margin-top: calc(var(--size-xxl) * -0.4); /* pull closer to the nav than the page's default xxl gap */
+}
+
+#home-page .vote-hero::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: min(700px, 90vw);
+    height: 320px;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(ellipse closest-side, rgba(232, 186, 128, 0.16), transparent 75%);
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* border-box + 100% keeps the button inside the page's side margins;
+   the base component sizes content-box and would overflow them on mobile */
+#home-page .vote-hero .vote-button-component {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 490px;
+    padding: var(--size-l);
+}
+
+#home-page .vote-hero .vote-button-component p {
+    font-size: 36px;
+    line-height: 38px;
+    letter-spacing: 3px;
+}
+
+#home-page .vote-hero-deadline {
+    width: 100%;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--c-gold);
+}
+
+@media only screen and (max-width: 961px) {
+    #home-page .vote-hero .vote-button-component p {
+        font-size: 27px;
+        line-height: 29px;
+    }
+}
+
 /* TOP FIRST ELEMENT (INFO BOX AND TRIPPLE FRAME) */
 #home-page .top-tripple-frames {
     position: relative;

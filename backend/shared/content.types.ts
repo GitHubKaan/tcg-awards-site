@@ -176,6 +176,37 @@ export interface NewsletterContent {
     formAction: string;
 }
 
+export interface VotingCategory {
+    /** Heading shown above the select, e.g. "Game of the Year". */
+    label: string;
+    /** CleverReach field id used as the select's `name`, e.g. "1196083". */
+    fieldName: string;
+    /** One nominee per entry; empty lines are ignored when rendering. */
+    options: string[];
+}
+
+export interface VotingContent {
+    /** Master switch: the final voting page and its home CTA only exist while true. */
+    enabled: boolean;
+    ctaLabel: string;
+    ctaDeadline: string;
+    heading: string;
+    introText: string;
+    voteNote: string;
+    detailsNote: string;
+    /** First option of every category select, e.g. "Select your vote!". */
+    placeholderOption: string;
+    firstNameLabel: string;
+    lastNameLabel: string;
+    countryLabel: string;
+    /** First option of the country select, e.g. "Select your country!". */
+    countryPlaceholder: string;
+    emailLabel: string;
+    submitLabel: string;
+    formAction: string;
+    categories: VotingCategory[];
+}
+
 export interface SiteContent {
     common: CommonContent;
     home: HomeContent;
@@ -190,6 +221,7 @@ export interface SiteContent {
     header: HeaderContent;
     footer: FooterContent;
     newsletter: NewsletterContent;
+    voting: VotingContent;
 }
 
 export type ContentKey = keyof SiteContent;
@@ -208,4 +240,5 @@ export const CONTENT_KEYS: ContentKey[] = [
     "header",
     "footer",
     "newsletter",
+    "voting",
 ];

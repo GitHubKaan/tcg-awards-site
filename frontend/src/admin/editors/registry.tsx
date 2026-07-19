@@ -3,6 +3,7 @@ import { ContentKey } from "../../content/content.types";
 import HomeEditor from "./HomeEditor";
 import BrandCasesEditor from "./BrandCasesEditor";
 import BlocksEditor from "./BlocksEditor";
+import VotingEditor from "./VotingEditor";
 import {
     CommonEditor,
     DownloadsEditor,
@@ -32,6 +33,7 @@ export const EDITORS: EditorEntry[] = [
     { key: "privacy", label: "Privacy", Editor: BlocksEditor },
     { key: "cookies", label: "Cookies", Editor: BlocksEditor },
     { key: "downloadsTos", label: "Downloads Terms", Editor: BlocksEditor },
+    { key: "voting", label: "Final Voting", Editor: VotingEditor },
     { key: "newsletter", label: "Newsletter", Editor: NewsletterEditor },
     { key: "header", label: "Header", Editor: HeaderEditor },
     { key: "footer", label: "Footer", Editor: FooterEditor },

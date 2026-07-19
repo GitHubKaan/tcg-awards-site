@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "countries-list": "^3.4.1",
     "http-status-codes": "^2.3.0",
     "js-cookie": "^3.0.5",
     "react": "^19.0.0",

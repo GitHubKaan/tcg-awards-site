@@ -1,0 +1,78 @@
+#vote-page {
+    display: flex;
+    flex-direction: column;
+    gap: var(--size-xl);
+}
+
+#vote-page .vote-hero-section {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--size-m);
+    text-align: center;
+    padding-top: var(--size-xl);
+    animation: vote-rise 0.6s ease both;
+}
+
+#vote-page .vote-hero-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: min(760px, 92vw);
+    height: 340px;
+    transform: translateX(-50%);
+    background: radial-gradient(ellipse closest-side, rgba(232, 186, 128, 0.14), transparent 75%);
+    pointer-events: none;
+    z-index: -1;
+}
+
+#vote-page .vote-hero-section h1 {
+    text-align: center;
+}
+
+#vote-page .vote-deadline-pill {
+    font-family: "Figtree", serif;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--c-gold);
+    border: 1px solid rgba(232, 186, 128, 0.55);
+    border-radius: 100px;
+    padding: 7px 18px;
+    background-color: rgba(232, 186, 128, 0.08);
+}
+
+#vote-page .vote-intro {
+    max-width: 640px;
+    text-align: center;
+    color: var(--gray-200);
+}
+
+#vote-page .vote-note {
+    max-width: 640px;
+    text-align: left;
+    border-left: 3px solid var(--c-dark-gold);
+    background-color: rgba(255, 255, 255, 0.06);
+    border-radius: 0 var(--size-s) var(--size-s) 0;
+    padding: var(--size-m);
+}
+
+#vote-page .vote-note p {
+    font-style: italic;
+    color: var(--gray-200);
+    font-size: 14px;
+}
+
+@keyframes vote-rise {
+    from {
+        opacity: 0;
+        transform: translateY(16px);
+    }
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
