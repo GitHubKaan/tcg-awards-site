@@ -122,6 +122,8 @@ The awards combine the voice of the global community with the expertise of an in
             name: "Member Name",
             role: "Job Title",
             image: "placeholder.png",
+            description:
+                "Add a short biography here describing this jury member's background, experience, and role within the TCG industry.",
         })),
     },
 

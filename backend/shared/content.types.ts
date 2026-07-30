@@ -92,6 +92,8 @@ export interface JuryMember {
     name: string;
     role: string;
     image: string;
+    /** Longer bio shown in a modal when the card is clicked. Optional for older stored data. */
+    description?: string;
 }
 
 export interface JuryContent {

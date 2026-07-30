@@ -84,13 +84,18 @@ export function JuryEditor({
                 label="Members"
                 items={value.members}
                 onChange={(members) => onChange({ ...value, members })}
-                makeNew={() => ({ name: "Member Name", role: "Job Title", image: "placeholder.png" })}
+                makeNew={() => ({ name: "Member Name", role: "Job Title", image: "placeholder.png", description: "" })}
                 itemLabel={(m) => m.name || "Member"}
                 renderItem={(member, update) => (
                     <>
                         <TextField label="Name" value={member.name} onChange={(name) => update({ ...member, name })} />
                         <TextField label="Role" value={member.role} onChange={(role) => update({ ...member, role })} />
                         <ImageField label="Photo" value={member.image} onChange={(image) => update({ ...member, image })} />
+                        <TextArea
+                            label="Description (shown in a popup when the card is clicked; leave empty to make the card non-clickable)"
+                            value={member.description ?? ""}
+                            onChange={(description) => update({ ...member, description })}
+                        />
                     </>
                 )}
             />

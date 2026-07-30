@@ -78,6 +78,7 @@ const jury = z.object({
             name: z.string(),
             role: z.string(),
             image: z.string(),
+            description: z.string().optional(),
         })
     ),
 });
