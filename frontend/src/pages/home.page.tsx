@@ -14,7 +14,7 @@ import { AwardSection, CtaButton } from "../content/content.types";
 
 function HomePage() {
     const navigate = useNavigate();
-    const { home, voting } = useContent();
+    const { home, voting, jury } = useContent();
 
     const section1 = useRef<HTMLDivElement | null>(null);
     const section2 = useRef<HTMLDivElement | null>(null);
@@ -99,6 +99,12 @@ function HomePage() {
                         {item.label}
                     </h4>
                 ))}
+
+                {jury.enabled && (
+                    <h4 className="header-nav no-select" onClick={() => navigate("/jury")}>
+                        the jury
+                    </h4>
+                )}
             </div>
 
             {voting.enabled && (
@@ -134,6 +140,14 @@ function HomePage() {
                 title={{ top: home.behindInfoBox.titleTop, bottom: home.behindInfoBox.titleBottom }}
                 text={home.behindInfoBox.text}
             />
+
+            {jury.enabled && (
+                <div className="w-100 flex center items-center">
+                    <div className="jury-cta no-select" onClick={() => navigate("/jury")}>
+                        Meet the Jury
+                    </div>
+                </div>
+            )}
 
             <SponsorsComponent />
 

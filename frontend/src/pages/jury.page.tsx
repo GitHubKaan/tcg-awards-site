@@ -1,7 +1,9 @@
 import "./jury.page.css";
-import { useContent } from "../content/content.context";
+import { useEffect } from "react";
+import { useContentState } from "../content/content.context";
 import { cdnUrl } from "../content/assets";
 import { JuryMember } from "../content/content.types";
+import { redirectToErrorPage } from "../utils/error.util";
 
 function JuryCard({ member }: { member: JuryMember }) {
     return (
@@ -16,7 +18,20 @@ function JuryCard({ member }: { member: JuryMember }) {
 }
 
 function JuryPage() {
-    const { jury } = useContent();
+    const { content, loading } = useContentState();
+    const { jury } = content;
+
+    // The defaults ship with the jury page disabled, so wait for the backend
+    // content before deciding — otherwise every reload would redirect too early.
+    useEffect(() => {
+        if (!loading && !jury.enabled) {
+            redirectToErrorPage({ title: "Page not found" });
+        }
+    }, [loading, jury.enabled]);
+
+    if (loading || !jury.enabled) {
+        return <div id="jury-page" className="default-page" />;
+    }
 
     return (
         <div id="jury-page" className="default-page">

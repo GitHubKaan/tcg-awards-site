@@ -65,6 +65,33 @@
     }
 }
 
+/* JURY CTA (only rendered while the jury page is enabled) */
+#home-page .jury-cta {
+    font-family: "Figtree", serif;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--c-gold);
+    border: 1px solid rgba(232, 186, 128, 0.55);
+    border-radius: 100px;
+    padding: 13px 30px;
+    background-color: rgba(232, 186, 128, 0.08);
+    cursor: pointer;
+    transition: all ease-in-out 0.15s;
+}
+
+#home-page .jury-cta:hover {
+    background-color: rgba(232, 186, 128, 0.16);
+    border-color: var(--c-gold);
+    transform: translateY(-1px);
+}
+
+#home-page .jury-cta:active {
+    opacity: 0.7;
+    transform: translateY(0);
+}
+
 /* TOP FIRST ELEMENT (INFO BOX AND TRIPPLE FRAME) */
 #home-page .top-tripple-frames {
     position: relative;

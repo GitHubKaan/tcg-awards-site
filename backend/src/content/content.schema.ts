@@ -70,6 +70,7 @@ const sponsors = z.object({
 });
 
 const jury = z.object({
+    enabled: z.boolean(),
     title: z.string(),
     subtitle: z.string(),
     members: z.array(

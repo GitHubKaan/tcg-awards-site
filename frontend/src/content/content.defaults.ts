@@ -115,6 +115,7 @@ The awards combine the voice of the global community with the expertise of an in
     },
 
     jury: {
+        enabled: false,
         title: "The Jury",
         subtitle: "Evaluates the Business Cases of the TCG Awards.",
         members: Array.from({ length: 13 }, () => ({

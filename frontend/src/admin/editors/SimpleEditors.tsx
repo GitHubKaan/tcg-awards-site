@@ -8,6 +8,7 @@ import {
     SponsorsContent,
 } from "../../content/content.types";
 import {
+    CheckboxField,
     ImageField,
     ListEditor,
     NumberField,
@@ -72,6 +73,11 @@ export function JuryEditor({
 }) {
     return (
         <>
+            <CheckboxField
+                label="Enable the jury page (shows the jury link in the navbar and on the home page, and activates the /jury page)"
+                value={value.enabled}
+                onChange={(enabled) => onChange({ ...value, enabled })}
+            />
             <TextField label="Title" value={value.title} onChange={(title) => onChange({ ...value, title })} />
             <TextField label="Subtitle" value={value.subtitle} onChange={(subtitle) => onChange({ ...value, subtitle })} />
             <ListEditor

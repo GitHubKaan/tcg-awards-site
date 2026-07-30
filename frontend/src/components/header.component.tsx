@@ -17,7 +17,7 @@ function HeaderComponent(
     }>
 ) {
     const { topDistance, className, children, ...overflowProps } = props;
-    const { header } = useContent();
+    const { header, jury } = useContent();
     const routes = header.routes;
 
     const [mobileSelectionVisible, setMobileSelectionVisible] = useState(false);
@@ -47,6 +47,12 @@ function HeaderComponent(
                             <p className="mobile-header no-decoration">{route.title}</p>
                         </Link>
                     ))}
+
+                    {jury.enabled && (
+                        <Link className="no-decoration" to="/jury" onClick={() => setMobileSelectionVisible(false)}>
+                            <p className="mobile-header no-decoration">The Jury</p>
+                        </Link>
+                    )}
                 </div>
             </div>
 
@@ -63,6 +69,13 @@ function HeaderComponent(
                             <div className="option-bottom-line" />
                         </Link>
                     ))}
+
+                    {jury.enabled && (
+                        <Link className="option" to="/jury">
+                            <h6 className="header-nav">THE JURY</h6>
+                            <div className="option-bottom-line" />
+                        </Link>
+                    )}
                 </div>
             </div>
         </div>
