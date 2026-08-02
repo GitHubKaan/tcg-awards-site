@@ -74,7 +74,7 @@ export function JuryEditor({
     return (
         <>
             <CheckboxField
-                label="Enable the jury page (shows the jury link in the navbar and on the home page, and activates the /jury page)"
+                label="Show the jury on the home page (displayed below the product categories)"
                 value={value.enabled}
                 onChange={(enabled) => onChange({ ...value, enabled })}
             />

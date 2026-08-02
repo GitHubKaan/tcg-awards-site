@@ -43,10 +43,17 @@ export function preventScroll(enable: boolean) {
     } else { // Enable scroll
         modalCounter = Math.max(0, modalCounter - 1);
         if (modalCounter === 0) {
+            const scrollY = parseInt(document.body.dataset.scrollY ?? "0", 10);
+
             document.body.style.position = "";
             document.body.style.top = "";
             document.body.style.left = "";
             document.body.style.right = "";
+            delete document.body.dataset.scrollY;
+
+            // Restore the scroll position the body was pinned at, otherwise
+            // removing `position: fixed` snaps the page back to the top.
+            window.scrollTo(0, scrollY);
         }
     }
 

@@ -97,7 +97,7 @@ export interface JuryMember {
 }
 
 export interface JuryContent {
-    /** Master switch: the jury page and its nav links only exist while true. */
+    /** Master switch: the jury section on the home page only shows while true. */
     enabled: boolean;
     title: string;
     subtitle: string;

@@ -8,13 +8,14 @@ import SponsorsComponent from "../components/sponsors.component";
 import AwardsLineComponent from "../components/awardsLine.component";
 import { useNavigate } from "react-router-dom";
 import VoteButtonComponent from "../components/voteButton.component";
+import JurySectionComponent from "../components/jurySection.component";
 import { useContent } from "../content/content.context";
 import { cdnUrl } from "../content/assets";
 import { AwardSection, CtaButton } from "../content/content.types";
 
 function HomePage() {
     const navigate = useNavigate();
-    const { home, voting, jury } = useContent();
+    const { home, voting } = useContent();
 
     const section1 = useRef<HTMLDivElement | null>(null);
     const section2 = useRef<HTMLDivElement | null>(null);
@@ -99,12 +100,6 @@ function HomePage() {
                         {item.label}
                     </h4>
                 ))}
-
-                {jury.enabled && (
-                    <h4 className="header-nav no-select" onClick={() => navigate("/jury")}>
-                        the jury
-                    </h4>
-                )}
             </div>
 
             {voting.enabled && (
@@ -135,19 +130,13 @@ function HomePage() {
                 {home.awardSections.map(renderSection)}
             </div>
 
+            <JurySectionComponent />
+
             <InfoBoxComponent
                 ref={section2}
                 title={{ top: home.behindInfoBox.titleTop, bottom: home.behindInfoBox.titleBottom }}
                 text={home.behindInfoBox.text}
             />
-
-            {jury.enabled && (
-                <div className="w-100 flex center items-center">
-                    <div className="jury-cta no-select" onClick={() => navigate("/jury")}>
-                        Meet the Jury
-                    </div>
-                </div>
-            )}
 
             <SponsorsComponent />
 

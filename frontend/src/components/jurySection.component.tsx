@@ -1,9 +1,8 @@
-import "./jury.page.css";
+import "./jurySection.component.css";
 import { useEffect, useState } from "react";
-import { useContentState } from "../content/content.context";
+import { useContent } from "../content/content.context";
 import { cdnUrl } from "../content/assets";
 import { JuryMember } from "../content/content.types";
-import { redirectToErrorPage } from "../utils/error.util";
 import { Portal } from "../utils/portal.util";
 import { preventScroll } from "../utils/scroll.util";
 
@@ -91,41 +90,40 @@ function JuryModal({ member, onClose }: { member: JuryMember; onClose: () => voi
     );
 }
 
-function JuryPage() {
-    const { content, loading } = useContentState();
-    const { jury } = content;
+/**
+ * The jury, rendered inline on the home page below the product categories.
+ * Only renders while the jury is enabled in the admin.
+ * @param className Further class names
+ * @return Jury section component
+ */
+function JurySectionComponent(
+    props: Readonly<{
+        className?: string;
+        [key: string]: any;
+    }>
+) {
+    const { className, children, ...overflowProps } = props;
+    const { jury } = useContent();
     const [openIndex, setOpenIndex] = useState<number | null>(null);
 
-    // The defaults ship with the jury page disabled, so wait for the backend
-    // content before deciding — otherwise every reload would redirect too early.
-    useEffect(() => {
-        if (!loading && !jury.enabled) {
-            redirectToErrorPage({ title: "Page not found" });
-        }
-    }, [loading, jury.enabled]);
-
-    if (loading || !jury.enabled) {
-        return <div id="jury-page" className="default-page" />;
-    }
+    if (!jury.enabled) return null;
 
     const openMember = openIndex !== null ? jury.members[openIndex] : null;
 
     return (
-        <div id="jury-page" className="default-page">
-            <div className="w-100 flex column items-center gap-3">
-                {/* Header */}
-                <div className="jury-header">
-                    <h1>{jury.title}</h1>
-                    <div className="jury-line" />
-                    <p>{jury.subtitle}</p>
-                </div>
+        <div className={`jury-section-component w-100 flex column items-center gap-3 ${className ?? ""}`} {...overflowProps}>
+            {/* Header */}
+            <div className="jury-header">
+                <h1>{jury.title}</h1>
+                <div className="jury-line" />
+                <p>{jury.subtitle}</p>
+            </div>
 
-                {/* Members */}
-                <div className="jury-grid">
-                    {jury.members.map((member, i) => (
-                        <JuryCard key={i} member={member} onOpen={() => setOpenIndex(i)} />
-                    ))}
-                </div>
+            {/* Members */}
+            <div className="jury-grid">
+                {jury.members.map((member, i) => (
+                    <JuryCard key={i} member={member} onOpen={() => setOpenIndex(i)} />
+                ))}
             </div>
 
             {openMember && <JuryModal member={openMember} onClose={() => setOpenIndex(null)} />}
@@ -133,4 +131,4 @@ function JuryPage() {
     );
 }
 
-export default JuryPage;
+export default JurySectionComponent;
