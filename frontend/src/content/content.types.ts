@@ -35,7 +35,7 @@ export interface CommonContent {
 
 export interface HomeNavItem {
     label: string;
-    /** Scroll target section index (1-4) on the home page. */
+    /** Scroll target section index (1-5; 5 = jury) on the home page. */
     section?: number;
     /** Or navigate to a route instead. */
     route?: string;

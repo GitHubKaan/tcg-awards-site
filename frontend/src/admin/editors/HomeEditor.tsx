@@ -39,7 +39,7 @@ export default function HomeEditor({
                     <>
                         <TextField label="Label" value={item.label} onChange={(label) => update({ ...item, label })} />
                         <NumberField
-                            label="Scroll to section (1-4, 0 = none)"
+                            label="Scroll to section (1=why, 2=behind, 3=socials, 4=newsletter, 5=jury, 0=none)"
                             value={item.section ?? 0}
                             onChange={(n) => update({ ...item, section: n || undefined })}
                         />

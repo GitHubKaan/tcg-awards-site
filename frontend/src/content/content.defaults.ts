@@ -19,6 +19,7 @@ export const DEFAULT_CONTENT: SiteContent = {
         nav: [
             { label: "why", section: 1 },
             { label: "the awards", section: 2 },
+            { label: "jury", section: 5 },
             { label: "socials", section: 3 },
             { label: "newsletter", section: 4 },
             { label: "downloads", route: "/downloads" },

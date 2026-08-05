@@ -21,7 +21,8 @@ function HomePage() {
     const section2 = useRef<HTMLDivElement | null>(null);
     const section3 = useRef<HTMLDivElement | null>(null);
     const section4 = useRef<HTMLDivElement | null>(null);
-    const sections = [section1, section2, section3, section4];
+    const section5 = useRef<HTMLDivElement | null>(null);
+    const sections = [section1, section2, section3, section4, section5];
 
     const scrollToRef = (ref: React.RefObject<HTMLDivElement | null>) => {
         const el = ref.current;
@@ -130,7 +131,7 @@ function HomePage() {
                 {home.awardSections.map(renderSection)}
             </div>
 
-            <JurySectionComponent />
+            <JurySectionComponent ref={section5} />
 
             <InfoBoxComponent
                 ref={section2}

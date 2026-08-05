@@ -139,8 +139,9 @@
     align-items: center;
     justify-content: center;
     padding: var(--size-m);
-    background: rgba(10, 10, 10, 0.72);
-    backdrop-filter: blur(6px);
+    /* No backdrop-filter here: blurring the whole page on every open caused a
+       ~200ms main-thread stall (measured via PerformanceObserver longtasks). */
+    background: rgba(10, 10, 10, 0.85);
     animation: jury-fade-in 0.2s ease;
 }
 
