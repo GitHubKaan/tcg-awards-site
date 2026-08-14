@@ -45,6 +45,7 @@ By setting a benchmark for quality, creativity, performance, and responsibility 
             {
                 title: "product excellence",
                 subtitle: "voted by community",
+                sponsoredBy: "KAYOU",
                 cta: { label: "Nominate now", href: "https://wkf.ms/4uiu77u" },
                 deadline: "Submission deadline: July 19, 2026",
                 gridVariant: "",

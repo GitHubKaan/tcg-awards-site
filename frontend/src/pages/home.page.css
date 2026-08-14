@@ -181,6 +181,66 @@
     }
 }
 
+/* SPONSORED BY … BADGE */
+#home-page .sponsored-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 18px;
+    padding: 14px 30px;
+    border-radius: 999px;
+    border: 1px solid rgba(232, 186, 128, 0.28);
+    background: linear-gradient(
+        135deg,
+        rgba(232, 186, 128, 0.1),
+        rgba(232, 186, 128, 0.02)
+    );
+    box-shadow:
+        0 0 40px rgba(232, 186, 128, 0.12),
+        inset 0 1px 0 rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(6px);
+    margin-top: calc(var(--size-m) * -0.5);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#home-page .sponsored-badge:hover {
+    border-color: rgba(232, 186, 128, 0.5);
+    box-shadow:
+        0 0 55px rgba(232, 186, 128, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+#home-page .sponsored-badge-label {
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--gray-100, rgba(255, 255, 255, 0.55));
+}
+
+#home-page .sponsored-badge-divider {
+    width: 1px;
+    height: 22px;
+    background: linear-gradient(
+        180deg,
+        transparent,
+        rgba(232, 186, 128, 0.45),
+        transparent
+    );
+}
+
+#home-page .sponsored-badge-name {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 24px;
+    font-weight: 800;
+    line-height: 1;
+    background: linear-gradient(90deg, var(--c-gold), var(--c-dark-gold));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: var(--c-gold);
+}
+
 #home-page .brand-case-text {
     text-decoration: underline;
     cursor: pointer;

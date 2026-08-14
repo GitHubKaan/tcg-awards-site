@@ -41,6 +41,16 @@ function HomePage() {
         <div key={idx} className="w-100 flex column gap-3">
             <AwardsLineComponent title={s.title} subtitle={s.subtitle} />
 
+            {s.sponsoredBy && (
+                <div className="w-100 flex center no-select">
+                    <div className="sponsored-badge">
+                        <span className="sponsored-badge-label">Sponsored by</span>
+                        <span className="sponsored-badge-divider" />
+                        <span className="sponsored-badge-name">{s.sponsoredBy}</span>
+                    </div>
+                </div>
+            )}
+
             {s.cta && (
                 <div className="flex gap column center items-center">
                     <div className="flex column gap-1">

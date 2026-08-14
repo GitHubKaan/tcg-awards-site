@@ -52,6 +52,8 @@ export interface AwardCategory {
 export interface AwardSection {
     title: string;
     subtitle: string;
+    /** Optional sponsor name shown as a modern "Sponsored by …" badge. */
+    sponsoredBy?: string;
     cta?: CtaButton;
     deadline?: string;
     /** Grid layout modifier class: "", "quad", "tripple" or "single". */

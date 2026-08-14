@@ -71,6 +71,7 @@ export default function HomeEditor({
                     <>
                         <TextField label="Title" value={section.title} onChange={(title) => update({ ...section, title })} />
                         <TextField label="Subtitle" value={section.subtitle} onChange={(subtitle) => update({ ...section, subtitle })} />
+                        <TextField label="Sponsored by (optional)" value={section.sponsoredBy ?? ""} onChange={(sponsoredBy) => update({ ...section, sponsoredBy: sponsoredBy || undefined })} />
                         <SelectField
                             label="Grid layout"
                             value={section.gridVariant}
