@@ -34,3 +34,29 @@
 .sponsors-component img {
     max-width: 100%;
 }
+
+.sponsors-component .sponsor-link {
+    display: inline-flex;
+    transition: opacity 0.2s ease;
+}
+
+.sponsors-component .sponsor-link:hover {
+    opacity: 0.7;
+}
+
+.sponsors-component .sponsors-tier {
+    margin-top: var(--size-m);
+}
+
+/* Smaller heading than the main "Presented by" heading. */
+.sponsors-component .sponsors-tier-heading {
+    font-size: 22px;
+    line-height: 24px;
+    color: var(--c-dark-gold);
+}
+@media only screen and (max-width: 961px) {
+    .sponsors-component .sponsors-tier-heading {
+        font-size: 18px;
+        line-height: 20px;
+    }
+}

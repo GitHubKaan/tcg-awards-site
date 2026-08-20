@@ -114,6 +114,20 @@ The awards combine the voice of the global community with the expertise of an in
         logos: [
             { image: "sponsors/ebay_live.png", alt: "ebay live logo", width: 400 },
         ],
+        tiers: [
+            {
+                heading: "Silver Partner",
+                logos: [
+                    { image: "sponsors/Kayou_White.png", alt: "Kayou logo", width: 220, href: "https://www.kayouofficial.com/en-US" },
+                ],
+            },
+            {
+                heading: "Copper Partner",
+                logos: [
+                    { image: "sponsors/Gamegenic_White.png", alt: "Gamegenic logo", width: 130, href: "https://www.gamegenic.com/" },
+                ],
+            },
+        ],
     },
 
     jury: {

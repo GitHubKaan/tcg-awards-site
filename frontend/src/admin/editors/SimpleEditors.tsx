@@ -5,6 +5,7 @@ import {
     HeaderContent,
     JuryContent,
     NewsletterContent,
+    SponsorLogo,
     SponsorsContent,
 } from "../../content/content.types";
 import {
@@ -50,13 +51,41 @@ export function SponsorsEditor({
                 label="Logos"
                 items={value.logos}
                 onChange={(logos) => onChange({ ...value, logos })}
-                makeNew={() => ({ image: "", alt: "", width: 300 })}
+                makeNew={(): SponsorLogo => ({ image: "", alt: "", width: 300 })}
                 itemLabel={(l) => l.alt || "Logo"}
                 renderItem={(logo, update) => (
                     <>
                         <ImageField label="Image" value={logo.image} onChange={(image) => update({ ...logo, image })} />
                         <TextField label="Alt text" value={logo.alt} onChange={(alt) => update({ ...logo, alt })} />
                         <NumberField label="Width (px)" value={logo.width} onChange={(width) => update({ ...logo, width })} />
+                        <TextField label="Link URL (optional)" value={logo.href ?? ""} onChange={(href) => update({ ...logo, href: href || undefined })} />
+                    </>
+                )}
+            />
+            <ListEditor
+                label="Partner tiers (shown below, e.g. Silver / Copper Partner)"
+                items={value.tiers ?? []}
+                onChange={(tiers) => onChange({ ...value, tiers })}
+                makeNew={() => ({ heading: "Partner", logos: [] })}
+                itemLabel={(t) => t.heading || "Tier"}
+                renderItem={(tier, updateTier) => (
+                    <>
+                        <TextField label="Heading" value={tier.heading} onChange={(heading) => updateTier({ ...tier, heading })} />
+                        <ListEditor
+                            label="Logos"
+                            items={tier.logos}
+                            onChange={(logos) => updateTier({ ...tier, logos })}
+                            makeNew={(): SponsorLogo => ({ image: "", alt: "", width: 200 })}
+                            itemLabel={(l) => l.alt || "Logo"}
+                            renderItem={(logo, update) => (
+                                <>
+                                    <ImageField label="Image" value={logo.image} onChange={(image) => update({ ...logo, image })} />
+                                    <TextField label="Alt text" value={logo.alt} onChange={(alt) => update({ ...logo, alt })} />
+                                    <NumberField label="Width (px)" value={logo.width} onChange={(width) => update({ ...logo, width })} />
+                                    <TextField label="Link URL (optional)" value={logo.href ?? ""} onChange={(href) => update({ ...logo, href: href || undefined })} />
+                                </>
+                            )}
+                        />
                     </>
                 )}
             />

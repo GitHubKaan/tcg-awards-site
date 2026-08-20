@@ -83,11 +83,21 @@ export interface SponsorLogo {
     image: string;
     alt: string;
     width: number;
+    /** Optional link; when set the logo opens this URL in a new tab. */
+    href?: string;
+}
+
+export interface SponsorTier {
+    /** Segment heading, e.g. "Silver Partner". Rendered in a smaller font than the main heading. */
+    heading: string;
+    logos: SponsorLogo[];
 }
 
 export interface SponsorsContent {
     heading: string;
     logos: SponsorLogo[];
+    /** Optional partner tiers shown below the main logos (e.g. Silver / Copper Partner). */
+    tiers?: SponsorTier[];
 }
 
 export interface JuryMember {

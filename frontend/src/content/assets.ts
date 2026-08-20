@@ -10,6 +10,8 @@ import LogoText from "../assets/logo_text.png";
 import Banner from "../assets/crads_banner.png";
 import Placeholder from "../assets/placeholder.png";
 import EbayLive from "../assets/sponsors/ebay_live.png";
+import KayouWhite from "../assets/sponsors/Kayou_White.png";
+import GamegenicWhite from "../assets/sponsors/Gamegenic_White.png";
 
 import Preview1 from "../assets/download_preview/TCG_Awards_SM_Votes_V_1920x1080.jpg";
 import Preview2 from "../assets/download_preview/TCG_Awards_SM_Votes_V1_1080x1080.jpg";
@@ -30,6 +32,8 @@ const ASSETS: Record<string, string> = {
     "crads_banner.png": Banner,
     "placeholder.png": Placeholder,
     "sponsors/ebay_live.png": EbayLive,
+    "sponsors/Kayou_White.png": KayouWhite,
+    "sponsors/Gamegenic_White.png": GamegenicWhite,
     "download_preview/TCG_Awards_SM_Votes_V_1920x1080.jpg": Preview1,
     "download_preview/TCG_Awards_SM_Votes_V1_1080x1080.jpg": Preview2,
     "download_preview/TCG_Awards_SM_Votes_V1_1080x1350.jpg": Preview3,
