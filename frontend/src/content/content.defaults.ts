@@ -116,13 +116,13 @@ The awards combine the voice of the global community with the expertise of an in
         ],
         tiers: [
             {
-                heading: "Silver Partner",
+                heading: "Gold Partner",
                 logos: [
                     { image: "sponsors/Kayou_White.png", alt: "Kayou logo", width: 220, href: "https://www.kayouofficial.com/en-US" },
                 ],
             },
             {
-                heading: "Copper Partner",
+                heading: "Silver Partner",
                 logos: [
                     { image: "sponsors/Gamegenic_White.png", alt: "Gamegenic logo", width: 130, href: "https://www.gamegenic.com/" },
                 ],
