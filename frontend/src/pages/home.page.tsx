@@ -53,7 +53,7 @@ function HomePage() {
 
             {s.cta && (
                 <div className="flex gap column center items-center">
-                    <div className="flex column gap-1">
+                    <div className="flex column gap-1 center items-center">
                         <VoteButtonComponent title={s.cta.label} onClick={() => onCta(s.cta!)} />
                         {s.deadline && (
                             <div className="w-100 flex center items-center">

@@ -90,7 +90,7 @@ function DownloadsPage() {
 
                 <h3>{downloads.mediaCategoryTitle}</h3>
 
-                <div className="flex column gap-1">
+                <div className="flex column gap-1 ">
                     <div className="preview-wrapper no-select">
                         {/* Left arrow */}
                         <button
