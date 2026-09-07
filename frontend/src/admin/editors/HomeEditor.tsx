@@ -24,7 +24,9 @@ const DEFAULT_COUNTDOWN: CountdownContent = {
     target: "",
     title: "The TCG Awards begin in",
     subtitle: "",
-    image: "logo_text.png",
+    twitchChannel: "",
+    image: "",
+    fallbackText: "Livestream fängt bald an",
 };
 
 export default function HomeEditor({
@@ -36,7 +38,9 @@ export default function HomeEditor({
 }) {
     const set = <K extends keyof HomeContent>(k: K, v: HomeContent[K]) => onChange({ ...value, [k]: v });
 
-    const countdown = value.countdown ?? DEFAULT_COUNTDOWN;
+    // Merge field-by-field so documents saved before a field existed (e.g. an
+    // older countdown without `twitchChannel`) never leave an input undefined.
+    const countdown: CountdownContent = { ...DEFAULT_COUNTDOWN, ...(value.countdown ?? {}) };
 
     return (
         <>
@@ -62,8 +66,18 @@ export default function HomeEditor({
                     value={countdown.subtitle}
                     onChange={(subtitle) => set("countdown", { ...countdown, subtitle })}
                 />
+                <TextField
+                    label="Twitch channel shown when the timer ends (username only, e.g. tcgawards)"
+                    value={countdown.twitchChannel}
+                    onChange={(twitchChannel) => set("countdown", { ...countdown, twitchChannel })}
+                />
+                <TextField
+                    label="Fallback message (shown at zero when no Twitch channel and no image, e.g. Livestream fängt bald an)"
+                    value={countdown.fallbackText}
+                    onChange={(fallbackText) => set("countdown", { ...countdown, fallbackText })}
+                />
                 <ImageField
-                    label="Image shown when the countdown reaches zero"
+                    label="Fallback image (optional; overrides the message when set, still only if no Twitch channel)"
                     value={countdown.image}
                     onChange={(image) => set("countdown", { ...countdown, image })}
                 />

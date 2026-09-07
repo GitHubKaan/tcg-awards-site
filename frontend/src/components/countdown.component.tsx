@@ -1,5 +1,5 @@
 import "./countdown.component.css";
-import { ReactNode, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 /** Milliseconds remaining until `target`, clamped at 0. Empty/invalid -> null. */
 function remainingMs(target: string): number | null {
@@ -21,23 +21,47 @@ function split(ms: number) {
 
 const pad = (n: number) => String(n).padStart(2, "0");
 
+/** Twitch embeds require the exact hostname of the embedding page as `parent`. */
+function twitchParent(): string {
+    return typeof window !== "undefined" ? window.location.hostname : "localhost";
+}
+
+/**
+ * Reduces whatever was entered in the admin to a bare Twitch username. Accepts
+ * a plain handle ("tcgawards") or a pasted URL ("https://www.twitch.tv/tcgawards/")
+ * — an invalid channel is what makes Twitch show "content classification could
+ * not be determined", so we normalise it before building the embed URL.
+ */
+function normalizeChannel(raw?: string): string {
+    if (!raw) return "";
+    let c = raw.trim();
+    const fromUrl = c.match(/twitch\.tv\/([^/?#\s]+)/i);
+    if (fromUrl) c = fromUrl[1];
+    return c.replace(/^[@/]+|\/+$/g, "").trim();
+}
+
 /**
  * Large countdown to a target datetime. While time remains it renders four
- * animated unit cards (days/hours/minutes/seconds); once it reaches zero the
- * provided image is shown in its place. Renders nothing if no valid target.
+ * animated unit cards (days/hours/minutes/seconds); once it reaches zero it
+ * shows the live Twitch stream for `twitchChannel` (or, if none is set, the
+ * fallback `image`). Renders nothing if no valid target.
  */
 export default function CountdownComponent(
     props: Readonly<{
         target: string;
         title?: string;
         subtitle?: string;
-        /** Rendered when the countdown reaches zero. */
-        done?: ReactNode;
+        /** Twitch channel (username) embedded when the timer ends. */
+        twitchChannel?: string;
+        /** Fallback image URL shown at zero when no Twitch channel is set. */
+        image?: string;
+        /** Message card shown at zero when neither a Twitch channel nor an image is set. */
+        fallbackText?: string;
         className?: string;
         [key: string]: unknown;
     }>
 ) {
-    const { target, title, subtitle, done, className, ...overflowProps } = props;
+    const { target, title, subtitle, twitchChannel, image, fallbackText, className, ...overflowProps } = props;
 
     const [ms, setMs] = useState<number | null>(() => remainingMs(target));
 
@@ -51,9 +75,28 @@ export default function CountdownComponent(
     if (ms === null) return null;
 
     if (ms <= 0) {
+        const channel = normalizeChannel(twitchChannel);
         return (
             <div className={`countdown-component countdown-done ${className ?? ""}`} {...overflowProps}>
-                {done}
+                {channel ? (
+                    <div className="countdown-stream">
+                        <iframe
+                            title="Twitch livestream"
+                            src={`https://player.twitch.tv/?channel=${encodeURIComponent(
+                                channel
+                            )}&parent=${twitchParent()}&autoplay=true`}
+                            allow="autoplay; fullscreen; picture-in-picture"
+                            allowFullScreen
+                        />
+                    </div>
+                ) : image ? (
+                    <img className="countdown-image no-select" src={image} alt="" />
+                ) : fallbackText?.trim() ? (
+                    <div className="countdown-soon">
+                        <span className="countdown-soon-dot" aria-hidden="true" />
+                        <span className="countdown-soon-text">{fallbackText}</span>
+                    </div>
+                ) : null}
             </div>
         );
     }

@@ -29,7 +29,9 @@ export const DEFAULT_CONTENT: SiteContent = {
             target: "",
             title: "The TCG Awards begin in",
             subtitle: "",
-            image: "logo_text.png",
+            twitchChannel: "",
+            image: "",
+            fallbackText: "Livestream fängt bald an",
         },
         whyInfoBox: {
             titleTop: "WHY WE\nCREATED THE",

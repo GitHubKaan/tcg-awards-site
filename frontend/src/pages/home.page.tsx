@@ -119,13 +119,9 @@ function HomePage() {
                     target={home.countdown.target}
                     title={home.countdown.title}
                     subtitle={home.countdown.subtitle}
-                    done={
-                        <img
-                            className="countdown-image no-select"
-                            src={cdnUrl(home.countdown.image)}
-                            alt=""
-                        />
-                    }
+                    twitchChannel={home.countdown.twitchChannel}
+                    image={home.countdown.image ? cdnUrl(home.countdown.image) : ""}
+                    fallbackText={home.countdown.fallbackText}
                 />
             )}
 

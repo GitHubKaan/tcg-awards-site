@@ -44,7 +44,9 @@ const countdown = z.object({
     target: z.string(),
     title: z.string(),
     subtitle: z.string(),
+    twitchChannel: z.string(),
     image: z.string(),
+    fallbackText: z.string(),
 });
 
 const home = z.object({

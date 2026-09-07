@@ -78,8 +78,12 @@ export interface CountdownContent {
     title: string;
     /** Optional line shown below the timer. */
     subtitle: string;
-    /** Image shown once the countdown reaches zero. */
+    /** Twitch channel (username) embedded as a live player once the countdown reaches zero. Takes priority over `image` and `fallbackText`. */
+    twitchChannel: string;
+    /** Optional fallback image shown at zero when no Twitch channel is set (takes priority over `fallbackText`). */
     image: string;
+    /** Message card shown at zero when neither a Twitch channel nor an image is set, e.g. "Livestream fängt bald an". */
+    fallbackText: string;
 }
 
 export interface HomeContent {
