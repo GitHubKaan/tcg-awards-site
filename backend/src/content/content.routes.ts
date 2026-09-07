@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { getAllContent, getContent, setContent } from "../db";
+import { getAllContent, getContent, getContentMeta, setContent } from "../db";
 import { requireAuth } from "../auth/auth.middleware";
 import { CONTENT_SCHEMAS } from "./content.schema";
 import { CONTENT_KEYS, ContentKey } from "../../shared/content.types";
@@ -13,6 +13,16 @@ function isContentKey(key: string): key is ContentKey {
 // Public: full content document used by the frontend.
 router.get("/", (_req, res) => {
     res.json(getAllContent());
+});
+
+// Public: when a content document was last changed (ISO timestamp).
+router.get("/:key/meta", (req, res) => {
+    const { key } = req.params;
+    if (!isContentKey(key)) {
+        res.status(404).json({ error: "Unknown content key" });
+        return;
+    }
+    res.json({ updatedAt: getContentMeta(key) ?? null });
 });
 
 // Public: single content document.
@@ -42,8 +52,8 @@ router.put("/:key", requireAuth, (req, res) => {
         res.status(400).json({ error: "Validation failed", details: parsed.error.issues });
         return;
     }
-    setContent(key, parsed.data);
-    res.json({ ok: true, value: parsed.data });
+    const updatedAt = setContent(key, parsed.data);
+    res.json({ ok: true, value: parsed.data, updatedAt });
 });
 
 export default router;

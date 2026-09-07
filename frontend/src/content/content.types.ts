@@ -69,9 +69,24 @@ export interface SocialsBlock {
     image: string;
 }
 
+export interface CountdownContent {
+    /** Master switch: the countdown (and, after it ends, its image) only shows while true. */
+    enabled: boolean;
+    /** Target moment as a local datetime string "YYYY-MM-DDTHH:mm" (as produced by an <input type="datetime-local">). */
+    target: string;
+    /** Optional heading shown above the timer. */
+    title: string;
+    /** Optional line shown below the timer. */
+    subtitle: string;
+    /** Image shown once the countdown reaches zero. */
+    image: string;
+}
+
 export interface HomeContent {
     topLogo: string;
     nav: HomeNavItem[];
+    /** Large countdown shown near the top of the home page. */
+    countdown: CountdownContent;
     whyInfoBox: InfoBox;
     awardsHeading: string;
     awardSections: AwardSection[];

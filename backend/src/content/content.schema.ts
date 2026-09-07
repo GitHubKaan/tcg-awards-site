@@ -31,11 +31,20 @@ const awardCategory = z.object({
 const awardSection = z.object({
     title: z.string(),
     subtitle: z.string(),
+    sponsoredBy: z.string().optional(),
     cta: ctaButton.optional(),
     deadline: z.string().optional(),
     gridVariant: z.enum(["", "quad", "tripple", "single"]),
     mobileLastSeparate: z.boolean().optional(),
     categories: z.array(awardCategory),
+});
+
+const countdown = z.object({
+    enabled: z.boolean(),
+    target: z.string(),
+    title: z.string(),
+    subtitle: z.string(),
+    image: z.string(),
 });
 
 const home = z.object({
@@ -47,6 +56,7 @@ const home = z.object({
             route: z.string().optional(),
         })
     ),
+    countdown,
     whyInfoBox: infoBox,
     awardsHeading: z.string(),
     awardSections: z.array(awardSection),
@@ -58,15 +68,24 @@ const home = z.object({
     }),
 });
 
+const sponsorLogo = z.object({
+    image: z.string(),
+    alt: z.string(),
+    width: z.number(),
+    href: z.string().optional(),
+});
+
 const sponsors = z.object({
     heading: z.string(),
-    logos: z.array(
-        z.object({
-            image: z.string(),
-            alt: z.string(),
-            width: z.number(),
-        })
-    ),
+    logos: z.array(sponsorLogo),
+    tiers: z
+        .array(
+            z.object({
+                heading: z.string(),
+                logos: z.array(sponsorLogo),
+            })
+        )
+        .optional(),
 });
 
 const jury = z.object({

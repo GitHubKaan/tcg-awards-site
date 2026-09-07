@@ -48,6 +48,29 @@ export function NumberField({
     );
 }
 
+/** Date + time picker. Stores a local datetime string "YYYY-MM-DDTHH:mm". */
+export function DateTimeField({
+    label,
+    value,
+    onChange,
+}: {
+    label: string;
+    value: string;
+    onChange: (v: string) => void;
+}) {
+    return (
+        <label className="admin-field">
+            <span className="admin-field-label">{label}</span>
+            <input
+                className="admin-input"
+                type="datetime-local"
+                value={value}
+                onChange={(e) => onChange(e.target.value)}
+            />
+        </label>
+    );
+}
+
 export function TextArea({
     label,
     value,

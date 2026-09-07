@@ -62,11 +62,22 @@ export function getContent(key: ContentKey): unknown | undefined {
     return row ? JSON.parse(row.value) : undefined;
 }
 
-export function setContent(key: ContentKey, value: unknown): void {
+/** ISO timestamp of the last change to a content document, or undefined if unset. */
+export function getContentMeta(key: ContentKey): string | undefined {
+    const row = db.prepare("SELECT updated_at FROM content WHERE key = ?").get(key) as
+        | { updated_at: string }
+        | undefined;
+    return row?.updated_at;
+}
+
+/** Persists a content document and returns the ISO timestamp it was stored at. */
+export function setContent(key: ContentKey, value: unknown): string {
+    const now = new Date().toISOString();
     db.prepare(
         `INSERT INTO content (key, value, updated_at) VALUES (?, ?, ?)
          ON CONFLICT(key) DO UPDATE SET value = excluded.value, updated_at = excluded.updated_at`
-    ).run(key, JSON.stringify(value), new Date().toISOString());
+    ).run(key, JSON.stringify(value), now);
+    return now;
 }
 
 export interface MediaRow {

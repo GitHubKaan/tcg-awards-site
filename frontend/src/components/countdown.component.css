@@ -1,0 +1,141 @@
+.countdown-component {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--size-m);
+}
+
+/* Soft golden glow behind the timer, mirroring the vote-hero treatment. */
+.countdown-component::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: min(760px, 92vw);
+    height: 300px;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(ellipse closest-side, rgba(232, 186, 128, 0.14), transparent 75%);
+    pointer-events: none;
+    z-index: -1;
+}
+
+.countdown-title {
+    margin: 0;
+    text-align: center;
+    color: var(--c-gold);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+.countdown-subtitle {
+    margin: 0;
+    text-align: center;
+    color: var(--gray-200);
+    letter-spacing: 1px;
+}
+
+.countdown-units {
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    gap: var(--size-m);
+    flex-wrap: nowrap;
+}
+
+.countdown-unit {
+    position: relative;
+    box-sizing: border-box;
+    min-width: 130px;
+    padding: var(--size-m) var(--size-s);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    border-radius: 18px;
+    border: 1px solid rgba(232, 186, 128, 0.28);
+    background: linear-gradient(
+        160deg,
+        rgba(232, 186, 128, 0.12),
+        rgba(232, 186, 128, 0.02)
+    );
+    box-shadow:
+        0 0 40px rgba(232, 186, 128, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(6px);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.countdown-unit:hover {
+    border-color: rgba(232, 186, 128, 0.5);
+    box-shadow:
+        0 0 55px rgba(232, 186, 128, 0.18),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    transform: translateY(-2px);
+}
+
+.countdown-value {
+    font-family: "Figtree", sans-serif;
+    font-size: 64px;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--white);
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: "tnum";
+}
+
+.countdown-label {
+    font-family: "Figtree", sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--c-gold);
+}
+
+/* Colon between two cards, centred on the digit row and sitting in the gap. */
+.countdown-sep {
+    position: absolute;
+    top: calc(var(--size-m) + 32px);
+    right: calc(var(--size-m) / -2);
+    transform: translate(50%, -50%);
+    font-family: "Figtree", sans-serif;
+    font-size: 44px;
+    font-weight: 700;
+    line-height: 1;
+    color: rgba(232, 186, 128, 0.55);
+    pointer-events: none;
+}
+
+/* When finished, the timer is replaced by the configured image. */
+.countdown-done {
+    align-items: center;
+}
+
+.countdown-done img,
+.countdown-done .countdown-image {
+    max-width: min(560px, 80vw);
+    height: auto;
+}
+
+@media only screen and (max-width: 961px) {
+    .countdown-units {
+        flex-wrap: wrap;
+        gap: var(--size-s);
+    }
+
+    .countdown-unit {
+        min-width: calc((100% - var(--size-s)) / 2);
+        padding: var(--size-s);
+    }
+
+    .countdown-value {
+        font-size: 44px;
+    }
+
+    /* Colons don't line up once the cards wrap into a 2x2 grid. */
+    .countdown-sep {
+        display: none;
+    }
+}

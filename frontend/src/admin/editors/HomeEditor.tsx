@@ -1,6 +1,7 @@
-import { AwardCategory, AwardSection, HomeContent } from "../../content/content.types";
+import { AwardCategory, AwardSection, CountdownContent, HomeContent } from "../../content/content.types";
 import {
     CheckboxField,
+    DateTimeField,
     ImageField,
     ListEditor,
     NumberField,
@@ -16,6 +17,16 @@ const GRID_OPTIONS = [
     { value: "single", label: "Single" },
 ];
 
+// Fallback for content documents saved before the countdown field existed
+// (the admin loads the raw stored document without merging in defaults).
+const DEFAULT_COUNTDOWN: CountdownContent = {
+    enabled: false,
+    target: "",
+    title: "The TCG Awards begin in",
+    subtitle: "",
+    image: "logo_text.png",
+};
+
 export default function HomeEditor({
     value,
     onChange,
@@ -25,8 +36,39 @@ export default function HomeEditor({
 }) {
     const set = <K extends keyof HomeContent>(k: K, v: HomeContent[K]) => onChange({ ...value, [k]: v });
 
+    const countdown = value.countdown ?? DEFAULT_COUNTDOWN;
+
     return (
         <>
+            <fieldset className="admin-fieldset">
+                <legend>Countdown (top of home page)</legend>
+                <CheckboxField
+                    label="Show countdown"
+                    value={countdown.enabled}
+                    onChange={(enabled) => set("countdown", { ...countdown, enabled })}
+                />
+                <DateTimeField
+                    label="Target date & time (your local time)"
+                    value={countdown.target}
+                    onChange={(target) => set("countdown", { ...countdown, target })}
+                />
+                <TextField
+                    label="Title above the timer"
+                    value={countdown.title}
+                    onChange={(title) => set("countdown", { ...countdown, title })}
+                />
+                <TextField
+                    label="Subtitle below the timer (optional)"
+                    value={countdown.subtitle}
+                    onChange={(subtitle) => set("countdown", { ...countdown, subtitle })}
+                />
+                <ImageField
+                    label="Image shown when the countdown reaches zero"
+                    value={countdown.image}
+                    onChange={(image) => set("countdown", { ...countdown, image })}
+                />
+            </fieldset>
+
             <ImageField label="Top logo" value={value.topLogo} onChange={(v) => set("topLogo", v)} />
 
             <ListEditor

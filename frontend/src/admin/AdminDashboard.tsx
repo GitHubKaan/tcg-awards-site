@@ -1,6 +1,20 @@
 import { useCallback, useEffect, useState } from "react";
-import { AuthError, clearToken, getContentKey, putContentKey } from "./admin.api";
-import { EDITORS, EditorEntry } from "./editors/registry";
+import { AuthError, clearToken, getContentKey, getContentMeta, putContentKey } from "./admin.api";
+import { EDITOR_GROUP_ORDER, EDITORS, EditorEntry } from "./editors/registry";
+
+/** "12 Mar 2026, 14:30" — locale-aware date + time, or a dash if never saved. */
+function formatUpdatedAt(iso: string | null): string {
+    if (!iso) return "—";
+    const d = new Date(iso);
+    if (Number.isNaN(d.getTime())) return "—";
+    return d.toLocaleString(undefined, {
+        day: "2-digit",
+        month: "short",
+        year: "numeric",
+        hour: "2-digit",
+        minute: "2-digit",
+    });
+}
 
 export default function AdminDashboard({ onLogout }: { onLogout: () => void }) {
     const [active, setActive] = useState<EditorEntry>(EDITORS[0]);
@@ -20,16 +34,25 @@ export default function AdminDashboard({ onLogout }: { onLogout: () => void }) {
                         Log out
                     </button>
                 </div>
-                <nav>
-                    {EDITORS.map((entry) => (
-                        <button
-                            key={entry.key}
-                            className={`admin-nav-item ${entry.key === active.key ? "active" : ""}`}
-                            onClick={() => setActive(entry)}
-                        >
-                            {entry.label}
-                        </button>
-                    ))}
+                <nav className="admin-nav">
+                    {EDITOR_GROUP_ORDER.map((group) => {
+                        const entries = EDITORS.filter((e) => e.group === group);
+                        if (entries.length === 0) return null;
+                        return (
+                            <div className="admin-nav-group" key={group}>
+                                <span className="admin-nav-group-label">{group}</span>
+                                {entries.map((entry) => (
+                                    <button
+                                        key={entry.key}
+                                        className={`admin-nav-item ${entry.key === active.key ? "active" : ""}`}
+                                        onClick={() => setActive(entry)}
+                                    >
+                                        {entry.label}
+                                    </button>
+                                ))}
+                            </div>
+                        );
+                    })}
                 </nav>
                 <a className="admin-view-site" href="/" target="_blank" rel="noreferrer">
                     View site ↗
@@ -51,10 +74,19 @@ function EditorPanel({ entry, onAuthError }: { entry: EditorEntry; onAuthError: 
     const [loading, setLoading] = useState(true);
     const [dirty, setDirty] = useState(false);
     const [status, setStatus] = useState<Status>({ type: "idle" });
+    const [updatedAt, setUpdatedAt] = useState<string | null>(null);
 
     useEffect(() => {
         let active = true;
         setLoading(true);
+        setUpdatedAt(null);
+        getContentMeta(entry.key)
+            .then((iso) => {
+                if (active) setUpdatedAt(iso);
+            })
+            .catch(() => {
+                /* non-critical: leave the timestamp blank */
+            });
         getContentKey(entry.key)
             .then((data) => {
                 if (active) {
@@ -83,7 +115,8 @@ function EditorPanel({ entry, onAuthError }: { entry: EditorEntry; onAuthError: 
     async function save() {
         setStatus({ type: "saving" });
         try {
-            await putContentKey(entry.key, draft);
+            const iso = await putContentKey(entry.key, draft);
+            setUpdatedAt(iso);
             setDirty(false);
             setStatus({ type: "saved", message: "Saved" });
         } catch (err) {
@@ -102,7 +135,12 @@ function EditorPanel({ entry, onAuthError }: { entry: EditorEntry; onAuthError: 
     return (
         <div className="admin-panel">
             <div className="admin-panel-bar">
-                <h2>{entry.label}</h2>
+                <div className="admin-panel-bar-title">
+                    <h2>{entry.label}</h2>
+                    <span className="admin-panel-updated">
+                        Last updated: {formatUpdatedAt(updatedAt)}
+                    </span>
+                </div>
                 <div className="admin-panel-bar-right">
                     {status.type === "saved" && <span className="admin-saved-text">✓ {status.message}</span>}
                     {status.type === "error" && <span className="admin-error-text">{status.message}</span>}

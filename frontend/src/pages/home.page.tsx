@@ -9,6 +9,7 @@ import AwardsLineComponent from "../components/awardsLine.component";
 import { useNavigate } from "react-router-dom";
 import VoteButtonComponent from "../components/voteButton.component";
 import JurySectionComponent from "../components/jurySection.component";
+import CountdownComponent from "../components/countdown.component";
 import { useContent } from "../content/content.context";
 import { cdnUrl } from "../content/assets";
 import { AwardSection, CtaButton } from "../content/content.types";
@@ -112,6 +113,21 @@ function HomePage() {
                     </h4>
                 ))}
             </div>
+
+            {home.countdown.enabled && (
+                <CountdownComponent
+                    target={home.countdown.target}
+                    title={home.countdown.title}
+                    subtitle={home.countdown.subtitle}
+                    done={
+                        <img
+                            className="countdown-image no-select"
+                            src={cdnUrl(home.countdown.image)}
+                            alt=""
+                        />
+                    }
+                />
+            )}
 
             {voting.enabled && (
                 <div className="vote-hero no-select">

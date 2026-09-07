@@ -24,6 +24,13 @@ export const DEFAULT_CONTENT: SiteContent = {
             { label: "downloads", route: "/downloads" },
             { label: "jury", section: 5 },
         ],
+        countdown: {
+            enabled: false,
+            target: "",
+            title: "The TCG Awards begin in",
+            subtitle: "",
+            image: "logo_text.png",
+        },
         whyInfoBox: {
             titleTop: "WHY WE\nCREATED THE",
             titleBottom: "TCG AWARDS",

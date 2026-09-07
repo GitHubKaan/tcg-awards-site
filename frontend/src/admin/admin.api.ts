@@ -65,14 +65,22 @@ export async function getContentKey<T = unknown>(key: ContentKey): Promise<T> {
     return handle(await fetch(`${API_BASE}/api/content/${key}`));
 }
 
-export async function putContentKey(key: ContentKey, value: unknown): Promise<void> {
-    await handle(
+/** ISO timestamp of the last change to a content document (null if never saved). */
+export async function getContentMeta(key: ContentKey): Promise<string | null> {
+    const data = await handle(await fetch(`${API_BASE}/api/content/${key}/meta`));
+    return data.updatedAt ?? null;
+}
+
+/** Saves a content document and returns the ISO timestamp it was stored at. */
+export async function putContentKey(key: ContentKey, value: unknown): Promise<string | null> {
+    const data = await handle(
         await fetch(`${API_BASE}/api/content/${key}`, {
             method: "PUT",
             headers: { "Content-Type": "application/json", ...authHeaders() },
             body: JSON.stringify(value),
         })
     );
+    return data.updatedAt ?? null;
 }
 
 export interface MediaItem {

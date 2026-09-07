@@ -52,6 +52,8 @@ export interface AwardCategory {
 export interface AwardSection {
     title: string;
     subtitle: string;
+    /** Optional sponsor name shown as a modern "Sponsored by …" badge. */
+    sponsoredBy?: string;
     cta?: CtaButton;
     deadline?: string;
     /** Grid layout modifier class: "", "quad", "tripple" or "single". */
@@ -67,9 +69,24 @@ export interface SocialsBlock {
     image: string;
 }
 
+export interface CountdownContent {
+    /** Master switch: the countdown (and, after it ends, its image) only shows while true. */
+    enabled: boolean;
+    /** Target moment as a local datetime string "YYYY-MM-DDTHH:mm" (as produced by an <input type="datetime-local">). */
+    target: string;
+    /** Optional heading shown above the timer. */
+    title: string;
+    /** Optional line shown below the timer. */
+    subtitle: string;
+    /** Image shown once the countdown reaches zero. */
+    image: string;
+}
+
 export interface HomeContent {
     topLogo: string;
     nav: HomeNavItem[];
+    /** Large countdown shown near the top of the home page. */
+    countdown: CountdownContent;
     whyInfoBox: InfoBox;
     awardsHeading: string;
     awardSections: AwardSection[];
@@ -81,11 +98,21 @@ export interface SponsorLogo {
     image: string;
     alt: string;
     width: number;
+    /** Optional link; when set the logo opens this URL in a new tab. */
+    href?: string;
+}
+
+export interface SponsorTier {
+    /** Segment heading, e.g. "Silver Partner". Rendered in a smaller font than the main heading. */
+    heading: string;
+    logos: SponsorLogo[];
 }
 
 export interface SponsorsContent {
     heading: string;
     logos: SponsorLogo[];
+    /** Optional partner tiers shown below the main logos (e.g. Silver / Copper Partner). */
+    tiers?: SponsorTier[];
 }
 
 export interface JuryMember {
