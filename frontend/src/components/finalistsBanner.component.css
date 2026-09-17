@@ -1,0 +1,188 @@
+.finalists-banner-component {
+    position: relative;
+    font-family: "Figtree", sans-serif;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 620px;
+    margin: calc(var(--size-xxl) * -0.4) auto 0; /* pull closer to the nav, like .vote-hero */
+    padding: var(--size-xl) var(--size-l) var(--size-l);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--size-s);
+    text-align: center;
+    overflow: hidden;
+    cursor: pointer;
+    border-radius: 20px;
+    border: 1px solid rgba(232, 186, 128, 0.35);
+    background:
+        radial-gradient(ellipse at top, rgba(232, 186, 128, 0.14), transparent 60%),
+        linear-gradient(180deg, rgba(31, 36, 46, 0.6) 0%, rgba(18, 21, 27, 0.85) 100%);
+    box-shadow: 0 20px 60px -30px rgba(0, 0, 0, 0.9), inset 0 1px 0 rgba(232, 186, 128, 0.12);
+    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+.finalists-banner-component:hover {
+    transform: translateY(-3px);
+    border-color: rgba(232, 186, 128, 0.6);
+    box-shadow: 0 26px 70px -28px rgba(0, 0, 0, 0.95), inset 0 1px 0 rgba(232, 186, 128, 0.2);
+}
+.finalists-banner-component:focus-visible {
+    outline: 2px solid var(--c-gold);
+    outline-offset: 3px;
+}
+
+/* Rotating light rays behind the trophy. */
+.finalists-banner-rays {
+    position: absolute;
+    top: -40px;
+    left: 50%;
+    width: 340px;
+    height: 340px;
+    transform: translateX(-50%);
+    pointer-events: none;
+    z-index: 0;
+    background: repeating-conic-gradient(
+        from 0deg,
+        rgba(232, 186, 128, 0.16) 0deg 6deg,
+        transparent 6deg 20deg
+    );
+    -webkit-mask-image: radial-gradient(closest-side, black 0%, transparent 70%);
+    mask-image: radial-gradient(closest-side, black 0%, transparent 70%);
+    animation: fb-rays-spin 26s linear infinite;
+}
+
+/* Soft pulsing glow. */
+.finalists-banner-glow {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 260px;
+    height: 200px;
+    transform: translateX(-50%);
+    pointer-events: none;
+    z-index: 0;
+    background: radial-gradient(ellipse closest-side, rgba(232, 186, 128, 0.28), transparent 75%);
+    animation: fb-glow-pulse 4s ease-in-out infinite;
+}
+
+.finalists-banner-trophy {
+    position: relative;
+    z-index: 1;
+    color: var(--c-gold);
+    filter: drop-shadow(0 4px 14px rgba(232, 186, 128, 0.45));
+    animation: fb-trophy-float 5s ease-in-out infinite;
+}
+
+.finalists-banner-badge {
+    position: relative;
+    z-index: 1;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--c-gold);
+}
+
+.finalists-banner-title {
+    position: relative;
+    z-index: 1;
+    margin: 0;
+    max-width: 460px;
+    font-size: 26px;
+    line-height: 1.2;
+    color: #fff;
+    text-transform: none;
+}
+
+/* Shimmering CTA pill. */
+.finalists-banner-cta {
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    margin-top: var(--size-xs);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 26px;
+    border-radius: 999px;
+    color: var(--c-background);
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-size: 15px;
+    background: var(--f-gold-dark-gold-hor);
+    box-shadow: 0 8px 24px -8px rgba(218, 142, 66, 0.7);
+}
+.finalists-banner-cta-label,
+.finalists-banner-arrow {
+    position: relative;
+    z-index: 1;
+}
+.finalists-banner-arrow {
+    transition: transform 0.25s ease;
+}
+.finalists-banner-component:hover .finalists-banner-arrow {
+    transform: translateX(4px);
+}
+.finalists-banner-cta-shine {
+    position: absolute;
+    top: 0;
+    left: -60%;
+    width: 45%;
+    height: 100%;
+    z-index: 0;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.55), transparent);
+    transform: skewX(-20deg);
+    animation: fb-shine 3.2s ease-in-out infinite;
+}
+
+@keyframes fb-rays-spin {
+    to {
+        transform: translateX(-50%) rotate(360deg);
+    }
+}
+@keyframes fb-glow-pulse {
+    0%, 100% {
+        opacity: 0.6;
+        transform: translateX(-50%) scale(0.95);
+    }
+    50% {
+        opacity: 1;
+        transform: translateX(-50%) scale(1.05);
+    }
+}
+@keyframes fb-trophy-float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+}
+@keyframes fb-shine {
+    0% {
+        left: -60%;
+    }
+    55%, 100% {
+        left: 130%;
+    }
+}
+
+@media (max-width: 961px) {
+    .finalists-banner-component {
+        max-width: 100%;
+        padding: var(--size-l) var(--size-m) var(--size-m);
+    }
+    .finalists-banner-title {
+        font-size: 21px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .finalists-banner-rays,
+    .finalists-banner-glow,
+    .finalists-banner-trophy,
+    .finalists-banner-cta-shine {
+        animation: none;
+    }
+}

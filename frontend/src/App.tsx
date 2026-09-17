@@ -9,6 +9,7 @@ import CookiesPage from "./pages/cookies.page";
 import DownloadsPage from "./pages/downloads.page";
 import DownloadsTosPage from "./pages/downloadsTos.page";
 import VotePage from "./pages/vote.page";
+import FinalistsPage from "./pages/finalists.page";
 
 // Do not change order of CSS imports
 // general
@@ -47,6 +48,7 @@ function App() {
                     <Route path={`/downloads-tos`} element={Layout({ page: <DownloadsTosPage />, header: false, footer: true, background: {} })} />
                     <Route path={`/brand-cases-info`} element={Layout({ page: <BrandCasesInfoPage />, header: false, footer: true, background: {} })} />
                     <Route path={`/vote`} element={Layout({ page: <VotePage />, header: false, footer: true, background: {} })} /> {/* Only live while voting is enabled in the admin */}
+                    <Route path={`/finalists`} element={Layout({ page: <FinalistsPage />, header: false, footer: true, background: {} })} /> {/* Only live while finalists are enabled in the admin */}
 
                     {/* Error pages */}
                     <Route path={`*`} element={Layout({ page: <ErrorInfo />, header: false, footer: true, background: {} })} /> {/* 404 Page not found */}

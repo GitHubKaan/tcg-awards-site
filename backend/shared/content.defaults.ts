@@ -558,4 +558,151 @@ The awards combine the voice of the global community with the expertise of an in
             },
         ],
     },
+    finalists: {
+        enabled: true,
+        bannerBadge: "Top 3 Finalists Announced",
+        bannerTitle: "The Top 3 across all 13 categories are set",
+        bannerCta: "Reveal the Top 3",
+        eyebrow: "SPIEL Essen 2026 · Gala Ceremony",
+        heading: "Top 3 Finalists Announced",
+        subheading:
+            "The inaugural TCG Awards reveal the Top 3 finalists across all 13 categories — ahead of the exclusive gala ceremony at SPIEL Essen 2026.",
+        intro: [
+            "The TCG Awards team, in partnership with Merz Verlag, today announced the official Top 3 finalists across all 13 award categories. Following an intensive nomination and evaluation phase driven by global fan voting and expert jury reviews, the best three of every category are set — but only one in each will receive the trophy of the first international awards program dedicated entirely to the Trading Card Game industry.",
+            "While the Top 3 in each category have been unveiled, the suspense remains. Fans and finalists alike can keep their fingers crossed and follow the excitement: the actual winners stay a closely guarded secret until they are revealed live on stage during an exclusive Gala evening on Thursday at SPIEL Essen 2026, the world's premier tabletop fair. The event will also be streamed live so fans can follow their favorites from the screens at home.",
+        ],
+        galaNote:
+            "The winners will be crowned in front of industry leaders, publishers, creators, and community figures during the TCG Awards Gala at SPIEL Essen. This year's awards are presented by eBay Live.",
+        groups: [
+            {
+                kicker: "Community Awards · Voted by Fans",
+                heading: "Product Excellence",
+                note: "Top 3 in alphabetical order",
+                categories: [
+                    {
+                        title: "Game of the Year",
+                        finalists: [
+                            { name: "Magic: The Gathering" },
+                            { name: "One Piece TCG" },
+                            { name: "Star Wars: Unlimited" },
+                        ],
+                    },
+                    {
+                        title: "Newcomer of the Year",
+                        finalists: [
+                            { name: "Gundam TCG" },
+                            { name: "Riftbound TCG" },
+                            { name: "Star Wars: Unlimited" },
+                        ],
+                    },
+                    {
+                        title: "Set of the Year",
+                        finalists: [
+                            { name: "A Lawless Time", detail: "Star Wars: Unlimited" },
+                            { name: "Origins", detail: "Riftbound TCG" },
+                            { name: "Secrets of Strixhaven", detail: "Magic: The Gathering" },
+                        ],
+                    },
+                    {
+                        title: "Accessory of the Year",
+                        finalists: [
+                            { name: "Game Castle", detail: "Gamegenic" },
+                            { name: "Matte Sleeves", detail: "Dragon Shield" },
+                            { name: "Sidekick Pro 100+ XL", detail: "Gamegenic" },
+                        ],
+                    },
+                    {
+                        title: "Artwork of the Year",
+                        finalists: [
+                            { name: "Ahri-Inquisitive", detail: "Shawn Tan · SFD-227 · Spiritforged · Riftbound" },
+                            { name: "Armageddon", detail: "Dominik Mayer · M0003-SOA · Secrets of Strixhaven · Magic: The Gathering" },
+                            { name: "N's Zoroark ex", detail: "Raita Kazama · 286/217 · Ascended Heroes · Pokémon" },
+                        ],
+                    },
+                ],
+            },
+            {
+                kicker: "Community Awards · Voted by Fans",
+                heading: "Community and Creator",
+                note: "Top 3 in alphabetical order",
+                categories: [
+                    {
+                        title: "Event of the Year",
+                        note: "Setting new standards in tournament organization and player experience.",
+                        finalists: [
+                            { name: "Josephinen Pokecup", detail: "Pokémon, Lorcana & Star Wars: Unlimited · Dresden, Germany" },
+                            { name: "Galactic Championship", detail: "Star Wars: Unlimited · Las Vegas, USA" },
+                            { name: "Magic Con", detail: "Magic: The Gathering · Las Vegas, USA" },
+                        ],
+                    },
+                    {
+                        title: "Local Game Store of the Year",
+                        finalists: [],
+                    },
+                    {
+                        title: "Content Creator of the Year",
+                        finalists: [
+                            { name: "Holocron Card Hub" },
+                            { name: "Pleasant Kenobi" },
+                            { name: "Sol4r1s" },
+                        ],
+                    },
+                    {
+                        title: "Equality Impact of the Year",
+                        finalists: [
+                            { name: "School Learn to Play", detail: "Battle Bear TCG Shop · Danny Scheubeck" },
+                            { name: "Tolarian Community College Trans Lifeline", detail: "Tolarian Community College" },
+                            { name: "Women+ in Magic" },
+                        ],
+                    },
+                ],
+            },
+            {
+                kicker: "Business Awards · Evaluated by Expert Jury",
+                heading: "Industry and Business Excellence",
+                note: "Top 3 in alphabetical order",
+                categories: [
+                    {
+                        title: "Brand Partnership of the Year",
+                        finalists: [
+                            { name: "Kayou x Hasbro: My Little Pony TCG", detail: "KAYOU" },
+                            { name: "Magic: The Gathering® – FINAL FANTASY™ Brand Partnership", detail: "Hasbro Deutschland GmbH" },
+                            { name: "Red Bull Double Don – One Piece Card Game", detail: "Play Interactive" },
+                        ],
+                    },
+                    {
+                        title: "Campaign of the Year",
+                        finalists: [
+                            { name: "Cyberpunk TCG Kickstarter Campaign", detail: "WeirdCo x CDPR" },
+                            { name: "Magic: The Gathering® – FINAL FANTASY™ Campaign", detail: "Hasbro Deutschland GmbH" },
+                            { name: "Ultimate Guard Soundwaves" },
+                        ],
+                    },
+                    {
+                        title: "Service Provider of the Year",
+                        finalists: [
+                            { name: "Building TCG Ecosystems Through Pro-Play Summit and Publisher Programs", detail: "PPG Event Management" },
+                            { name: "Magic: The Gathering Arena (MTG Arena)", detail: "Hasbro Deutschland GmbH" },
+                            { name: "my.fanfinity.gg", detail: "Fanfinity BV" },
+                        ],
+                    },
+                ],
+            },
+            {
+                kicker: "Competitive Award · Based on Metrics",
+                heading: "Performance Excellence",
+                note: "Top 3 in alphabetical order",
+                categories: [
+                    {
+                        title: "Player of the Year",
+                        finalists: [
+                            { name: "Beton Filip Szkudlarek" },
+                            { name: "Julien Kehon" },
+                            { name: "Riley McKay" },
+                        ],
+                    },
+                ],
+            },
+        ],
+    },
 };

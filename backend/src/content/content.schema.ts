@@ -193,6 +193,37 @@ const voting = z.object({
     ),
 });
 
+const finalists = z.object({
+    enabled: z.boolean(),
+    bannerBadge: z.string(),
+    bannerTitle: z.string(),
+    bannerCta: z.string(),
+    eyebrow: z.string(),
+    heading: z.string(),
+    subheading: z.string(),
+    intro: z.array(z.string()),
+    galaNote: z.string(),
+    groups: z.array(
+        z.object({
+            kicker: z.string(),
+            heading: z.string(),
+            note: z.string().optional(),
+            categories: z.array(
+                z.object({
+                    title: z.string(),
+                    note: z.string().optional(),
+                    finalists: z.array(
+                        z.object({
+                            name: z.string(),
+                            detail: z.string().optional(),
+                        })
+                    ),
+                })
+            ),
+        })
+    ),
+});
+
 export const CONTENT_SCHEMAS: Record<ContentKey, z.ZodTypeAny> = {
     common,
     home,
@@ -208,4 +239,5 @@ export const CONTENT_SCHEMAS: Record<ContentKey, z.ZodTypeAny> = {
     footer,
     newsletter,
     voting,
+    finalists,
 };

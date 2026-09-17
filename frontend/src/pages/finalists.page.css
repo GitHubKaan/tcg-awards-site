@@ -1,0 +1,414 @@
+#finalists-page {
+    gap: var(--size-xxl);
+    font-family: "Figtree", sans-serif;
+}
+/* Spans below (badges, kickers, finalist names/details) don't inherit a font
+   globally — the site only sets Figtree on h1-h6/p/a — so pin it on the page. */
+#finalists-page span {
+    font-family: "Figtree", sans-serif;
+}
+
+/* ------------------------------------------------------------------ */
+/* Hero / press-release header — a gold spotlight echoing the home banner */
+/* ------------------------------------------------------------------ */
+#finalists-page .finalists-hero {
+    position: relative;
+    width: 100%;
+    max-width: 840px;
+    margin: 0 auto;
+    padding-top: var(--size-l);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--size-s);
+    text-align: center;
+    overflow: hidden;
+}
+
+/* Rotating light rays behind the trophy. */
+#finalists-page .finalists-hero-rays {
+    position: absolute;
+    top: -140px;
+    left: 50%;
+    width: 560px;
+    height: 560px;
+    transform: translateX(-50%);
+    pointer-events: none;
+    z-index: 0;
+    background: repeating-conic-gradient(
+        from 0deg,
+        rgba(232, 186, 128, 0.12) 0deg 6deg,
+        transparent 6deg 22deg
+    );
+    -webkit-mask-image: radial-gradient(closest-side, black 0%, transparent 68%);
+    mask-image: radial-gradient(closest-side, black 0%, transparent 68%);
+    animation: finalists-rays-spin 34s linear infinite;
+}
+#finalists-page .finalists-hero-glow {
+    position: absolute;
+    top: -60px;
+    left: 50%;
+    width: 420px;
+    height: 320px;
+    transform: translateX(-50%);
+    pointer-events: none;
+    z-index: 0;
+    background: radial-gradient(ellipse closest-side, rgba(232, 186, 128, 0.22), transparent 75%);
+    animation: finalists-glow-pulse 5s ease-in-out infinite;
+}
+
+#finalists-page .finalists-hero-trophy {
+    position: relative;
+    z-index: 1;
+    color: var(--c-gold);
+    filter: drop-shadow(0 6px 18px rgba(232, 186, 128, 0.45));
+    animation: finalists-trophy-float 5s ease-in-out infinite;
+}
+
+#finalists-page .finalists-hero > *:not(.finalists-hero-rays):not(.finalists-hero-glow) {
+    position: relative;
+    z-index: 1;
+}
+
+#finalists-page .finalists-eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--c-gold);
+    padding: 6px 16px;
+    border: 1px solid rgba(232, 186, 128, 0.4);
+    border-radius: 999px;
+    background: rgba(232, 186, 128, 0.05);
+}
+#finalists-page .finalists-hero h1 {
+    margin: 0;
+}
+#finalists-page .finalists-subheading {
+    max-width: 700px;
+    font-size: 18px;
+    color: var(--gray-200);
+}
+
+/* Kennzahlen-Leiste */
+#finalists-page .finalists-meta {
+    margin-top: var(--size-m);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--size-l);
+    flex-wrap: wrap;
+}
+#finalists-page .finalists-meta-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+}
+#finalists-page .finalists-meta-num {
+    font-size: 30px;
+    font-weight: 800;
+    line-height: 1;
+    background: var(--f-gold-dark-gold-hor);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+#finalists-page .finalists-meta-label {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gray-150);
+}
+#finalists-page .finalists-meta-sep {
+    width: 1px;
+    height: 34px;
+    background: linear-gradient(180deg, transparent, rgba(232, 186, 128, 0.5), transparent);
+}
+
+/* Intro paragraphs */
+#finalists-page .finalists-intro {
+    width: 100%;
+    max-width: 760px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: var(--size-m);
+}
+#finalists-page .finalists-intro p {
+    text-align: center;
+}
+
+/* Gala highlight callout */
+#finalists-page .finalists-gala-note {
+    position: relative;
+    width: 100%;
+    max-width: 760px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    padding: var(--size-l);
+    padding-top: calc(var(--size-l) + var(--size-s));
+    border-radius: 16px;
+    border: 1px solid rgba(232, 186, 128, 0.35);
+    background:
+        radial-gradient(ellipse at top, rgba(232, 186, 128, 0.12), transparent 70%),
+        rgba(31, 36, 46, 0.5);
+    text-align: center;
+}
+#finalists-page .finalists-gala-note-badge {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    color: var(--c-background);
+    background: var(--f-gold-dark-gold);
+    box-shadow: 0 6px 18px -6px rgba(218, 142, 66, 0.8);
+}
+#finalists-page .finalists-gala-note p {
+    margin: 0;
+    color: var(--c-washed-gold);
+}
+
+/* ------------------------------------------------------------------ */
+/* Groups */
+/* ------------------------------------------------------------------ */
+#finalists-page .finalists-groups {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: var(--size-xxl);
+}
+#finalists-page .finalists-group-head {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    text-align: center;
+    margin-bottom: var(--size-xl);
+}
+#finalists-page .finalists-group-index {
+    font-size: 46px;
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: 2px;
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(232, 186, 128, 0.35);
+    margin-bottom: 2px;
+}
+#finalists-page .finalists-group-kicker {
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--c-dark-gold);
+}
+#finalists-page .finalists-group-head h2 {
+    margin: 0;
+}
+#finalists-page .finalists-group-note {
+    font-size: 13px;
+    font-style: italic;
+    color: var(--gray-150);
+}
+#finalists-page .finalists-group-rule {
+    margin-top: var(--size-s);
+    width: 90px;
+    height: 2px;
+    border-radius: 2px;
+    background: var(--f-gold-dark-gold-hor);
+}
+
+/* ------------------------------------------------------------------ */
+/* Category cards */
+/* ------------------------------------------------------------------ */
+#finalists-page .finalists-category-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+    gap: var(--size-l);
+}
+#finalists-page .finalists-category {
+    position: relative;
+    box-sizing: border-box;
+    padding: var(--size-l);
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: linear-gradient(180deg, rgba(41, 47, 58, 0.55) 0%, rgba(24, 28, 35, 0.55) 100%);
+    overflow: hidden;
+    transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+}
+/* Gold accent bar along the top edge, revealed on hover. */
+#finalists-page .finalists-category::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--f-gold-dark-gold-hor);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+}
+#finalists-page .finalists-category:hover {
+    border-color: rgba(232, 186, 128, 0.4);
+    transform: translateY(-3px);
+    box-shadow: 0 22px 50px -32px rgba(0, 0, 0, 0.9);
+}
+#finalists-page .finalists-category:hover::before {
+    transform: scaleX(1);
+}
+
+/* Faded editorial ordinal in the corner. */
+#finalists-page .finalists-category-ordinal {
+    position: absolute;
+    top: 10px;
+    right: 16px;
+    font-size: 40px;
+    font-weight: 800;
+    line-height: 1;
+    color: rgba(232, 186, 128, 0.09);
+    pointer-events: none;
+}
+
+#finalists-page .finalists-category-head {
+    position: relative;
+    z-index: 1;
+    margin-bottom: var(--size-s);
+    padding-right: 34px; /* keep title clear of the corner ordinal */
+}
+#finalists-page .finalists-category h3 {
+    margin: 0 0 4px;
+}
+#finalists-page .finalists-category-note {
+    margin: 0;
+    font-size: 13px;
+    font-style: italic;
+    color: var(--gray-150);
+}
+
+/* Finalist list */
+#finalists-page .finalists-list {
+    list-style: none;
+    margin: var(--size-s) 0 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+#finalists-page .finalists-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 12px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+#finalists-page .finalists-item:first-child {
+    border-top: none;
+}
+#finalists-page .finalists-item-mark {
+    flex: none;
+    margin-top: 1px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    color: var(--c-gold);
+    background: rgba(232, 186, 128, 0.1);
+    border: 1px solid rgba(232, 186, 128, 0.25);
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+#finalists-page .finalists-item:hover .finalists-item-mark {
+    transform: scale(1.1);
+    background: rgba(232, 186, 128, 0.2);
+}
+#finalists-page .finalists-item-body {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+#finalists-page .finalists-item-name {
+    font-weight: 600;
+    color: var(--white);
+    line-height: 1.3;
+}
+#finalists-page .finalists-item-detail {
+    font-size: 13px;
+    color: var(--gray-150);
+    line-height: 1.35;
+}
+
+/* "To be announced" state */
+#finalists-page .finalists-category.is-tba {
+    border-style: dashed;
+    border-color: rgba(255, 255, 255, 0.12);
+}
+#finalists-page .finalists-tba {
+    margin: var(--size-s) 0 0;
+    display: inline-block;
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-style: italic;
+    color: var(--gray-150);
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* ------------------------------------------------------------------ */
+/* Animations */
+/* ------------------------------------------------------------------ */
+@keyframes finalists-rays-spin {
+    to {
+        transform: translateX(-50%) rotate(360deg);
+    }
+}
+@keyframes finalists-glow-pulse {
+    0%, 100% {
+        opacity: 0.6;
+        transform: translateX(-50%) scale(0.95);
+    }
+    50% {
+        opacity: 1;
+        transform: translateX(-50%) scale(1.05);
+    }
+}
+@keyframes finalists-trophy-float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+@media (max-width: 961px) {
+    #finalists-page .finalists-subheading {
+        font-size: 16px;
+    }
+    #finalists-page .finalists-meta {
+        gap: var(--size-m);
+    }
+    #finalists-page .finalists-meta-num {
+        font-size: 26px;
+    }
+    #finalists-page .finalists-category-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #finalists-page .finalists-hero-rays,
+    #finalists-page .finalists-hero-glow,
+    #finalists-page .finalists-hero-trophy {
+        animation: none;
+    }
+}

@@ -4,6 +4,7 @@ import HomeEditor from "./HomeEditor";
 import BrandCasesEditor from "./BrandCasesEditor";
 import BlocksEditor from "./BlocksEditor";
 import VotingEditor from "./VotingEditor";
+import FinalistsEditor from "./FinalistsEditor";
 import {
     CommonEditor,
     DownloadsEditor,
@@ -35,6 +36,7 @@ export const EDITORS: EditorEntry[] = [
     { key: "brandCasesInfo", label: "Brand Cases Info", group: "Pages", Editor: BrandCasesEditor },
     { key: "downloads", label: "Downloads", group: "Pages", Editor: DownloadsEditor },
     { key: "voting", label: "Final Voting", group: "Pages", Editor: VotingEditor },
+    { key: "finalists", label: "Top 3 Finalists", group: "Pages", Editor: FinalistsEditor },
     // Sections — blocks embedded within the home page.
     { key: "jury", label: "Jury", group: "Sections", Editor: JuryEditor },
     { key: "sponsors", label: "Sponsors", group: "Sections", Editor: SponsorsEditor },

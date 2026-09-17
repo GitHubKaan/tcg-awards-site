@@ -242,6 +242,47 @@ export interface VotingContent {
     categories: VotingCategory[];
 }
 
+export interface Finalist {
+    name: string;
+    /** Optional attribution under the name, e.g. "Star Wars: Unlimited", an artist, or a location. */
+    detail?: string;
+}
+
+export interface FinalistCategory {
+    title: string;
+    /** Optional descriptive line under the category title, e.g. "Setting new standards in tournament organization." */
+    note?: string;
+    /** The Top 3 (usually three, but any count renders). */
+    finalists: Finalist[];
+}
+
+export interface FinalistGroup {
+    /** Small kicker above the heading, e.g. "Community Awards · Voted by Fans". */
+    kicker: string;
+    heading: string;
+    /** Optional meta line, e.g. "Top 3 in alphabetical order". */
+    note?: string;
+    categories: FinalistCategory[];
+}
+
+export interface FinalistsContent {
+    /** Master switch: the /finalists page and its home banner only exist while true. */
+    enabled: boolean;
+    /** Home banner. */
+    bannerBadge: string;
+    bannerTitle: string;
+    bannerCta: string;
+    /** Press-release page header. */
+    eyebrow: string;
+    heading: string;
+    subheading: string;
+    /** Intro paragraphs (press-release body). */
+    intro: string[];
+    /** Gold callout about the gala reveal. */
+    galaNote: string;
+    groups: FinalistGroup[];
+}
+
 export interface SiteContent {
     common: CommonContent;
     home: HomeContent;
@@ -257,6 +298,7 @@ export interface SiteContent {
     footer: FooterContent;
     newsletter: NewsletterContent;
     voting: VotingContent;
+    finalists: FinalistsContent;
 }
 
 export type ContentKey = keyof SiteContent;
@@ -276,4 +318,5 @@ export const CONTENT_KEYS: ContentKey[] = [
     "footer",
     "newsletter",
     "voting",
+    "finalists",
 ];

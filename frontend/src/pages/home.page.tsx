@@ -10,13 +10,14 @@ import { useNavigate } from "react-router-dom";
 import VoteButtonComponent from "../components/voteButton.component";
 import JurySectionComponent from "../components/jurySection.component";
 import CountdownComponent from "../components/countdown.component";
+import FinalistsBannerComponent from "../components/finalistsBanner.component";
 import { useContent } from "../content/content.context";
 import { cdnUrl } from "../content/assets";
 import { AwardSection, CtaButton } from "../content/content.types";
 
 function HomePage() {
     const navigate = useNavigate();
-    const { home, voting } = useContent();
+    const { home, voting, finalists } = useContent();
 
     const section1 = useRef<HTMLDivElement | null>(null);
     const section2 = useRef<HTMLDivElement | null>(null);
@@ -122,6 +123,14 @@ function HomePage() {
                     twitchChannel={home.countdown.twitchChannel}
                     image={home.countdown.image ? cdnUrl(home.countdown.image) : ""}
                     fallbackText={home.countdown.fallbackText}
+                />
+            )}
+
+            {finalists.enabled && (
+                <FinalistsBannerComponent
+                    badge={finalists.bannerBadge}
+                    title={finalists.bannerTitle}
+                    cta={finalists.bannerCta}
                 />
             )}
 
