@@ -56,7 +56,10 @@ export function ContentProvider({ children }: { children: ReactNode }) {
 
     useEffect(() => {
         let active = true;
-        fetch(`${API_BASE}/api/content`)
+        // `cache: "no-store"` keeps the browser from serving a stale copy after
+        // an admin edit; the timestamp query param defeats any intermediary
+        // proxy/CDN that ignores the header, so every visitor sees fresh content.
+        fetch(`${API_BASE}/api/content?t=${Date.now()}`, { cache: "no-store" })
             .then((r) => (r.ok ? r.json() : Promise.reject(r.status)))
             .then((data: Partial<SiteContent>) => {
                 if (active) setContent(deepMerge(DEFAULT_CONTENT, data));

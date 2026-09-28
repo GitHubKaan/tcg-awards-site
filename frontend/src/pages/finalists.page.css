@@ -334,16 +334,22 @@
     display: flex;
     flex-direction: column;
     gap: 2px;
+    flex: 1 1 auto;
+    min-width: 0;
 }
 #finalists-page .finalists-item-name {
     font-weight: 600;
     color: var(--white);
     line-height: 1.3;
+    overflow-wrap: anywhere;
+    word-break: break-word;
 }
 #finalists-page .finalists-item-detail {
     font-size: 13px;
     color: var(--gray-150);
     line-height: 1.35;
+    overflow-wrap: anywhere;
+    word-break: break-word;
 }
 
 /* "To be announced" state */

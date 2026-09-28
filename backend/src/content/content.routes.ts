@@ -10,6 +10,16 @@ function isContentKey(key: string): key is ContentKey {
     return (CONTENT_KEYS as string[]).includes(key);
 }
 
+// Content changes whenever an admin saves, so it must never be served from a
+// browser/proxy/CDN cache — otherwise some visitors keep seeing a stale copy
+// after an edit. Force revalidation on every content response.
+router.use((_req, res, next) => {
+    res.setHeader("Cache-Control", "no-store, no-cache, must-revalidate, proxy-revalidate");
+    res.setHeader("Pragma", "no-cache");
+    res.setHeader("Expires", "0");
+    next();
+});
+
 // Public: full content document used by the frontend.
 router.get("/", (_req, res) => {
     res.json(getAllContent());
