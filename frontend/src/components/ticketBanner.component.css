@@ -1,0 +1,136 @@
+.ticket-banner-component {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--size-m);
+    flex-wrap: nowrap;
+
+    width: 100%;
+    padding: var(--size-s) var(--size-m);
+
+    background: var(--f-gold-dark-gold-hor);
+    box-shadow: 0 2px 14px 0 rgba(0, 0, 0, 0.35);
+
+    text-decoration: none;
+    overflow: hidden;
+
+    animation: ticket-banner-glow 6s ease-in-out infinite;
+    transition: filter ease-in-out 0.15s;
+}
+
+.ticket-banner-component,
+.ticket-banner-component:hover,
+.ticket-banner-component:visited {
+    text-decoration: none;
+}
+
+.ticket-banner-component:hover {
+    filter: brightness(1.08);
+}
+
+.ticket-banner-component:active {
+    filter: brightness(0.95);
+}
+
+.ticket-banner-text {
+    position: relative;
+    z-index: 1;
+    margin: 0;
+    color: rgb(40, 26, 10);
+    font-weight: 700;
+    font-size: 17px;
+    line-height: 1.2;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+}
+
+/* Inline arrow shown only on mobile, when the CTA pill is hidden */
+.ticket-banner-arrow {
+    display: none;
+}
+
+.ticket-banner-cta {
+    position: relative;
+    z-index: 1;
+    padding: var(--size-xs) var(--size-s);
+    border-radius: var(--size-xs);
+    background-color: rgb(40, 26, 10);
+    color: var(--c-washed-gold);
+    font-weight: 700;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+}
+
+/* Sweeping shine across the bar */
+.ticket-banner-shine {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.ticket-banner-shine::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 40%;
+    height: 100%;
+    background: linear-gradient(
+        105deg,
+        transparent 20%,
+        rgba(255, 255, 255, 0.45) 50%,
+        transparent 80%
+    );
+    filter: blur(4px);
+    transform: skewX(-15deg);
+    animation: ticket-banner-sweep 4s ease-in-out infinite;
+}
+
+@keyframes ticket-banner-sweep {
+    0%   { left: -100%; }
+    55%  { left: 130%; }
+    100% { left: 130%; }
+}
+
+@keyframes ticket-banner-glow {
+    0%   { box-shadow: 0 2px 14px 0 rgba(0, 0, 0, 0.35); }
+    50%  { box-shadow: 0 2px 20px 3px rgba(232, 186, 128, 0.45); }
+    100% { box-shadow: 0 2px 14px 0 rgba(0, 0, 0, 0.35); }
+}
+
+@media (max-width: 961px) {
+    .ticket-banner-component {
+        gap: var(--size-xs);
+        padding: var(--size-s) var(--size-s);
+    }
+
+    /* Keep everything on one line: shrink the text to fit and swap the
+       pill button for a compact inline arrow. */
+    .ticket-banner-text {
+        font-size: clamp(11px, 3.6vw, 14px);
+        letter-spacing: 0.3px;
+    }
+
+    .ticket-banner-cta {
+        display: none;
+    }
+
+    .ticket-banner-arrow {
+        display: inline-block;
+        position: relative;
+        z-index: 1;
+        color: rgb(40, 26, 10);
+        font-weight: 800;
+        font-size: clamp(13px, 4vw, 16px);
+        line-height: 1;
+    }
+}

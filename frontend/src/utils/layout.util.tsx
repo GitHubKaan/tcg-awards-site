@@ -5,6 +5,7 @@ import FooterComponent from "../components/footer.component";
 import HeaderComponent from "../components/header.component";
 import Background from "../components/background.component";
 import CookieBannerComponent from "../components/cookieBanner.component";
+import TicketBannerComponent from "../components/ticketBanner.component";
 
 /**
  * @param page
@@ -33,6 +34,9 @@ function Layout(
     } = props;
 
     return <>
+        {/* Prominent gala ticket bar — shown at the very top of every page */}
+        <TicketBannerComponent />
+
         {/* Content */}
         <SkeletonTheme baseColor="var(--gray-32)" highlightColor="var(--gray-50)">
             <div className="body-container">
