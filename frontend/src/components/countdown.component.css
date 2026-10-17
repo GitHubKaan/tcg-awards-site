@@ -108,6 +108,84 @@
     pointer-events: none;
 }
 
+/* Event details as one light inline row (doors open · show time · location). */
+.countdown-details {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 10px var(--size-s);
+    width: 100%;
+    max-width: 760px;
+}
+
+.countdown-detail {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.countdown-detail-sep {
+    width: 4px;
+    height: 4px;
+    margin-right: var(--size-s);
+    border-radius: 50%;
+    background: rgba(232, 186, 128, 0.4);
+}
+
+.countdown-detail-icon {
+    flex: 0 0 auto;
+    width: 17px;
+    height: 17px;
+    color: var(--c-gold);
+}
+
+.countdown-detail-value {
+    font-family: "Figtree", sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.3;
+    color: var(--gray-200);
+}
+
+/* Direct link to the Twitch channel shown beneath the running countdown. */
+.countdown-twitch-link,
+.countdown-twitch-link:visited {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px var(--size-m);
+    border-radius: 999px;
+    border: 1px solid rgba(232, 186, 128, 0.4);
+    background: linear-gradient(160deg, rgba(232, 186, 128, 0.14), rgba(232, 186, 128, 0.03));
+    font-family: "Figtree", sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--gray-200);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.countdown-twitch-link:hover {
+    border-color: rgba(232, 186, 128, 0.7);
+    box-shadow: 0 0 35px rgba(232, 186, 128, 0.18);
+    transform: translateY(-2px);
+}
+
+.countdown-twitch-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--c-gold);
+    animation: countdown-pulse 1.8s ease-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .countdown-twitch-dot { animation: none; }
+}
+
 /* When finished, the timer is replaced by the Twitch stream (or fallback image). */
 .countdown-done {
     align-items: center;
@@ -199,6 +277,17 @@
 
     /* Colons don't line up once the cards wrap into a 2x2 grid. */
     .countdown-sep {
+        display: none;
+    }
+
+    /* Stack the event details so each sits on its own line; the inline dot
+       separators would otherwise land at the start of a wrapped line. */
+    .countdown-details {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .countdown-detail-sep {
         display: none;
     }
 

@@ -101,7 +101,10 @@ function HomePage() {
             <img className="top-logo mt-5 no-select" src={cdnUrl(home.topLogo)} alt="logo" width={400} />
 
             <div className="flex gap-3 wrap center">
-                {home.nav.map((item, i) => (
+                {(home.nav.some((n) => n.route === "/faq")
+                    ? home.nav
+                    : [...home.nav, { label: "faq", route: "/faq" }]
+                ).map((item, i) => (
                     <h4
                         key={i}
                         className="header-nav no-select"
@@ -123,6 +126,11 @@ function HomePage() {
                     twitchChannel={home.countdown.twitchChannel}
                     image={home.countdown.image ? cdnUrl(home.countdown.image) : ""}
                     fallbackText={home.countdown.fallbackText}
+                    details={[
+                        { icon: "door", label: "Doors open", value: home.countdown.doorsOpen },
+                        { icon: "clock", label: "Show", value: home.countdown.showTime },
+                        { icon: "pin", label: "Location", value: home.countdown.location },
+                    ]}
                 />
             )}
 

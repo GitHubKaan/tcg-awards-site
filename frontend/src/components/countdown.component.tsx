@@ -1,5 +1,5 @@
 import "./countdown.component.css";
-import { useEffect, useState } from "react";
+import { ReactNode, useEffect, useState } from "react";
 
 /** Milliseconds remaining until `target`, clamped at 0. Empty/invalid -> null. */
 function remainingMs(target: string): number | null {
@@ -20,6 +20,25 @@ function split(ms: number) {
 }
 
 const pad = (n: number) => String(n).padStart(2, "0");
+
+/** Inline stroke icons for the event-detail cards (no external icon dependency). */
+const DETAIL_ICONS: Record<"door" | "clock" | "pin", ReactNode> = {
+    door: (
+        <path d="M6 3h9a1 1 0 0 1 1 1v16H6V3zm0 0L3 4v16l3 .5M13 11.5v1" />
+    ),
+    clock: (
+        <>
+            <circle cx="12" cy="12" r="9" />
+            <path d="M12 7v5l3.5 2" />
+        </>
+    ),
+    pin: (
+        <>
+            <path d="M12 21s7-6.2 7-11a7 7 0 0 0-14 0c0 4.8 7 11 7 11z" />
+            <circle cx="12" cy="10" r="2.5" />
+        </>
+    ),
+};
 
 /** Twitch embeds require the exact hostname of the embedding page as `parent`. */
 function twitchParent(): string {
@@ -57,11 +76,13 @@ export default function CountdownComponent(
         image?: string;
         /** Message card shown at zero when neither a Twitch channel nor an image is set. */
         fallbackText?: string;
+        /** Event detail cards (doors open, show time, venue, …) shown below the running timer. Empty values are skipped. */
+        details?: { icon: "door" | "clock" | "pin"; label: string; value: string }[];
         className?: string;
         [key: string]: unknown;
     }>
 ) {
-    const { target, title, subtitle, twitchChannel, image, fallbackText, className, ...overflowProps } = props;
+    const { target, title, subtitle, twitchChannel, image, fallbackText, details, className, ...overflowProps } = props;
 
     const [ms, setMs] = useState<number | null>(() => remainingMs(target));
 
@@ -101,6 +122,7 @@ export default function CountdownComponent(
         );
     }
 
+    const channel = normalizeChannel(twitchChannel);
     const { days, hours, minutes, seconds } = split(ms);
     const units: { value: string; label: string }[] = [
         { value: pad(days), label: days === 1 ? "Day" : "Days" },
@@ -124,6 +146,45 @@ export default function CountdownComponent(
             </div>
 
             {subtitle && <p className="countdown-subtitle">{subtitle}</p>}
+
+            {(() => {
+                const items = (details ?? []).filter((d) => d.value?.trim());
+                if (items.length === 0) return null;
+                return (
+                    <div className="countdown-details no-select">
+                        {items.map((d, i) => (
+                            <div className="countdown-detail" key={d.label} aria-label={`${d.label}: ${d.value}`}>
+                                {i > 0 && <span className="countdown-detail-sep" aria-hidden="true" />}
+                                <svg
+                                    className="countdown-detail-icon"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    strokeWidth={1.6}
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    aria-hidden="true"
+                                >
+                                    {DETAIL_ICONS[d.icon]}
+                                </svg>
+                                <span className="countdown-detail-value">{d.value}</span>
+                            </div>
+                        ))}
+                    </div>
+                );
+            })()}
+
+            {channel && (
+                <a
+                    className="countdown-twitch-link clickable"
+                    href={`https://www.twitch.tv/${encodeURIComponent(channel)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    <span className="countdown-twitch-dot" aria-hidden="true" />
+                    Watch live on Twitch
+                </a>
+            )}
         </div>
     );
 }

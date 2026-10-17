@@ -84,6 +84,12 @@ export interface CountdownContent {
     image: string;
     /** Message card shown at zero when neither a Twitch channel nor an image is set, e.g. "Livestream fängt bald an". */
     fallbackText: string;
+    /** Event detail — when doors open, e.g. "October 22, 2026, at 6:00 PM". Shown as an info card below the timer (hidden if empty). */
+    doorsOpen: string;
+    /** Event detail — show time window, e.g. "8:00 PM – 10:00 PM". Shown as an info card below the timer (hidden if empty). */
+    showTime: string;
+    /** Event detail — venue, e.g. "Messe Essen, Saal Essen". Shown as an info card below the timer (hidden if empty). */
+    location: string;
 }
 
 export interface HomeContent {

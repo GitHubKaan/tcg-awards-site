@@ -27,6 +27,9 @@ const DEFAULT_COUNTDOWN: CountdownContent = {
     twitchChannel: "",
     image: "",
     fallbackText: "Livestream fängt bald an",
+    doorsOpen: "",
+    showTime: "",
+    location: "",
 };
 
 export default function HomeEditor({
@@ -80,6 +83,21 @@ export default function HomeEditor({
                     label="Fallback image (optional; overrides the message when set, still only if no Twitch channel)"
                     value={countdown.image}
                     onChange={(image) => set("countdown", { ...countdown, image })}
+                />
+                <TextField
+                    label="Doors open (info card below the timer, e.g. October 22, 2026, at 6:00 PM)"
+                    value={countdown.doorsOpen}
+                    onChange={(doorsOpen) => set("countdown", { ...countdown, doorsOpen })}
+                />
+                <TextField
+                    label="Show time (info card, e.g. 8:00 PM – 10:00 PM)"
+                    value={countdown.showTime}
+                    onChange={(showTime) => set("countdown", { ...countdown, showTime })}
+                />
+                <TextField
+                    label="Location (info card, e.g. Messe Essen, Saal Essen)"
+                    value={countdown.location}
+                    onChange={(location) => set("countdown", { ...countdown, location })}
                 />
             </fieldset>
 

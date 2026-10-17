@@ -23,6 +23,7 @@ export const DEFAULT_CONTENT: SiteContent = {
             { label: "newsletter", section: 4 },
             { label: "downloads", route: "/downloads" },
             { label: "jury", section: 5 },
+            { label: "faq", route: "/faq" },
         ],
         countdown: {
             enabled: false,
@@ -32,6 +33,9 @@ export const DEFAULT_CONTENT: SiteContent = {
             twitchChannel: "",
             image: "",
             fallbackText: "Livestream fängt bald an",
+            doorsOpen: "October 22, 2026, at 6:00 PM",
+            showTime: "8:00 PM – 10:00 PM",
+            location: "Messe Essen, Saal Essen",
         },
         whyInfoBox: {
             titleTop: "WHY WE\nCREATED THE",
