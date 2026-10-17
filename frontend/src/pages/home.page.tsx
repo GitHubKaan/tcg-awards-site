@@ -2,7 +2,7 @@ import "./home.page.css";
 import InfoBoxComponent from "../components/infoBox.component";
 import FrameComponent from "../components/frame.component";
 import ImgInfoBoxComponent from "../components/imgInfoBox.component";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import NewsletterComponent from "../components/newsletter.component";
 import SponsorsComponent from "../components/sponsors.component";
 import AwardsLineComponent from "../components/awardsLine.component";
@@ -13,11 +13,15 @@ import CountdownComponent from "../components/countdown.component";
 import FinalistsBannerComponent from "../components/finalistsBanner.component";
 import { useContent } from "../content/content.context";
 import { cdnUrl } from "../content/assets";
-import { AwardSection, CtaButton } from "../content/content.types";
+import { AwardSection, CtaButton, HomeNavItem } from "../content/content.types";
+import { Portal } from "../utils/portal.util";
+import { preventScroll } from "../utils/scroll.util";
 
 function HomePage() {
     const navigate = useNavigate();
     const { home, voting, finalists } = useContent();
+
+    const [menuOpen, setMenuOpen] = useState(false);
 
     const section1 = useRef<HTMLDivElement | null>(null);
     const section2 = useRef<HTMLDivElement | null>(null);
@@ -38,6 +42,43 @@ function HomePage() {
         if (cta.route) navigate(cta.route);
         else if (cta.href) window.open(cta.href, "_blank");
     };
+
+    // "socials" is intentionally dropped from the nav; `the event`/`faq` are ensured
+    // even when older stored content doesn't include them.
+    const navItems: HomeNavItem[] = [
+        ...home.nav.filter((n) => n.label.trim().toLowerCase() !== "socials"),
+        ...(home.nav.some((n) => n.route === "/the-event") ? [] : [{ label: "the event", route: "/the-event" }]),
+        ...(home.nav.some((n) => n.route === "/faq") ? [] : [{ label: "faq", route: "/faq" }]),
+    ];
+
+    const onNav = (item: HomeNavItem) => {
+        if (item.route) navigate(item.route);
+        else if (item.section) scrollToRef(sections[item.section - 1]);
+    };
+
+    // From the mobile drawer: close first (releases the scroll lock) then act.
+    const onMobileNav = (item: HomeNavItem) => {
+        setMenuOpen(false);
+        if (item.route) navigate(item.route);
+        else if (item.section) {
+            const section = item.section;
+            setTimeout(() => scrollToRef(sections[section - 1]), 60);
+        }
+    };
+
+    // Lock background scroll while the mobile drawer is open; Escape closes it.
+    useEffect(() => {
+        if (!menuOpen) return;
+        preventScroll(true);
+        const onKey = (e: KeyboardEvent) => {
+            if (e.key === "Escape") setMenuOpen(false);
+        };
+        window.addEventListener("keydown", onKey);
+        return () => {
+            preventScroll(false);
+            window.removeEventListener("keydown", onKey);
+        };
+    }, [menuOpen]);
 
     const renderSection = (s: AwardSection, idx: number) => (
         <div key={idx} className="w-100 flex column gap-3">
@@ -100,23 +141,66 @@ function HomePage() {
         <div id="home-page" className="default-page">
             <img className="top-logo mt-5 no-select" src={cdnUrl(home.topLogo)} alt="logo" width={400} />
 
-            <div className="flex gap-3 wrap center">
-                {(home.nav.some((n) => n.route === "/faq")
-                    ? home.nav
-                    : [...home.nav, { label: "faq", route: "/faq" }]
-                ).map((item, i) => (
-                    <h4
-                        key={i}
-                        className="header-nav no-select"
-                        onClick={() => {
-                            if (item.route) navigate(item.route);
-                            else if (item.section) scrollToRef(sections[item.section - 1]);
-                        }}
-                    >
+            {/* Desktop: inline nav row. Hidden on mobile in favour of the burger. */}
+            <div className="home-nav mobile-hide flex gap-3 wrap center">
+                {navItems.map((item, i) => (
+                    <h4 key={i} className="header-nav no-select" onClick={() => onNav(item)}>
                         {item.label}
                     </h4>
                 ))}
             </div>
+
+            {/* Mobile: burger button (shown only on mobile). Portaled to <body> so
+                it stacks above the sticky ticket banner instead of being trapped
+                below it inside the page's stacking context. */}
+            {!menuOpen && (
+                <Portal>
+                    <button
+                        type="button"
+                        className="home-burger mobile-show clickable no-select"
+                        aria-label="Open menu"
+                        aria-expanded={menuOpen}
+                        onClick={() => setMenuOpen(true)}
+                    >
+                        <span />
+                        <span />
+                        <span />
+                    </button>
+                </Portal>
+            )}
+
+            {menuOpen && (
+                <Portal>
+                    <div className="home-menu-overlay" onClick={() => setMenuOpen(false)}>
+                        <div
+                            className="home-menu"
+                            role="dialog"
+                            aria-modal="true"
+                            aria-label="Menu"
+                            onClick={(e) => e.stopPropagation()}
+                        >
+                            <button
+                                className="home-menu-close no-select"
+                                onClick={() => setMenuOpen(false)}
+                                aria-label="Close menu"
+                            >
+                                ✕
+                            </button>
+                            <nav className="home-menu-links">
+                                {navItems.map((item, i) => (
+                                    <h4
+                                        key={i}
+                                        className="header-nav no-select"
+                                        onClick={() => onMobileNav(item)}
+                                    >
+                                        {item.label}
+                                    </h4>
+                                ))}
+                            </nav>
+                        </div>
+                    </div>
+                </Portal>
+            )}
 
             {home.countdown.enabled && (
                 <CountdownComponent
@@ -126,13 +210,39 @@ function HomePage() {
                     twitchChannel={home.countdown.twitchChannel}
                     image={home.countdown.image ? cdnUrl(home.countdown.image) : ""}
                     fallbackText={home.countdown.fallbackText}
-                    details={[
-                        { icon: "door", label: "Doors open", value: home.countdown.doorsOpen },
-                        { icon: "clock", label: "Show", value: home.countdown.showTime },
-                        { icon: "pin", label: "Location", value: home.countdown.location },
-                    ]}
                 />
             )}
+
+            <div className="event-link-row w-100 flex center no-select">
+                <button type="button" className="event-link clickable" onClick={() => navigate("/the-event")}>
+                    <svg
+                        className="event-link-icon"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth={1.6}
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        aria-hidden="true"
+                    >
+                        <path d="M12 21s7-6.2 7-11a7 7 0 0 0-14 0c0 4.8 7 11 7 11z" />
+                        <circle cx="12" cy="10" r="2.5" />
+                    </svg>
+                    <span className="event-link-text">Event info &amp; how to get there</span>
+                    <svg
+                        className="event-link-arrow"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth={1.8}
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        aria-hidden="true"
+                    >
+                        <path d="M5 12h14M13 6l6 6-6 6" />
+                    </svg>
+                </button>
+            </div>
 
             {finalists.enabled && (
                 <FinalistsBannerComponent

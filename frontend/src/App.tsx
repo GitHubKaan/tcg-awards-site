@@ -11,6 +11,7 @@ import DownloadsTosPage from "./pages/downloadsTos.page";
 import VotePage from "./pages/vote.page";
 import FinalistsPage from "./pages/finalists.page";
 import FaqPage from "./pages/faq.page";
+import TheEventPage from "./pages/theEvent.page";
 
 // Do not change order of CSS imports
 // general
@@ -49,6 +50,7 @@ function App() {
                     <Route path={`/downloads-tos`} element={Layout({ page: <DownloadsTosPage />, header: false, footer: true, background: {} })} />
                     <Route path={`/brand-cases-info`} element={Layout({ page: <BrandCasesInfoPage />, header: false, footer: true, background: {} })} />
                     <Route path={`/faq`} element={Layout({ page: <FaqPage />, header: false, footer: true, background: {} })} />
+                    <Route path={`/the-event`} element={Layout({ page: <TheEventPage />, header: false, footer: true, background: {} })} />
                     <Route path={`/vote`} element={Layout({ page: <VotePage />, header: false, footer: true, background: {} })} /> {/* Only live while voting is enabled in the admin */}
                     <Route path={`/finalists`} element={Layout({ page: <FinalistsPage />, header: false, footer: true, background: {} })} /> {/* Only live while finalists are enabled in the admin */}
 

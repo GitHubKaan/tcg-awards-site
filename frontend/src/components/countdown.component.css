@@ -148,38 +148,53 @@
     color: var(--gray-200);
 }
 
-/* Direct link to the Twitch channel shown beneath the running countdown. */
+/* Shared pill shape for the action links below the timer (primary Twitch link
+   here, secondary venue link on the home page) so they read as one system. */
 .countdown-twitch-link,
 .countdown-twitch-link:visited {
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 10px;
-    padding: 10px var(--size-m);
+    box-sizing: border-box;
+    min-width: 280px;
+    padding: 13px var(--size-l);
     border-radius: 999px;
-    border: 1px solid rgba(232, 186, 128, 0.4);
-    background: linear-gradient(160deg, rgba(232, 186, 128, 0.14), rgba(232, 186, 128, 0.03));
     font-family: "Figtree", sans-serif;
     font-size: 14px;
     font-weight: 600;
     letter-spacing: 1.5px;
     text-transform: uppercase;
     text-decoration: none;
-    color: var(--gray-200);
-    transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease, background 0.3s ease;
+    /* Primary "live" treatment: a filled gold pill. */
+    border: 1px solid rgba(232, 186, 128, 0.6);
+    background: linear-gradient(160deg, rgba(232, 186, 128, 0.26), rgba(232, 186, 128, 0.08));
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    color: var(--white);
 }
 
 .countdown-twitch-link:hover {
-    border-color: rgba(232, 186, 128, 0.7);
-    box-shadow: 0 0 35px rgba(232, 186, 128, 0.18);
+    border-color: rgba(232, 186, 128, 0.85);
+    box-shadow: 0 0 35px rgba(232, 186, 128, 0.22), inset 0 1px 0 rgba(255, 255, 255, 0.1);
     transform: translateY(-2px);
 }
 
+/* Red dot = live, the conventional signal and the clearest difference from the
+   venue link's gold pin icon. */
 .countdown-twitch-dot {
     width: 10px;
     height: 10px;
     border-radius: 50%;
-    background: var(--c-gold);
-    animation: countdown-pulse 1.8s ease-out infinite;
+    background: #ff4d4d;
+    box-shadow: 0 0 0 0 rgba(255, 77, 77, 0.6);
+    animation: countdown-pulse-live 1.8s ease-out infinite;
+}
+
+@keyframes countdown-pulse-live {
+    0% { box-shadow: 0 0 0 0 rgba(255, 77, 77, 0.55); }
+    70% { box-shadow: 0 0 0 12px rgba(255, 77, 77, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(255, 77, 77, 0); }
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -9,6 +9,112 @@
     max-width: 60vw;
 }
 
+/* NAV — desktop row vs. mobile burger -------------------------------------- */
+
+/* Mobile burger — portaled to <body>, so these are global (not #home-page)
+   selectors. Fixed top-right, above the sticky ticket banner (z-index: 1000). */
+.home-burger {
+    position: fixed;
+    top: var(--size-m);
+    right: var(--size-m);
+    z-index: 1001;
+    flex-direction: column;
+    justify-content: center;
+    gap: 6px;
+    width: 48px;
+    height: 48px;
+    padding: 12px;
+    box-sizing: border-box;
+    border-radius: 14px;
+    border: 1px solid rgba(232, 186, 128, 0.35);
+    background: linear-gradient(160deg, rgba(20, 20, 20, 0.9), rgba(20, 20, 20, 0.7));
+    backdrop-filter: blur(8px);
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.home-burger:hover {
+    border-color: rgba(232, 186, 128, 0.6);
+    box-shadow: 0 0 25px rgba(232, 186, 128, 0.15);
+}
+
+.home-burger span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    border-radius: 2px;
+    background: var(--c-gold);
+}
+
+/* Fullscreen mobile menu (rendered through the Portal). */
+.home-menu-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1100; /* above the burger (1001) and the sticky ticket banner (1000) */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(8, 8, 8, 0.82);
+    backdrop-filter: blur(10px);
+    animation: home-menu-fade 0.2s ease;
+}
+
+.home-menu {
+    position: relative;
+    width: 100%;
+    max-width: 480px;
+    padding: var(--size-xl) var(--size-l);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.home-menu-close {
+    position: fixed; /* pinned to the viewport's top-right, where the burger was */
+    top: var(--size-m);
+    right: var(--size-m);
+    z-index: 1;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(232, 186, 128, 0.35);
+    border-radius: 12px;
+    background: transparent;
+    color: var(--c-gold);
+    font-size: 20px;
+    line-height: 1;
+    cursor: pointer;
+    transition: border-color 0.25s ease, opacity 0.2s ease;
+}
+
+.home-menu-close:hover {
+    border-color: rgba(232, 186, 128, 0.6);
+    opacity: 0.8;
+}
+
+.home-menu-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--size-l);
+    text-align: center;
+}
+
+.home-menu-links .header-nav {
+    font-size: 28px;
+    line-height: 1.1;
+}
+
+@keyframes home-menu-fade {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .home-menu-overlay { animation: none; }
+}
+
 /* VOTE HERO (only rendered while final voting is enabled) */
 #home-page .vote-hero {
     position: relative;
@@ -63,6 +169,61 @@
         font-size: 27px;
         line-height: 29px;
     }
+}
+
+/* Pull the event link up toward the countdown/nav so it reads as part of the
+   same group rather than being pushed down by the page's default xxl gap. */
+#home-page .event-link-row {
+    margin-top: calc(var(--size-xxl) * -0.6);
+}
+
+/* EVENT LINK — secondary pill pointing to the /the-event page. Shares the Twitch
+   link's pill shape/size (see .countdown-twitch-link) but uses a quieter ghost
+   treatment so the two don't read as duplicate buttons. */
+#home-page .event-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    box-sizing: border-box;
+    min-width: 280px;
+    padding: 13px var(--size-l);
+    border-radius: 999px;
+    border: 1px solid rgba(232, 186, 128, 0.25);
+    background: transparent;
+    color: var(--gray-200);
+    font-family: "Figtree", sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease, color 0.3s ease, background 0.3s ease;
+}
+
+#home-page .event-link:hover {
+    border-color: rgba(232, 186, 128, 0.55);
+    background: linear-gradient(160deg, rgba(232, 186, 128, 0.1), rgba(232, 186, 128, 0.02));
+    transform: translateY(-2px);
+    color: var(--white);
+}
+
+#home-page .event-link-icon {
+    flex: 0 0 auto;
+    width: 18px;
+    height: 18px;
+    color: var(--c-gold);
+}
+
+#home-page .event-link-arrow {
+    flex: 0 0 auto;
+    width: 18px;
+    height: 18px;
+    color: var(--c-gold);
+    transition: transform 0.3s ease;
+}
+
+#home-page .event-link:hover .event-link-arrow {
+    transform: translateX(3px);
 }
 
 /* TOP FIRST ELEMENT (INFO BOX AND TRIPPLE FRAME) */
