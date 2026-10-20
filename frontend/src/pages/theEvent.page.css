@@ -15,12 +15,75 @@
     letter-spacing: 1px;
 }
 
-/* --- Event detail cards (date / time / location) --- */
+/* --- Highlighted schedule strip (networking / show times) --- */
+.event-schedule {
+    /* Include padding + border in the width so the box stays within the page
+       gutters on mobile (there is no global border-box reset). */
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 720px;
+    display: flex;
+    align-items: stretch;
+    gap: var(--size-m);
+    margin-bottom: var(--size-l);
+    padding: var(--size-l) var(--size-m);
+    border-radius: 20px;
+    border: 1px solid rgba(232, 186, 128, 0.45);
+    background: linear-gradient(160deg, rgba(232, 186, 128, 0.22), rgba(232, 186, 128, 0.04));
+    box-shadow: 0 0 60px rgba(232, 186, 128, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(6px);
+}
+
+.event-schedule-slot {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--size-s);
+    text-align: left;
+}
+
+/* Divider between the two time slots */
+.event-schedule-slot + .event-schedule-slot {
+    border-left: 1px solid rgba(232, 186, 128, 0.3);
+}
+
+.event-schedule-icon {
+    flex-shrink: 0;
+    width: 34px;
+    height: 34px;
+    color: var(--c-gold);
+}
+
+.event-schedule-text {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.event-schedule-label {
+    font-family: "Figtree", sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--c-gold);
+}
+
+.event-schedule-time {
+    font-family: "Figtree", sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--white);
+}
+
+/* --- Event detail cards (date / location / dress code) --- */
 .event-info {
     width: 100%;
     max-width: 960px;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
     gap: var(--size-m);
     margin-bottom: var(--size-xl);
 }
@@ -122,6 +185,22 @@
 @media only screen and (max-width: 961px) {
     .event-hero {
         margin-top: var(--size-l);
+    }
+
+    .event-schedule {
+        flex-direction: column;
+        gap: var(--size-s);
+        padding: var(--size-m);
+    }
+
+    .event-schedule-slot {
+        justify-content: flex-start;
+    }
+
+    .event-schedule-slot + .event-schedule-slot {
+        border-left: none;
+        border-top: 1px solid rgba(232, 186, 128, 0.3);
+        padding-top: var(--size-s);
     }
 
     .event-info {

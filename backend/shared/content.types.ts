@@ -283,9 +283,35 @@ export interface FinalistsContent {
     groups: FinalistGroup[];
 }
 
+export interface TheEventContent {
+    /** Hero heading at the top of the page. */
+    heroTitle: string;
+    /** Hero sub-line under the heading. */
+    heroText: string;
+    /** Info card — event date, e.g. "October 22, 2026". */
+    date: string;
+    /** Highlighted schedule — networking window, e.g. "6:00 PM – 8:00 PM". */
+    networking: string;
+    /** Highlighted schedule — show window, e.g. "8:00 PM – 10:00 PM". */
+    showTime: string;
+    /** Info card — venue, e.g. "Messe Essen, Saal Essen". */
+    location: string;
+    /** Info card — dress code, e.g. "Business casual". */
+    dressCode: string;
+    /** Directions card (German) heading. */
+    directionsHeadingDe: string;
+    /** Directions card (German) body text. */
+    directionsTextDe: string;
+    /** Directions card (English) heading. */
+    directionsHeadingEn: string;
+    /** Directions card (English) body text. */
+    directionsTextEn: string;
+}
+
 export interface SiteContent {
     common: CommonContent;
     home: HomeContent;
+    theEvent: TheEventContent;
     sponsors: SponsorsContent;
     jury: JuryContent;
     downloads: DownloadsContent;
@@ -306,6 +332,7 @@ export type ContentKey = keyof SiteContent;
 export const CONTENT_KEYS: ContentKey[] = [
     "common",
     "home",
+    "theEvent",
     "sponsors",
     "jury",
     "downloads",

@@ -70,6 +70,20 @@ const home = z.object({
     }),
 });
 
+const theEvent = z.object({
+    heroTitle: z.string(),
+    heroText: z.string(),
+    date: z.string(),
+    networking: z.string(),
+    showTime: z.string(),
+    location: z.string(),
+    dressCode: z.string(),
+    directionsHeadingDe: z.string(),
+    directionsTextDe: z.string(),
+    directionsHeadingEn: z.string(),
+    directionsTextEn: z.string(),
+});
+
 const sponsorLogo = z.object({
     image: z.string(),
     alt: z.string(),
@@ -227,6 +241,7 @@ const finalists = z.object({
 export const CONTENT_SCHEMAS: Record<ContentKey, z.ZodTypeAny> = {
     common,
     home,
+    theEvent,
     sponsors,
     jury,
     downloads,

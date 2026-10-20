@@ -1,6 +1,7 @@
 import { ComponentType } from "react";
 import { ContentKey } from "../../content/content.types";
 import HomeEditor from "./HomeEditor";
+import TheEventEditor from "./TheEventEditor";
 import BrandCasesEditor from "./BrandCasesEditor";
 import BlocksEditor from "./BlocksEditor";
 import VotingEditor from "./VotingEditor";
@@ -33,6 +34,7 @@ export interface EditorEntry {
 export const EDITORS: EditorEntry[] = [
     // Pages — full pages a visitor navigates to.
     { key: "home", label: "Home", group: "Pages", Editor: HomeEditor },
+    { key: "theEvent", label: "The Event", group: "Pages", Editor: TheEventEditor },
     { key: "brandCasesInfo", label: "Brand Cases Info", group: "Pages", Editor: BrandCasesEditor },
     { key: "downloads", label: "Downloads", group: "Pages", Editor: DownloadsEditor },
     { key: "voting", label: "Final Voting", group: "Pages", Editor: VotingEditor },

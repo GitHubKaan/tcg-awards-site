@@ -121,6 +121,22 @@ The awards combine the voice of the global community with the expertise of an in
         },
     },
 
+    theEvent: {
+        heroTitle: "The Event",
+        heroText: "Everything you need to know to join us at the TCG Awards.",
+        date: "October 22, 2026",
+        networking: "6:00 PM – 8:00 PM",
+        showTime: "8:00 PM – 10:00 PM",
+        location: "Messe Essen, Saal Essen",
+        dressCode: "Business casual",
+        directionsHeadingDe: "Anfahrtsbeschreibung Saal Essen",
+        directionsTextDe:
+            "Die TCG Awards finden in Saal Essen im Congress Center Ost der Messe Essen statt. Bitte nutzt mit eurem TCG Awards Ticket ab 18 Uhr das Glasfoyer Eingang Ost. Von dort aus nehmt ihr den Eingang der B2B-Lounge im Parkrestaurant in Halle 7 und dort die Treppe hoch in den Saal Essen.",
+        directionsHeadingEn: "How to get there",
+        directionsTextEn:
+            "The TCG Awards will take place in the Saal Essen in the Congress Center Ost at Messe Essen. Please use your TCG Awards ticket to enter through the East Entrance of the Glass Foyer starting at 6:00 p.m. From there, proceed to the entrance of the B2B Lounge in the Parkrestaurant in Hall 7, and take the stairs up to the Saal Essen.",
+    },
+
     sponsors: {
         heading: "Presented by",
         logos: [
