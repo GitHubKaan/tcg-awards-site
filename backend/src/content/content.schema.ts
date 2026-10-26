@@ -238,6 +238,24 @@ const finalists = z.object({
     ),
 });
 
+const winners = z.object({
+    showEnded: z.boolean(),
+    endedTitle: z.string(),
+    endedText: z.string(),
+    bannerCta: z.string(),
+    eyebrow: z.string(),
+    heading: z.string(),
+    subheading: z.string(),
+    winners: z.array(
+        z.object({
+            category: z.string(),
+            image: z.string(),
+            name: z.string().optional(),
+            detail: z.string().optional(),
+        })
+    ),
+});
+
 export const CONTENT_SCHEMAS: Record<ContentKey, z.ZodTypeAny> = {
     common,
     home,
@@ -255,4 +273,5 @@ export const CONTENT_SCHEMAS: Record<ContentKey, z.ZodTypeAny> = {
     newsletter,
     voting,
     finalists,
+    winners,
 };

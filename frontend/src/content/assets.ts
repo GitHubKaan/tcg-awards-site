@@ -22,6 +22,21 @@ import Preview6 from "../assets/download_preview/TCG_Awards_SM_Votes_V2_1080x108
 import Preview7 from "../assets/download_preview/TCG_Awards_SM_Votes_V2_1080x1350.jpg";
 import Preview8 from "../assets/download_preview/TCG_Awards_SM_Votes_V2_1080x1920.jpg";
 
+import WinnerCardBack from "../assets/winners/1. TCGA_Card Back.jpg";
+import WinnerAccessory from "../assets/winners/TCGA_Accessory.jpg";
+import WinnerArtwork from "../assets/winners/TCGA_Artwork.jpg";
+import WinnerBrandPartnership from "../assets/winners/TCGA_Brand Partnership.jpg";
+import WinnerCampaign from "../assets/winners/TCGA_Campaign.jpg";
+import WinnerContentCreator from "../assets/winners/TCGA_Content Creator.jpg";
+import WinnerEqualityImpact from "../assets/winners/TCGA_Equality Impact.jpg";
+import WinnerEvent from "../assets/winners/TCGA_Event.jpg";
+import WinnerGame from "../assets/winners/TCGA_Game.jpg";
+import WinnerLgs from "../assets/winners/TCGA_LGS.jpg";
+import WinnerNewcomer from "../assets/winners/TCGA_Newcomer.jpg";
+import WinnerPlayer from "../assets/winners/TCGA_Player.jpg";
+import WinnerServiceProvider from "../assets/winners/TCGA_Service Provider.jpg";
+import WinnerSet from "../assets/winners/TCGA_Set.jpg";
+
 export const API_BASE = (
     process.env.REACT_APP_API_URL || "http://localhost:4000"
 ).replace(/\/$/, "");
@@ -42,6 +57,20 @@ const ASSETS: Record<string, string> = {
     "download_preview/TCG_Awards_SM_Votes_V2_1080x1080.jpg": Preview6,
     "download_preview/TCG_Awards_SM_Votes_V2_1080x1350.jpg": Preview7,
     "download_preview/TCG_Awards_SM_Votes_V2_1080x1920.jpg": Preview8,
+    "winners/card-back.jpg": WinnerCardBack,
+    "winners/accessory.jpg": WinnerAccessory,
+    "winners/artwork.jpg": WinnerArtwork,
+    "winners/brand-partnership.jpg": WinnerBrandPartnership,
+    "winners/campaign.jpg": WinnerCampaign,
+    "winners/content-creator.jpg": WinnerContentCreator,
+    "winners/equality-impact.jpg": WinnerEqualityImpact,
+    "winners/event.jpg": WinnerEvent,
+    "winners/game.jpg": WinnerGame,
+    "winners/lgs.jpg": WinnerLgs,
+    "winners/newcomer.jpg": WinnerNewcomer,
+    "winners/player.jpg": WinnerPlayer,
+    "winners/service-provider.jpg": WinnerServiceProvider,
+    "winners/set.jpg": WinnerSet,
 };
 
 /** Resolve a content image/url string to something usable in `src`/`href`. */

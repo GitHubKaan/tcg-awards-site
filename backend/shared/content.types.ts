@@ -308,6 +308,37 @@ export interface TheEventContent {
     directionsTextEn: string;
 }
 
+export interface WinnerEntry {
+    /** Category label shown as the caption, e.g. "Game of the Year". */
+    category: string;
+    /** Winner announcement graphic. */
+    image: string;
+    /** Optional winner name shown under the category. */
+    name?: string;
+    /** Optional attribution under the name, e.g. a publisher or location. */
+    detail?: string;
+}
+
+export interface WinnersContent {
+    /**
+     * Master switch flipped once the gala is over. When true the home page hides
+     * the countdown/Twitch stream, shows the thank-you message, and the /winners
+     * page (plus its home banner) go live.
+     */
+    showEnded: boolean;
+    /** Thank-you card title shown on home when the show is over. */
+    endedTitle: string;
+    /** Thank-you card body shown on home when the show is over. */
+    endedText: string;
+    /** Label of the button on the home thank-you card that links to the winners page. */
+    bannerCta: string;
+    /** Winners page header. */
+    eyebrow: string;
+    heading: string;
+    subheading: string;
+    winners: WinnerEntry[];
+}
+
 export interface SiteContent {
     common: CommonContent;
     home: HomeContent;
@@ -325,6 +356,7 @@ export interface SiteContent {
     newsletter: NewsletterContent;
     voting: VotingContent;
     finalists: FinalistsContent;
+    winners: WinnersContent;
 }
 
 export type ContentKey = keyof SiteContent;
@@ -346,4 +378,5 @@ export const CONTENT_KEYS: ContentKey[] = [
     "newsletter",
     "voting",
     "finalists",
+    "winners",
 ];

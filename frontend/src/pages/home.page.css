@@ -401,3 +401,145 @@
     cursor: pointer;
     color: white;
 }
+
+/* "The show is over" closing statement (replaces the countdown once the gala ends).
+   Deliberately box-free — a large open headline — so it reads as a distinct
+   finale moment and does not look like the boxed finalists banner below it. */
+#home-page .show-ended {
+    position: relative;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 820px;
+    margin: var(--size-xxl) auto 0;
+    padding: 0 var(--size-m);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: var(--size-m);
+}
+
+#home-page .show-ended-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 640px;
+    height: 420px;
+    max-width: 130%;
+    transform: translate(-50%, -62%);
+    background: radial-gradient(ellipse closest-side, rgba(232, 186, 128, 0.18), transparent 72%);
+    pointer-events: none;
+    z-index: 0;
+    animation: show-ended-glow-pulse 6s ease-in-out infinite;
+}
+
+#home-page .show-ended > *:not(.show-ended-glow) {
+    position: relative;
+    z-index: 1;
+}
+
+#home-page .show-ended-kicker {
+    font-family: "Figtree", sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gray-200);
+}
+
+#home-page .show-ended-title {
+    margin: 0;
+    font-size: clamp(44px, 8vw, 72px);
+    line-height: 1.02;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    background: var(--f-gold-dark-gold-hor);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 4px 24px rgba(232, 186, 128, 0.25));
+}
+
+#home-page .show-ended-rule {
+    width: 60px;
+    height: 3px;
+    border-radius: 3px;
+    background: var(--f-gold-dark-gold-hor);
+}
+
+#home-page .show-ended-text {
+    max-width: 580px;
+    margin: 0;
+    font-size: 17px;
+    color: var(--gray-200);
+}
+
+#home-page .show-ended-cta {
+    position: relative;
+    overflow: hidden;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: var(--size-xs);
+    padding: 14px 30px;
+    border: none;
+    border-radius: 999px;
+    background: var(--f-gold-dark-gold-hor);
+    color: var(--c-background);
+    font-family: "Figtree", sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    box-shadow: 0 12px 28px rgba(232, 186, 128, 0.3);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+#home-page .show-ended-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 18px 38px rgba(232, 186, 128, 0.4);
+}
+
+/* Moving shine sweep across the CTA */
+#home-page .show-ended-cta-shine {
+    position: absolute;
+    top: 0;
+    left: -60%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(100deg, transparent, rgba(255, 255, 255, 0.55), transparent);
+    transform: skewX(-20deg);
+    animation: show-ended-cta-shine 3.2s ease-in-out infinite;
+}
+#home-page .show-ended-cta-label,
+#home-page .show-ended-arrow {
+    position: relative;
+    z-index: 1;
+}
+#home-page .show-ended-arrow {
+    display: block;
+    transition: transform 0.25s ease;
+}
+#home-page .show-ended-cta:hover .show-ended-arrow {
+    transform: translateX(4px);
+}
+
+@keyframes show-ended-glow-pulse {
+    0%, 100% { opacity: 0.65; transform: translate(-50%, -62%) scale(0.96); }
+    50% { opacity: 1; transform: translate(-50%, -62%) scale(1.05); }
+}
+@keyframes show-ended-cta-shine {
+    0% { left: -60%; }
+    60%, 100% { left: 130%; }
+}
+
+@media (max-width: 961px) {
+    #home-page .show-ended {
+        max-width: 100%;
+        margin-top: var(--size-xl);
+        gap: var(--size-s);
+    }
+    #home-page .show-ended-text {
+        font-size: 15px;
+    }
+    #home-page .show-ended-kicker {
+        letter-spacing: 3px;
+    }
+}

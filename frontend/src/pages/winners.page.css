@@ -1,0 +1,156 @@
+#winners-page {
+    gap: var(--size-xl);
+    font-family: "Figtree", sans-serif;
+}
+/* Spans don't inherit a font globally (only h1-h6/p/a are set) — pin it. */
+#winners-page span {
+    font-family: "Figtree", sans-serif;
+}
+
+/* ------------------------------------------------------------------ */
+/* Hero — a gold spotlight echoing the finalists page / home banner */
+/* ------------------------------------------------------------------ */
+#winners-page .winners-hero {
+    position: relative;
+    width: 100%;
+    max-width: 840px;
+    margin: 0 auto;
+    padding-top: var(--size-l);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--size-s);
+    text-align: center;
+    overflow: hidden;
+}
+
+#winners-page .winners-hero-rays {
+    position: absolute;
+    top: -140px;
+    left: 50%;
+    width: 560px;
+    height: 560px;
+    transform: translateX(-50%);
+    pointer-events: none;
+    z-index: 0;
+    background: repeating-conic-gradient(
+        from 0deg,
+        rgba(232, 186, 128, 0.12) 0deg 6deg,
+        transparent 6deg 22deg
+    );
+    -webkit-mask-image: radial-gradient(closest-side, black 0%, transparent 68%);
+    mask-image: radial-gradient(closest-side, black 0%, transparent 68%);
+    animation: winners-rays-spin 34s linear infinite;
+}
+#winners-page .winners-hero-glow {
+    position: absolute;
+    top: -60px;
+    left: 50%;
+    width: 420px;
+    height: 320px;
+    transform: translateX(-50%);
+    pointer-events: none;
+    z-index: 0;
+    background: radial-gradient(ellipse closest-side, rgba(232, 186, 128, 0.22), transparent 75%);
+    animation: winners-glow-pulse 5s ease-in-out infinite;
+}
+
+#winners-page .winners-hero-trophy {
+    position: relative;
+    z-index: 1;
+    color: var(--c-gold);
+    filter: drop-shadow(0 6px 18px rgba(232, 186, 128, 0.45));
+    animation: winners-trophy-float 5s ease-in-out infinite;
+}
+
+#winners-page .winners-hero > *:not(.winners-hero-rays):not(.winners-hero-glow) {
+    position: relative;
+    z-index: 1;
+}
+
+#winners-page .winners-eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--c-gold);
+    padding: 6px 16px;
+    border: 1px solid rgba(232, 186, 128, 0.4);
+    border-radius: 999px;
+    background: rgba(232, 186, 128, 0.05);
+}
+#winners-page .winners-hero h1 {
+    margin: 0;
+}
+#winners-page .winners-subheading {
+    max-width: 700px;
+    font-size: 18px;
+    color: var(--gray-200);
+}
+
+/* ------------------------------------------------------------------ */
+/* Winners grid */
+/* ------------------------------------------------------------------ */
+#winners-page .winners-grid {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: var(--size-l);
+}
+
+#winners-page .winners-card {
+    display: block;
+    overflow: hidden;
+    border-radius: 16px;
+    border: 1px solid rgba(232, 186, 128, 0.22);
+    background: rgba(0, 0, 0, 0.2);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+}
+#winners-page .winners-card:hover {
+    border-color: rgba(232, 186, 128, 0.6);
+    transform: translateY(-4px);
+    box-shadow: 0 16px 40px rgba(232, 186, 128, 0.18);
+}
+
+#winners-page .winners-card-image {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+@keyframes winners-rays-spin {
+    to {
+        transform: translateX(-50%) rotate(360deg);
+    }
+}
+@keyframes winners-glow-pulse {
+    0%, 100% {
+        opacity: 0.6;
+        transform: translateX(-50%) scale(0.95);
+    }
+    50% {
+        opacity: 1;
+        transform: translateX(-50%) scale(1.05);
+    }
+}
+@keyframes winners-trophy-float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+@media (max-width: 961px) {
+    #winners-page .winners-grid {
+        grid-template-columns: 1fr;
+        gap: var(--size-m);
+    }
+    #winners-page .winners-subheading {
+        font-size: 16px;
+    }
+}

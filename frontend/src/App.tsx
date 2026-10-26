@@ -10,6 +10,7 @@ import DownloadsPage from "./pages/downloads.page";
 import DownloadsTosPage from "./pages/downloadsTos.page";
 import VotePage from "./pages/vote.page";
 import FinalistsPage from "./pages/finalists.page";
+import WinnersPage from "./pages/winners.page";
 import FaqPage from "./pages/faq.page";
 import TheEventPage from "./pages/theEvent.page";
 
@@ -53,6 +54,7 @@ function App() {
                     <Route path={`/the-event`} element={Layout({ page: <TheEventPage />, header: false, footer: true, background: {} })} />
                     <Route path={`/vote`} element={Layout({ page: <VotePage />, header: false, footer: true, background: {} })} /> {/* Only live while voting is enabled in the admin */}
                     <Route path={`/finalists`} element={Layout({ page: <FinalistsPage />, header: false, footer: true, background: {} })} /> {/* Only live while finalists are enabled in the admin */}
+                    <Route path={`/winners`} element={Layout({ page: <WinnersPage />, header: false, footer: true, background: {} })} /> {/* Only live once the show is over (admin) */}
 
                     {/* Error pages */}
                     <Route path={`*`} element={Layout({ page: <ErrorInfo />, header: false, footer: true, background: {} })} /> {/* 404 Page not found */}

@@ -3,6 +3,7 @@ import { getAllContent, getContent, getContentMeta, setContent } from "../db";
 import { requireAuth } from "../auth/auth.middleware";
 import { CONTENT_SCHEMAS } from "./content.schema";
 import { CONTENT_KEYS, ContentKey } from "../../shared/content.types";
+import { DEFAULT_CONTENT } from "../../shared/content.defaults";
 
 const router = Router();
 
@@ -42,12 +43,12 @@ router.get("/:key", (req, res) => {
         res.status(404).json({ error: "Unknown content key" });
         return;
     }
+    // Fall back to the baked-in default for a known key that has no stored row
+    // yet (e.g. a key added after this database was first seeded). seedContent()
+    // fills these in on the next startup; this keeps the admin editor working
+    // in the meantime instead of 404-ing.
     const value = getContent(key);
-    if (value === undefined) {
-        res.status(404).json({ error: "Not found" });
-        return;
-    }
-    res.json(value);
+    res.json(value === undefined ? DEFAULT_CONTENT[key] : value);
 });
 
 // Protected: update a single content document (validated against its schema).

@@ -739,4 +739,30 @@ The awards combine the voice of the global community with the expertise of an in
             },
         ],
     },
+    winners: {
+        showEnded: false,
+        endedTitle: "The Show Is Over",
+        endedText:
+            "The first-ever TCG Awards show is over. Thank you to everyone who watched, voted, and celebrated with us — and congratulations to all the winners. See you next year!",
+        bannerCta: "See the winners",
+        eyebrow: "SPIEL Essen 2026 · Gala Ceremony",
+        heading: "The Winners",
+        subheading:
+            "The trophies of the inaugural TCG Awards have been handed out. Here are the winners across all categories.",
+        winners: [
+            { category: "Game of the Year", image: "winners/game.jpg" },
+            { category: "Newcomer of the Year", image: "winners/newcomer.jpg" },
+            { category: "Set of the Year", image: "winners/set.jpg" },
+            { category: "Accessory of the Year", image: "winners/accessory.jpg" },
+            { category: "Artwork of the Year", image: "winners/artwork.jpg" },
+            { category: "Event of the Year", image: "winners/event.jpg" },
+            { category: "Local Game Store of the Year", image: "winners/lgs.jpg" },
+            { category: "Content Creator of the Year", image: "winners/content-creator.jpg" },
+            { category: "Equality Impact of the Year", image: "winners/equality-impact.jpg" },
+            { category: "Brand Partnership of the Year", image: "winners/brand-partnership.jpg" },
+            { category: "Campaign of the Year", image: "winners/campaign.jpg" },
+            { category: "Service Provider of the Year", image: "winners/service-provider.jpg" },
+            { category: "Player of the Year", image: "winners/player.jpg" },
+        ],
+    },
 };

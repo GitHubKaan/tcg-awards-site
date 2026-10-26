@@ -19,7 +19,7 @@ import { preventScroll } from "../utils/scroll.util";
 
 function HomePage() {
     const navigate = useNavigate();
-    const { home, voting, finalists } = useContent();
+    const { home, voting, finalists, winners } = useContent();
 
     const [menuOpen, setMenuOpen] = useState(false);
 
@@ -202,47 +202,74 @@ function HomePage() {
                 </Portal>
             )}
 
-            {home.countdown.enabled && (
-                <CountdownComponent
-                    target={home.countdown.target}
-                    title={home.countdown.title}
-                    subtitle={home.countdown.subtitle}
-                    twitchChannel={home.countdown.twitchChannel}
-                    image={home.countdown.image ? cdnUrl(home.countdown.image) : ""}
-                    fallbackText={home.countdown.fallbackText}
-                />
+            {/* Once the gala is over the countdown/Twitch stream is replaced by a
+                thank-you card that links to the winners page. */}
+            {winners.showEnded ? (
+                <section className="show-ended no-select">
+                    <div className="show-ended-glow" aria-hidden="true" />
+
+                    <span className="show-ended-kicker">Thank you for watching</span>
+                    <h1 className="show-ended-title">{winners.endedTitle}</h1>
+                    <span className="show-ended-rule" aria-hidden="true" />
+                    <p className="show-ended-text">{winners.endedText}</p>
+                    <button
+                        type="button"
+                        className="show-ended-cta clickable"
+                        onClick={() => navigate("/winners")}
+                    >
+                        <span className="show-ended-cta-shine" aria-hidden="true" />
+                        <span className="show-ended-cta-label">{winners.bannerCta}</span>
+                        <svg className="show-ended-arrow" viewBox="0 0 24 24" width="18" height="18" fill="none">
+                            <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                        </svg>
+                    </button>
+                </section>
+            ) : (
+                home.countdown.enabled && (
+                    <CountdownComponent
+                        target={home.countdown.target}
+                        title={home.countdown.title}
+                        subtitle={home.countdown.subtitle}
+                        twitchChannel={home.countdown.twitchChannel}
+                        image={home.countdown.image ? cdnUrl(home.countdown.image) : ""}
+                        fallbackText={home.countdown.fallbackText}
+                    />
+                )
             )}
 
-            <div className="event-link-row w-100 flex center no-select">
-                <button type="button" className="event-link clickable" onClick={() => navigate("/the-event")}>
-                    <svg
-                        className="event-link-icon"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth={1.6}
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        aria-hidden="true"
-                    >
-                        <path d="M12 21s7-6.2 7-11a7 7 0 0 0-14 0c0 4.8 7 11 7 11z" />
-                        <circle cx="12" cy="10" r="2.5" />
-                    </svg>
-                    <span className="event-link-text">Event info &amp; how to get there</span>
-                    <svg
-                        className="event-link-arrow"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth={1.8}
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        aria-hidden="true"
-                    >
-                        <path d="M5 12h14M13 6l6 6-6 6" />
-                    </svg>
-                </button>
-            </div>
+            {/* Directions to the venue are irrelevant once the gala is over. */}
+            {!winners.showEnded && (
+                <div className="event-link-row w-100 flex center no-select">
+                    <button type="button" className="event-link clickable" onClick={() => navigate("/the-event")}>
+                        <svg
+                            className="event-link-icon"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth={1.6}
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            aria-hidden="true"
+                        >
+                            <path d="M12 21s7-6.2 7-11a7 7 0 0 0-14 0c0 4.8 7 11 7 11z" />
+                            <circle cx="12" cy="10" r="2.5" />
+                        </svg>
+                        <span className="event-link-text">Event info &amp; how to get there</span>
+                        <svg
+                            className="event-link-arrow"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth={1.8}
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            aria-hidden="true"
+                        >
+                            <path d="M5 12h14M13 6l6 6-6 6" />
+                        </svg>
+                    </button>
+                </div>
+            )}
 
             {finalists.enabled && (
                 <FinalistsBannerComponent
