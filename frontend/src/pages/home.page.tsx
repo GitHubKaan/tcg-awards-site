@@ -10,7 +10,6 @@ import { useNavigate } from "react-router-dom";
 import VoteButtonComponent from "../components/voteButton.component";
 import JurySectionComponent from "../components/jurySection.component";
 import CountdownComponent from "../components/countdown.component";
-import FinalistsBannerComponent from "../components/finalistsBanner.component";
 import { useContent } from "../content/content.context";
 import { cdnUrl } from "../content/assets";
 import { AwardSection, CtaButton, HomeNavItem } from "../content/content.types";
@@ -19,7 +18,7 @@ import { preventScroll } from "../utils/scroll.util";
 
 function HomePage() {
     const navigate = useNavigate();
-    const { home, voting, finalists, winners } = useContent();
+    const { home, voting, winners } = useContent();
 
     const [menuOpen, setMenuOpen] = useState(false);
 
@@ -271,6 +270,7 @@ function HomePage() {
                 </div>
             )}
 
+            {/* Finalists banner hidden on the home page (finalists page still uses finalists.enabled).
             {finalists.enabled && (
                 <FinalistsBannerComponent
                     badge={finalists.bannerBadge}
@@ -278,6 +278,7 @@ function HomePage() {
                     cta={finalists.bannerCta}
                 />
             )}
+            */}
 
             {voting.enabled && (
                 <div className="vote-hero no-select">
